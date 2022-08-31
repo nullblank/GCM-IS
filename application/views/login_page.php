@@ -56,7 +56,7 @@
 		</div>
 	</div>
 
-	<!-- Working on something different -->
+	<!-- Working on something different. -->
 	<div>
 		<div>
 			
