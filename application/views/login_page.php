@@ -62,6 +62,9 @@
 			<input type="button" value="">
 			<input type="button" value="">
 			<input type="text" name="" id="">
+			<div>
+				<!-- Something here -->
+			</div>
 		</div>
 	</div>
 
