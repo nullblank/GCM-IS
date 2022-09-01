@@ -60,6 +60,8 @@
 	<div>
 		<div>
 			<input type="button" value="">
+			<input type="button" value="">
+			<input type="text" name="" id="">
 		</div>
 	</div>
 
