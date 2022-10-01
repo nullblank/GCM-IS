@@ -6,8 +6,9 @@
 		}		
 		public function index(){				
 			$session_data = $this->session->userdata('id');
-		    $data['user']=$this->Authenticate_model->get_login($session_data);
-			$this->load->view('login_page');			
+		    $data['user']=$this->Administrator_model->get_login($session_data);
+			// print_r("Hello");exit();
+			$this->load->view('login');			
 		}				
 	}
 ?>

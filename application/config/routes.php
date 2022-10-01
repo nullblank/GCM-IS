@@ -52,8 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'maindashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['login'] = "admin/authenticate/login";
+$route['logout'] = "admin/authenticate/logout";
 
-// $route['settings/barangay/(:num)'] = "settings/barangay/index/$1";
-// $route['settings/auditlog/(:num)'] = "settings/auditlog/index/$1";
-// $route['settings/municipality/(:num)'] = "settings/municipality/index/$1";
-// $route['settings/province/(:num)'] = "settings/province/index/$1";
+$route['settings/barangay/(:num)'] = "settings/barangay/index/$1";
+$route['settings/auditlog/(:num)'] = "settings/auditlog/index/$1";
+$route['settings/municipality/(:num)'] = "settings/municipality/index/$1";
+$route['settings/province/(:num)'] = "settings/province/index/$1";

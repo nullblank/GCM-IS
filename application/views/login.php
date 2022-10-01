@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/tailwind/tailwind.min.css">
   <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
-  <script src="assets/js/main.js"></script>
 </head>
 
 <body class="antialiased bg-body text-body font-body" style="background-image: url('assets/flex-ui-assets/elements/pattern-dark2.svg'); background-position: center;">
@@ -28,21 +27,9 @@
           </div>
           <form class="form-signin" method="post" action="<?php echo base_url(); ?>login">
             <!-- PHP HERE -->
-            <?php if ($this->session->flashdata('fail_login')) : ?>
-              <?php echo '<p class="alert alert-dismissable alert-danger">' . $this->session->flashdata('fail_login') . '</p>'; ?>
-            <?php endif; ?>
-            <?php if ($this->session->flashdata('pass')) : ?>
-              <?php echo '<p class="alert alert-dismissable alert-success">' . $this->session->flashdata('pass_login') . '</p>'; ?>
-            <?php endif; ?>
-            <?php if ($this->session->flashdata('access_denied')) : ?>
-              <?php echo '<p class="alert alert-dismissable alert-danger">' . $this->session->flashdata('access_denied') . '</p>'; ?>
-            <?php endif; ?>
-            <?php if ($this->session->flashdata('reset_success')) : ?>
-              <?php echo '<p class="alert alert-dismissable alert-success">' . $this->session->flashdata('reset_success') . '</p>'; ?>
-            <?php endif; ?>
-            <?php if ($this->session->flashdata('logged_out')) : ?>
-              <?php echo '<p class="alert alert-dismissable alert-success">' . $this->session->flashdata('logged_out') . '</p>'; ?>
-            <?php endif; ?>
+            <?php if($this->session->flashdata('fail_login')):?>
+                <?php echo'<p class="alert alert-dismissable alert-danger">'.$this->session->flashdata('fail_login').'</p>';?>
+                <?php endif; ?>
             <!-- END OF PHP -->
             <div class="mb-6">
               <div style="color:red;"><?php echo form_error('username'); ?></div>
