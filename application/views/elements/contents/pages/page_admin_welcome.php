@@ -6,8 +6,8 @@
                     <img src="flex-ui-assets/images/dashboard/pages/flex-ui-blue-circle.svg" alt="">
                 </div>
                 <div class="flex-1 p-2">
-                    <h2 class="mb-2 font-semibold text-black text-3xl">Office Dashboard</h2>
-                    <p class="text-coolGray-500 font-medium">Thousands of records, at a glance!</p>
+                    <h2 class="mb-2 font-semibold text-black text-3xl">GCM IS</h2>
+                    <p class="text-coolGray-500 font-medium">The Guidance and Testing office Information System</p>
                 </div>
             </div>
         </div>
