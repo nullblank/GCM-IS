@@ -13,11 +13,22 @@
   <script src="js/main.js"></script>
 </head>
 
+<style>
+    body::-webkit-scrollbar {
+        width: 0.75rem;
+    }
+    body::-webkit-scrollbar-track {
+        background: #2a3342;
+    }
+    body::-webkit-scrollbar-thumb {
+        background: #2c62b9;
+    }
+</style>
+
 <body class="antialiased bg-body text-body font-body">
   <div class="">
     <section class="overflow-hidden min-h-full">
       <?php $this->load->view('elements/sidebars/sidebar_admin'); ?>
-
       <div class="xl:ml-80">
         <?php $this->load->view($main_content);?>
       </div>
