@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/tailwind/tailwind.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="images/png" sizes="32x32" href="PLACEHOLDER">
   <script src="js/main.js"></script>
 </head>
