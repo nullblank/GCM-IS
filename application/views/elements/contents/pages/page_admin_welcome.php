@@ -18,7 +18,7 @@
 </section>
 
 <div class="container mx-auto">
-    <section class="py-20 xl:py-24 bg-white" style="background-image: url('flex-ui-assets/elements/pattern-white.svg'); background-position: center;">
+    <section class="py-20 xl:py-24 bg-white" style="background-image: url('assets/flex-ui-assets/elements/pattern-white.svg'); background-position: center;">
         <div class="container px-4 mx-auto">
             <div class="flex flex-wrap justify-center text-center -mx-4">
                 <div class="w-full md:w-1/3 lg:w-1/4 px-4 mb-8 lg:mb-0">
@@ -81,7 +81,11 @@
                                 <th class="whitespace-nowrap px-4 bg-white text-sm font-medium text-coolGray-800 text-center"><?php echo $user_items->user_role; ?></th>
                                 <th class="whitespace-nowrap px-4 bg-white text-sm font-medium text-coolGray-800 text-center"><?php echo $user_items->user_created; ?></th>
                                 <th class="whitespace-nowrap px-4 bg-white text-sm font-medium text-coolGray-800 text-center"><?php echo $user_items->user_isactive; ?></th>
-                                <th class="whitespace-nowrap px-4 bg-white text-sm font-medium text-blue-500 text-center">EDIT</th>
+                                <th class="whitespace-nowrap px-4">
+                                <button class="flex flex-wrap justify-center w-full px-4 py-2 bg-blue-500 hover:bg-blue-600 font-medium text-sm text-white border border-blue-500 rounded-md shadow-button" href="<?php echo base_url();?>DashboardAdmin/account/edit/">
+                                    <p>Edit</p>
+                                </button>
+                                </th>
                             </tr>
                         <?php endforeach; ?>
                     <?php else : ?>
