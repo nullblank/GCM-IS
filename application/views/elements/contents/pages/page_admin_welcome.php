@@ -82,9 +82,9 @@
                                 <th class="whitespace-nowrap px-4 bg-white text-sm font-medium text-coolGray-800 text-center"><?php echo $user_items->user_created; ?></th>
                                 <th class="whitespace-nowrap px-4 bg-white text-sm font-medium text-coolGray-800 text-center"><?php echo $user_items->user_isactive; ?></th>
                                 <th class="whitespace-nowrap px-4">
-                                <button class="flex flex-wrap justify-center w-full px-4 py-2 bg-blue-500 hover:bg-blue-600 font-medium text-sm text-white border border-blue-500 rounded-md shadow-button" href="<?php echo base_url();?>DashboardAdmin/account/edit/">
+                                <a href="<?php echo base_url();?>user/profile/editUser/<?php echo $user_items->user_id;?>" class="flex flex-wrap justify-center w-full px-4 py-2 bg-blue-500 hover:bg-blue-600 font-medium text-sm text-white border border-blue-500 rounded-md shadow-button">
                                     <p>Edit</p>
-                                </button>
+                                </a>
                                 </th>
                             </tr>
                         <?php endforeach; ?>

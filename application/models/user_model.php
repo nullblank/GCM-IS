@@ -22,9 +22,6 @@
 			
 		public function setUserPassword($Userpassword) { $this->user_password=$Userpassword;}
 		public function getUserPassword(){ return $this->user_password;}
-				
-		public function setUserIDN($Userid) { $this->user_id=$Userid;}
-		public function getUserIDN (){ return $this->user_id;}
 			
 		public function setUserCreated($Usercreated) { $this->user_created=$Usercreated;}
 		public function getUserCreated(){ return $this->user_created;}
@@ -81,5 +78,18 @@
 				return false;
 			}			
 		}
+
+		public function showUser($id){ //working
+			$this->db->select('*');
+			$this->db->from('tblusers');	
+			$this->db->where('user_id',$id);			
+			$result=$this->db->get();			
+			if($result->num_rows() == 1){
+				return $result->row();
+			}else{
+				return false;
+			}			
+		}
+
 	}	
 ?>
