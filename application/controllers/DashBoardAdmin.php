@@ -1,12 +1,11 @@
 
 <?php
-class DashboardAdmin extends CI_Controller
+class DashboardAdmin extends MY_Controller
 {
 	public function index()
 	{
-		$this->session->set_userdata('');
-
-		if ($this->session->has_userdata('id')) {
+		$loggedin = $this->chk_session();
+		if ($loggedin == true) {
 			$session_data = $this->session->userdata('id');
 			$this->User_model->get_login($session_data);
 			$page = $this->uri->segment(2);
@@ -14,14 +13,11 @@ class DashboardAdmin extends CI_Controller
 			$data['user_item'] = $this->User_model->get_users('25', $page);
 			$data['main_content'] = 'elements/contents/pages/page_admin_welcome';
 			$this->load->view('layouts/layout_admin', $data);
-		} else {
-			redirect('login');
 		}
 	}
 
 	public function AdminSI()
 	{
-
 		$this->session->set_userdata('');
 		$session_data = $this->session->userdata('id');
 		$this->User_model->get_login($session_data);
