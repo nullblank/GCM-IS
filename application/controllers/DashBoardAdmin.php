@@ -16,7 +16,7 @@ class DashboardAdmin extends MY_Controller
 		}
 	}
 
-	public function AdminSI()
+	public function StudentRecords() //sidebar link
 	{
 		$this->session->set_userdata('');
 		$session_data = $this->session->userdata('id');

@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <link rel="icon" type="images/png" sizes="32x32" href="PLACEHOLDER">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/tailwind/tailwind.min.css');?>" media="all"/>
+  <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/birthday.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/datepicker.js'); ?>"></script>
 </head>
 
 <style>
@@ -23,6 +26,7 @@
         background: #2c62b9;
     }
 </style>
+
 
 <body class="antialiased bg-body text-body font-body">
   <div class="">

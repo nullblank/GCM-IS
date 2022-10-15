@@ -60,14 +60,6 @@
 			$this->session->unset_userdata('id');
 			$this->session->session_destroy;			
 			redirect('login');
-		}
-		public function logout_guest(){
-			
-			$this->session->unset_userdata('loggedin');
-			$this->session->unset_userdata('userid');
-			$this->session->unset_userdata('id');
-			$this->session->session_destroy;			
-			redirect('login');
-		}				
+		}			
 	}
 ?>

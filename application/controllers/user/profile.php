@@ -3,6 +3,7 @@ class Profile extends CI_Controller
 {
 	public function index()
 	{
+
 	}
 
 	public function editUser($id) //not session locked yet
@@ -20,6 +21,7 @@ class Profile extends CI_Controller
 
 	public function edit($id)
 	{
+		
 	}
 }
 ?>
