@@ -388,4 +388,17 @@ class Student_model extends CI_model
         $query = $this->db->get();
         return $query->row();
     }
+    //new shit below
+
+    public function chk_id($id){
+        $this->db->select('*');
+        $this->db->from('tblstudents');
+        $this->db->where('student_id', $id);				
+        $result=$this->db->get();			
+        if($result->num_rows() == 1){
+            return $result->row();
+        }else{
+            return false;
+        }
+    }
 }

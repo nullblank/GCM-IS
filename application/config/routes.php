@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['login'] = "/authenticate/login";
 $route['logout'] = "/authenticate/logout";
+$route['pre_page'] = "";
 
 $route['settings/barangay/(:num)'] = "settings/barangay/index/$1";
 $route['settings/auditlog/(:num)'] = "settings/auditlog/index/$1";

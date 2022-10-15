@@ -12,9 +12,9 @@
                         <div class="w-full md:w-auto p-2">
                             <div class="flex flex-wrap justify-between -m-1.5">
                                 <div class="w-full md:w-auto p-1.5">
-                                    <button class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm text-coolGray-500 hover:text-coolGray-600 border border-coolGray-200 hover:border-coolGray-300 bg-white rounded-md shadow-button">
+                                    <a href="<?php echo base_url()?>" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm text-coolGray-500 hover:text-coolGray-600 border border-coolGray-200 hover:border-coolGray-300 bg-white rounded-md shadow-button">
                                         <p>Cancel</p>
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="w-full md:w-auto p-1.5">
                                     <button class="flex flex-wrap justify-center w-full px-4 py-2 bg-green-500 hover:bg-green-600 font-medium text-sm text-white border border-green-500 rounded-md shadow-button" type="submit">
@@ -200,7 +200,7 @@
                                 <input class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="Name">
                             </div>
                             <div class="w-full md:w-1/3 p-3">
-                                <input class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="number" placeholder="Contact Number">
+                                <input class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="Contact Number">
                             </div>
                         </div>
                         <div class="flex flex-wrap -m-3">
