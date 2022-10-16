@@ -7,7 +7,8 @@
 			$session_data = $this->session->userdata('id');       
           	$users = $this->Authenticate_model->get_login($session_data);
 			  if ($users == false){
-				$this->load->view('pre_page');
+				$data['main_content'] = 'elements/contents/pages/page_index';
+				$this->load->view('layouts/layout_index', $data);
 				return false;
 			} else {
 				return true;
@@ -20,7 +21,8 @@
 			$session_data = $this->session->userdata('id');       
           	$users = $this->Authenticate_model->get_login($session_data);
 			if ($users == false){
-				$this->load->view('pre_page');
+				$data['main_content'] = 'elements/contents/pages/page_index';
+				$this->load->view('layouts/layout_index', $data);
 				return false;
 			} else {
 				$userrole = $users->user_role;

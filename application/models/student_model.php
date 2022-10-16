@@ -289,6 +289,16 @@ class Student_model extends CI_model
         return $query->result();
     }
 
+    public function getReligion()
+    {
+        $this->db->select('*');
+        $this->db->from('religion');
+        $this->db->order_by('religion', 'asc');
+        $query = $this->db->get();
+        $query->num_rows();
+        return $query->result();
+    }
+
     public function getBarangay()
     {
         $this->db->select('*');
