@@ -21,23 +21,19 @@ class Record extends MY_Controller
         }
     }
 
-    public function add(){
-        $this->form_validation->set_rules('p_first','First Name','required');
-    }
-
     public function setters(){
-        $stud_id =$this->input->post('pid');
-        $p_last =$this->input->post('p_last');
-        $p_first = $this->input->post('p_first');
-        $p_mi =$this->input->post('p_mi');
-        $p_brgy =$this->input->post('p_brgy');
-        $p_municipality =$this->input->post('p_municipality');
-        $p_province =$this->input->post('p_province');
-        $p_bday =$this->input->post('p_bday');
-        $p_gender=$this->input->post('p_gender');
-        $p_age=$this->input->post('p_age');	
-        $p_cpnumber=$this->input->post('p_cpnumber');				
-        $p_photo =$this->input->post('p_photo');
+        $stud_id =$this->input->post('s_id');
+        $p_last =$this->input->post('s_last');
+        $p_first = $this->input->post('s_first');
+        $p_mi =$this->input->post('s_mi');
+        $p_brgy =$this->input->post('s_brgy');
+        $p_municipality =$this->input->post('s_municipality');
+        $p_province =$this->input->post('s_province');
+        $p_bday =$this->input->post('s_bday');
+        $p_gender=$this->input->post('s_gender');
+        $p_age=$this->input->post('s_age');	
+        $p_cpnumber=$this->input->post('s_cpnumber');				
+        $p_photo =$this->input->post('s_photo');
                                 
         $this->Patient_model->setPID($pid);
         $this->Patient_model->setPLast($p_last);			

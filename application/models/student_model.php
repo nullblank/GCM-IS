@@ -257,7 +257,7 @@ class Student_model extends CI_model
     }
     public function getStudentsCount()
     {
-        return $this->db->count_all('tblstudent');
+        return $this->db->count_all('tblstudents');
     }
 
     public function get_students($limit, $offset)
@@ -393,7 +393,7 @@ class Student_model extends CI_model
     public function chk_id($id){
         $this->db->select('*');
         $this->db->from('tblstudents');
-        $this->db->where('student_id', $id);				
+        $this->db->where('stud_id', $id);				
         $result=$this->db->get();			
         if($result->num_rows() == 1){
             return $result->row();

@@ -11,6 +11,7 @@ class DashboardAdmin extends MY_Controller
 			$page = $this->uri->segment(2);
 			$data['user'] = $this->User_model->get_login($session_data);
 			$data['user_item'] = $this->User_model->get_users('25', $page);
+			$data['student_number'] = $this->Student_model->getStudentsCount();
 			$data['main_content'] = 'elements/contents/pages/page_admin_welcome';
 			$this->load->view('layouts/layout_admin', $data);
 		}

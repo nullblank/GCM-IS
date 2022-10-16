@@ -1,4 +1,4 @@
-<form>
+<form method="post" action="<?php echo base_url(); ?>student/record/register">
     <div class="bg-coolGray-50 py-4">
         <div class="container px-4 mx-auto">
             <div class="p-6 h-full border border-coolGray-100 overflow-hidden bg-white rounded-md shadow-dashboard">
@@ -6,7 +6,7 @@
                 <div class="pb-6 border-b border-coolGray-100">
                     <div class="flex flex-wrap items-center justify-between -m-2">
                         <div class="w-full md:w-auto p-2">
-                            <h2 class="text-coolGray-900 text-lg font-semibold">Personal information</h2>
+                            <h2 class="text-coolGray-900 text-lg font-semibold">Personal information DEBUG: <?php echo $stud_id; ?></h2>
                             <p class="text-xs text-coolGray-500 font-medium">Please fill out the form and answer honestly.</p>
                         </div>
                         <div class="w-full md:w-auto p-2">
