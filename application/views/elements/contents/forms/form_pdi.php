@@ -12,7 +12,7 @@
                         <div class="w-full md:w-auto p-2">
                             <div class="flex flex-wrap justify-between -m-1.5">
                                 <div class="w-full md:w-auto p-1.5">
-                                    <a href="<?php echo base_url()?>" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm text-coolGray-500 hover:text-coolGray-600 border border-coolGray-200 hover:border-coolGray-300 bg-white rounded-md shadow-button">
+                                    <a href="<?php echo base_url() ?>" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm text-coolGray-500 hover:text-coolGray-600 border border-coolGray-200 hover:border-coolGray-300 bg-white rounded-md shadow-button">
                                         <p>Cancel</p>
                                     </a>
                                 </div>
@@ -142,26 +142,45 @@
                             <div class="w-full md:w-1/3 p-3">
                                 <p class="text-sm text-coolGray-800 font-semibold">Address</p>
                             </div>
+
+
+
+
+
+
                             <div class="w-full md:flex-1 p-3">
                                 <div class="flex items-center focus-within:border-green-500 overflow-hidden border border-coolGray-200 rounded-lg shadow-input">
-                                    <p class="px-4 text-base text-coolGray-500 font-normal">Province</p>
-                                    <select class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none border-l" type="text" placeholder="to the moon">
-                                        <option>LINK PHP</option>
-                                    </select>
-                                </div>
-                                <div class="mt-3 flex items-center focus-within:border-green-500 overflow-hidden border border-coolGray-200 rounded-lg shadow-input">
                                     <p class="px-4 text-base text-coolGray-500 font-normal">Baranggay</p>
                                     <select class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none border-l" type="text" placeholder="to the moon">
-                                        <option>LINK PHP</option>
+                                        <option disabled selected value="">Please Select</option>
+                                        <?php foreach ($brgy as $b) : ?>
+                                            <option value="<?php echo $b->barangay; ?>"><?php echo $b->barangay; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="mt-3 flex items-center focus-within:border-green-500 overflow-hidden border border-coolGray-200 rounded-lg shadow-input">
                                     <p class="px-4 text-base text-coolGray-500 font-normal">Municipality</p>
                                     <select class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none border-l" type="text" placeholder="to the moon">
-                                        <option>LINK PHP</option>
+                                        <option disabled selected value="">Please Select</option>
+                                        <?php foreach ($municipality as $m) : ?>
+                                            <option value="<?php echo $m->municipality; ?>"><?php echo $m->municipality; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="mt-3 flex items-center focus-within:border-green-500 overflow-hidden border border-coolGray-200 rounded-lg shadow-input">
+                                    <p class="px-4 text-base text-coolGray-500 font-normal">Province</p>
+                                    <select class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none border-l" type="text" placeholder="to the moon">
+                                        <option disabled selected value="">Please Select</option>
+                                        <?php foreach ($province as $p) : ?>
+                                            <option value="<?php echo $p->province; ?>"><?php echo $p->province; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
