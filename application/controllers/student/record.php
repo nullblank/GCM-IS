@@ -18,9 +18,10 @@ class Record extends MY_Controller
 			$data['municipality'] = $this->Student_model->getMunicipality();		
 			$data['province'] = $this->Student_model->getProvince();
             $data['main_content'] = 'elements/contents/forms/form_pdi';
-            
+
             $this->load->view('layouts/layout_student', $data);
         } else {
+            $this->session->set_flashdata('id_exist', 'You already have an existing record!');
             redirect('pre_page');
         }
     }

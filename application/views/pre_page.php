@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/tailwind/tailwind.min.css');?>" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/tailwind/tailwind.min.css'); ?>" media="all" />
     <link rel="icon" type="images/png" sizes="32x32" href="PLACEHOLDER">
 </head>
 
@@ -16,9 +16,11 @@
     body::-webkit-scrollbar {
         width: 0.75rem;
     }
+
     body::-webkit-scrollbar-track {
         background: #2a3342;
     }
+
     body::-webkit-scrollbar-thumb {
         background: #2c62b9;
     }
@@ -76,29 +78,21 @@
 
                             <h1 class="ml-6 mb-6 text-3xl md:text-5xl lg:text-6xl leading-tight text-white font-bold tracking-tight">The Guidance and Testing office is here for you!</h1>
                             <p class="ml-6 mb-8 text-lg md:text-xl text-coolGray-400 font-medium">To get started, please enter your ID Number below and fill out the forms. If you have done this before, you may head straight to the office for any corrections or to schedule your first counseling session. </p>
-                            
-                            
-                            
-                            
-                            
-                            
-                            <!-- Please add form functionality soon. -->
                             <form method="post" action="<?php echo base_url(); ?>student/record/chk_id">
-                            <div class="ml-6 flex flex-wrap">
-                                <div class="w-full md:w-3/6 p-0">
-                                    <input name="stud_id" type="text" placeholder="Enter your ID number." class="h-12 w-full px-3.5 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                <div class="ml-6 flex flex-wrap">
+                                    <div class="w-full md:w-3/6">
+                                        <input name="stud_id" type="text" placeholder="Enter your ID number." class="h-12 w-full px-3.5 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                    </div>
+                                    <div class="w-full md:w-2/6">
+                                        <button class="inline-block py-4 px-6 w-full text-base md:text-lg leading-4 text-blue-100 font-medium text-center bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 rounded-md shadow-sm ml-2" name="submit" type="submit">Submit</button>
+                                    </div>
                                 </div>
-                                <div class="w-full md:w-auto py-1 md:py-0"><button class="inline-block py-4 px-6 w-full text-base md:text-lg leading-4 text-blue-100 font-medium text-center bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 rounded-md shadow-sm ml-2" name="submit" type="submit">Submit</button></div>
-                            </div>
+                                <div class="ml-6 flex flex-wrap text-red-500">
+                                        <?php if ($this->session->flashdata('id_exist')) : ?>
+                                            <?php echo '<p>' . $this->session->flashdata('id_exist') . '</p>'; ?>
+                                        <?php endif; ?>
+                                </div>
                             </form>
-                            <!-- end of form -->
-
-
-
-
-
-
-
                         </div>
                         <div class="w-full md:w-1/2 px-4">
                             <div class="relative mx-auto md:mr-0 max-w-max">
