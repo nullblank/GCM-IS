@@ -269,6 +269,26 @@ class Student_model extends CI_model
         return $query->result();
     }
 
+    public function getNOR()
+    {
+        $this->db->select('*');
+        $this->db->from('nor');
+        $this->db->order_by('residence', 'asc');
+        $query = $this->db->get();
+        $query->num_rows();
+        return $query->result();
+    }
+
+    public function getEthnicity()
+    {
+        $this->db->select('*');
+        $this->db->from('ethnicity');
+        $this->db->order_by('ethnicity', 'asc');
+        $query = $this->db->get();
+        $query->num_rows();
+        return $query->result();
+    }
+
     public function getBarangay()
     {
         $this->db->select('*');

@@ -11,10 +11,14 @@ class Record extends MY_Controller
         $stud_id = $this->input->post("stud_id");
         if ($this->Student_model->chk_id($stud_id) == false) {
             $data['stud_id'] = $stud_id;
+
+            $data['nor'] = $this->Student_model->getNOR();
+            $data['eth'] = $this->Student_model->getEthnicity();
             $data['brgy'] = $this->Student_model->getBarangay();
 			$data['municipality'] = $this->Student_model->getMunicipality();		
 			$data['province'] = $this->Student_model->getProvince();
             $data['main_content'] = 'elements/contents/forms/form_pdi';
+            
             $this->load->view('layouts/layout_student', $data);
         } else {
             redirect('pre_page');
