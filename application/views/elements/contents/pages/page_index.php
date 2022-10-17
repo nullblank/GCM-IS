@@ -67,7 +67,7 @@
                     </div>
                     <div class="w-full md:w-1/2 px-4">
                         <div class="relative mx-auto md:mr-0 max-w-max">
-                            <img class="relative rounded-7xl object-fill w-10/12" src="./assets/images/placeholder.jpg" alt="" media="all">
+                            <img class="relative rounded-7xl object-fill w-10/12" src="<?php echo base_url('assets/images/placeholder.jpg'); ?>" alt="">
                         </div>
                     </div>
                 </div>
