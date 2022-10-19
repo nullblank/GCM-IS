@@ -6,8 +6,7 @@ class Record extends MY_Controller
     {
 
         //Add form validation if field is blank
-        //Add form validation if field is NOT a numericl value
-        //Add add value validation (Session mockup) 32644172 = [8]
+        //Add form validation if field is NOT a numerical value
         $this->form_validation->set_rules('stud_id','Student ID','trim|required|min_length[8]');
         $stud_id = $this->input->post('stud_id');
         if($this->form_validation->run()==FALSE){
@@ -39,45 +38,38 @@ class Record extends MY_Controller
             }
         }
     }
+    
+    public function register(){
+
+    }
 
     public function setters(){
-        //Still incomplete
+        //Student Data
         $stud_id=$this->input->post('s_id');
         $stud_first=$this->input->post('s_first');
         $stud_last=$this->input->post('s_last');
         $stud_mi=$this->input->post('s_mi');
+        $stud_stat=$this->input->post('s_stat');
         $stud_gender=$this->input->post('s_gender');
         $stud_bday=$this->input->post('s_bday');
         $stud_age=$this->input->post('s_age');
         $stud_eth=$this->input->post('s_eth');
-        $stud_marstat=$this->input->post('s_marstat');
+        $stud_rel=$this->input->post('s_rel');
+        $stud_marstat=$this->input->post('s_marstat'); //Not null
+        $stud_nspouse=$this->input->post('s_nspouse'); //Can be null
+        $stud_nochild=$this->input->post('s_nochild'); //Can be null
+        $stud_brgy=$this->input->post('s_brgy');
+        $stud_muni=$this->input->post('s_municipality');
+        $stud_provi=$this->input->post('s_province');
+        $stud_nor=$this->input->post('s_nor');
+        //Guardian to contact incase of emerg
+        $stud_guardn=$this->input->post('s_guardn');
+        $stud_guardno=$this->input->post('s_guardno');
+        $stud_guardadd=$this->input->post('s_guardadd');
+        $stud_guardrel=$this->input->post('s_guardrel');
 
-
-        //Remove all below soon
-        $p_last =$this->input->post('s_last');
-        $p_first = $this->input->post('s_first');
-        $p_mi =$this->input->post('s_mi');
-        $p_brgy =$this->input->post('s_brgy');
-        $p_municipality =$this->input->post('s_municipality');
-        $p_province =$this->input->post('s_province');
-        $p_bday =$this->input->post('s_bday');
-        $p_gender=$this->input->post('s_gender');
-        $p_age=$this->input->post('s_age');	
-        $p_cpnumber=$this->input->post('s_cpnumber');				
-        $p_photo =$this->input->post('s_photo');
-                                
-        $this->Patient_model->setPID($pid);
-        $this->Patient_model->setPLast($p_last);			
-        $this->Patient_model->setPFirst($p_first);
-        $this->Patient_model->setPmi($p_mi);
-        $this->Patient_model->setPBrgy($p_brgy);
-        $this->Patient_model->setPMunicipality($p_municipality);
-        $this->Patient_model->setPProvince($p_province);
-        $this->Patient_model->setPBday($p_bday);
-        $this->Patient_model->setPGender($p_gender);
-        $this->Patient_model->setPAge($p_age);									
-        $this->Patient_model->setPCPNumber($p_cpnumber);																				
-        $this->Patient_model->setPPhoto($p_photo);	
+        //setting
+        $this->Student_model->setPID('$stud_id');
                         
     }
 }

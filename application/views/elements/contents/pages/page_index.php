@@ -35,14 +35,14 @@
                     <nav class="relative p-6 h-full overflow-y-auto">
                         <div class="flex flex-col justify-between h-full">
                             <div class="flex flex-wrap">
-                                <div class="w-full mb-2"><a class="inline-block py-2 px-4 w-full text-sm leading-5 text-coolGray-400 hover:text-white bg-transparent font-medium text-center rounded-md" href="#">Log In</a></div>
+                                <div class="w-full mb-2"><a class="inline-block py-2 px-4 w-full text-sm leading-5 text-coolGray-400 hover:text-white bg-transparent font-medium text-center rounded-md" href="<?php echo base_url(); ?>login">Log In</a></div>
                             </div>
                         </div>
                     </nav>
                 </div>
             </div>
         </div>
-        <div class="py-20 md:py-28 bg-coolGray-900" style="background-image: url('assets/flex-ui-assets/elements/pattern-dark2.svg'); background-position: center;">
+        <div class="py-20 md:py-28 bg-coolGray-900" style="background-image: url('<?php echo base_url(); ?>assets/flex-ui-assets/elements/pattern-dark2.svg'); background-position: center;">
             <div class="container px-4 mx-auto">
                 <div class="flex flex-wrap xl:items-center -mx-4">
                     <div class="w-full md:w-1/2 px-4 mb-16 md:mb-0">
@@ -80,7 +80,7 @@
         </div>
     </section>
 
-    <section class="py-20 md:py-24 bg-white" style="background-image: url('assets/flex-ui-assets/elements/pattern-white.svg'); background-position: center;">
+    <section class="py-20 md:py-24 bg-white" style="background-image: url('<?php echo base_url(); ?>assets/flex-ui-assets/elements/pattern-white.svg'); background-position: center;">
         <div class="container px-4 mx-auto">
             <div class="flex flex-wrap -mx-4">
                 <div class="w-full md:w-1/3 px-4 mb-12 md:mb-0">
