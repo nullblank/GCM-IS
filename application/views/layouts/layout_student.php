@@ -26,7 +26,7 @@
 </style>
 
 
-<body class="antialiased bg-body text-body font-body bg-coolGray-700">
+<body class="antialiased bg-body text-body font-body bg-coolGray-900">
   <div class="">
     <section class="overflow-hidden min-h-full pt-20 pb-20">
       <div class="xl:ml-48 xl:mr-48">

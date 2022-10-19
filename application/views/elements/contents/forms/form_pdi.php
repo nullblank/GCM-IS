@@ -74,6 +74,21 @@
                     <div class="w-full md:w-9/12">
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3">
+                                <p class="text-sm text-coolGray-800 font-semibold">Email</p>
+                            </div>
+                            <div class="w-full md:flex-1 p-3">
+                                <div class="relative">
+                                    <input name="s_email" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="Email Address">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-6 border-b border-coolGray-100">
+                    <div class="w-full md:w-9/12">
+                        <div class="flex flex-wrap -m-3">
+                            <div class="w-full md:w-1/3 p-3">
                                 <p class="text-sm text-coolGray-800 font-semibold">Gender</p>
                             </div>
                             <div class="w-full md:flex-1 p-3">

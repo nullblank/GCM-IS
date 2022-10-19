@@ -9,6 +9,7 @@ class Record extends MY_Controller
         $stud_last=$this->input->post('s_last');
         $stud_mi=$this->input->post('s_mi');
         $stud_stat=$this->input->post('s_stat');
+        $stud_email=$this->input->post('s_email');
         $stud_gender=$this->input->post('s_gender');
         $stud_bday=$this->input->post('s_bday');
         $stud_age=$this->input->post('s_age');
@@ -34,6 +35,7 @@ class Record extends MY_Controller
         $this->Student_model->setSLName($stud_last);
         $this->Student_model->setSMI($stud_mi);
         $this->Student_model->setSStat($stud_stat);
+        $this->Student_model->setSEmail($stud_email);
         $this->Student_model->setSGender($stud_gender);
         $this->Student_model->setSBDay($stud_bday);
         $this->Student_model->setSAge($stud_age);
@@ -79,10 +81,13 @@ class Record extends MY_Controller
                     $data['province'] = $this->Student_model->getProvince();
                     $data['main_content'] = 'elements/contents/forms/form_pdi';
                     $this->load->view('layouts/layout_student', $data);
+                    
                 } else { //If record existing
                     $this->session->set_flashdata('id_exist', 'You already have an existing record!');
-                    $data['main_content'] = 'elements/contents/pages/page_index';
-                    $this->load->view('layouts/layout_index', $data);
+                    $data['stud_id'] = $stud_id;
+                    $data['student'] = $this->Student_model->getStudent($stud_id);
+                    $data['main_content'] = 'elements/contents/pages/page_student_menu';
+                    $this->load->view('layouts/layout_student', $data);
                 }
             }
         }
@@ -113,8 +118,8 @@ class Record extends MY_Controller
                 $this->setters();
                 $student = $this->Student_model->insert_students();
                 if($student==TRUE){
-                    $this->session->set_flashdata('student_saved','New Student record has been Saved.');
-                    redirect('layouts/layout_index');
+                    $data['main_content'] = 'elements/contents/pages/page_student_menu';
+                    redirect('layouts/layout_student');
                 }
             }
         }

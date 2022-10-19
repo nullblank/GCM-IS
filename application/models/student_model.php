@@ -4,6 +4,7 @@ class Student_model extends CI_model
     //Student
     private $userid, $s_id;
     private $s_first, $s_last, $s_mi;
+    private $s_email;
     private $s_stat;
     private $s_gender,$s_bday, $s_age;
     private $s_eth,$s_rel;
@@ -19,6 +20,7 @@ class Student_model extends CI_model
     public function setSLName($stud_last) { $this->s_last = $stud_last; }
     public function setSMI($stud_mi) { $this->s_mi = $stud_mi; }
     public function setSStat($stud_stat) { $this->s_stat = $stud_stat; }
+    public function setSEmail($stud_email) { $this->s_email = $stud_email; }
     public function setSGender($stud_gender) { $this->s_gender = $stud_gender; }
     public function setSBDay($stud_bday) { $this->s_bday = $stud_bday; }
     public function setSAge($stud_age) { $this->s_age = $stud_age; }
@@ -43,6 +45,7 @@ class Student_model extends CI_model
     public function getSLName() { return $this->s_last; }
     public function getSMI() { return $this->s_mi; }
     public function getSStat() { return $this->s_stat; }
+    public function getSEmail() { return $this->s_email; }
     public function getSGender() { return $this->s_gender; }
     public function getSBDay() { return $this->s_bday; }
     public function getSAge() { return $this->s_age; }
@@ -99,6 +102,7 @@ class Student_model extends CI_model
             's_last' => $this->getSLName(),         //varchar(50) NN, NULL
             's_mi' => $this->getSMI(),              //varchar(25) NN, NULL
             's_stat' => $this->getSStat(),          //varchar(25) NN, NULL
+            's_email' => $this->getSEmail(),
             's_gender' => $this->getSGender(),      //varchar(25) NN, NULL
             's_bday' => $this->getSBDay(),          //varchar(25) NN, NULL
             's_age' => $this->getSAge(),            //int(5) NN, NULL
@@ -307,8 +311,8 @@ class Student_model extends CI_model
     public function getStudent($id)
     {
         $this->db->select('*');
-        $this->db->from('tblstudent');
-        $this->db->where('sid', $id);
+        $this->db->from('tblstudents');
+        $this->db->where('stud_id', $id);
         $query = $this->db->get();
         return $query->row();
     }
