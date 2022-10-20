@@ -110,11 +110,12 @@ class Record extends MY_Controller
         //complete validation rules later
         $this->form_validation->set_rules('s_first','First Name','required');
         $this->form_validation->set_rules('s_last','Last Name','required');
-        $this->form_validation->set_rules('s_mi','Last Name','required');
+        $this->form_validation->set_rules('s_mi','Middle Initials','required');
         $this->form_validation->set_rules('s_course','Course','required');
         $this->form_validation->set_rules('s_year','Year','required');
         $this->form_validation->set_rules('s_stat','Status','required');
         $this->form_validation->set_rules('s_email','Email','required');
+        $this->form_validation->set_rules('s_gender','Gender','required');
         $this->form_validation->set_rules('s_bday','Birthday','required');
         $this->form_validation->set_rules('s_age','Age','required');
         $this->form_validation->set_rules('s_eth','Ethnicity','required');

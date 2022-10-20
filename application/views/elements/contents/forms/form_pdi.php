@@ -35,18 +35,18 @@
                             <div class="w-full md:w-1/3 p-3">
                                 <input type='hidden' name='s_id' value='<?php echo $stud_id; ?>'/>
                                 <input name="s_first" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="First Name">
-                                <p class="text-xs text-coolGray-500 font-medium"><?php echo form_error('s_first'); ?></p>
+                                <p><?php echo form_error('s_first'); ?></p>
                             </div>
                             <div class="w-full md:w-1/3 p-3">
                                 <input name="s_last" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="Last Name">
-                                <p class="text-xs text-coolGray-500 font-medium"><?php echo form_error('s_last'); ?></p>
+                                <p><?php echo form_error('s_last'); ?></p>
                             </div>
                         </div>
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3"></div>
                             <div class="w-full md:w-1/3 p-3">
                                 <input name="s_mi" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="M.I">
-                                <p class="text-xs text-coolGray-500 font-medium"><?php echo form_error('s_mi'); ?></p>
+                                <p><?php echo form_error('s_mi'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                             <option value="<?php echo $co->course; ?>"><?php echo $co->course; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <p class="text-xs text-coolGray-500 font-medium"><?php echo form_error('s_course'); ?></p>
+                                <p><?php echo form_error('s_course'); ?></p>
                             </div>
                             <div class="w-full md:w-1/3 p-3">
                                 <svg class="absolute right-4 top-1/2 transform -translate-y-1/2" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +78,7 @@
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                 </select>
-                                <p class="text-xs text-coolGray-500 font-medium"><?php echo form_error('s_year'); ?></p>
+                                <p><?php echo form_error('s_year'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -100,6 +100,7 @@
                                         <option value="Transferee">Transferee</option>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('s_stat'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -115,6 +116,7 @@
                                 <div class="relative">
                                     <input name="s_email" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="Email Address">
                                 </div>
+                                <p><?php echo form_error('s_email'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -136,6 +138,7 @@
                                         <option value="Female">Female</option>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('s_gender'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -152,6 +155,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="w-full md:w-9/12">
+                        <div class="flex flex-wrap -m-3">
+                            <div class="w-full md:w-1/3 p-3">
+                                <p></p>
+                            </div>
+                            <div class="w-full md:flex-1 p-3">
+                            <p><?php echo form_error('s_bday'); ?></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="py-6 border-b border-coolGray-100">
@@ -164,6 +177,7 @@
                                 <div class="relative">
                                     <input readonly="readonly" name="s_age" id="age" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
                                     </input>
+                                    <p><?php echo form_error('s_age'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -187,6 +201,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('s_eth'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -209,6 +224,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('s_eth'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -233,6 +249,7 @@
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3"></div>
                             <div class="w-full md:w-2/3 p-3">
+                                <p><?php echo form_error('s_marstat'); ?></p>
                                 <input name="s_nspouse" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="Name of spouse if married">
                             </div>
                         </div>
@@ -262,6 +279,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('s_brgy'); ?></p>
                                 <div class="mt-3 flex items-center focus-within:border-green-500 overflow-hidden border border-coolGray-200 rounded-lg shadow-input">
                                     <p class="px-4 text-base text-coolGray-500 font-normal">Municipality</p>
                                     <select name="s_muni" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none border-l" type="text" placeholder="to the moon">
@@ -271,6 +289,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('s_muni'); ?></p>
                                 <div class="mt-3 flex items-center focus-within:border-green-500 overflow-hidden border border-coolGray-200 rounded-lg shadow-input">
                                     <p class="px-4 text-base text-coolGray-500 font-normal">Province</p>
                                     <select name="s_provi" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none border-l" type="text" placeholder="to the moon">
@@ -280,6 +299,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('s_provi'); ?></p>
                             </div>
 
 
@@ -306,6 +326,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('s_nor'); ?></p>
                             </div>
                         </div>
                     </div>
