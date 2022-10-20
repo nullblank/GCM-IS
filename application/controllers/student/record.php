@@ -108,7 +108,23 @@ class Record extends MY_Controller
     public function register($stud_id){
         //form validation rules
         //complete validation rules later
-        $this->form_validation->set_rules('s_first','Student First Name','required');
+        $this->form_validation->set_rules('s_first','First Name','required');
+        $this->form_validation->set_rules('s_last','Last Name','required');
+        $this->form_validation->set_rules('s_mi','Last Name','required');
+        $this->form_validation->set_rules('s_course','Course','required');
+        $this->form_validation->set_rules('s_year','Year','required');
+        $this->form_validation->set_rules('s_stat','Status','required');
+        $this->form_validation->set_rules('s_email','Email','required');
+        $this->form_validation->set_rules('s_bday','Birthday','required');
+        $this->form_validation->set_rules('s_age','Age','required');
+        $this->form_validation->set_rules('s_eth','Ethnicity','required');
+        $this->form_validation->set_rules('s_rel','Religion','required');
+        $this->form_validation->set_rules('s_marstat','Marital Status','required');
+        $this->form_validation->set_rules('s_brgy','Baranggay','required');
+        $this->form_validation->set_rules('s_muni','Municipality','required');
+        $this->form_validation->set_rules('s_provi','Province','required');
+        $this->form_validation->set_rules('s_nor','Nature of Residence','required');
+
         
         if($this->form_validation->run()==FALSE){ //if form fail
             //$this->session->set_flashdata('id_exist', 'Student ID number a minimum of 8 numbers');
