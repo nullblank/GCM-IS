@@ -11,7 +11,7 @@
                 <!-- Educational Background -->
                 <?php $this->load->view($button_1); ?>
                 <!-- Home and Family Background -->
-                <a class="group block mb-6" href="#">
+                <a class="group block mb-6" href="<?php echo base_url(); ?>student/Home/homefam/<?php echo $stud_id; ?>">
                     <div class="flex items-center justify-between flex-wrap p-10 bg-coolGray-800 group-hover:bg-coolGray-700 rounded-md shadow-md transition duration-200">
                         <div class="w-full md:w-1/2 mb-2 md:mb-0">
                             <h3 class="text-lg md:text-xl text-white group-hover:text-coolGray-100 font-semibold">Home and Family Background</h3>
@@ -76,7 +76,9 @@
                 </a>
 
             </div>
+            
         </div>
     </section>
+    <p class="text-lg md:text-xl text-coolGray-400 font-medium">For any corrections on the information you have provided, please come to the guidance office for your concern.</p>
 </div>
 </form>

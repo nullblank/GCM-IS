@@ -66,6 +66,8 @@
                     $student = $this->Student_model->insert_educ();
                     $data['stud_id'] = $stud_id;
                     $data['student'] = $this->Student_model->getStudent($stud_id);
+
+                    $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
                     $data['main_content'] = 'elements/contents/pages/page_student_menu';
                     $this->load->view('layouts/layout_student', $data);
                 }

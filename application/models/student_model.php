@@ -1,4 +1,25 @@
 <?php
+//  Nothing will last forever...
+//  Unless it's in a line of code!
+//
+//  This is Elphie Bunny
+//  and she's the debug bunny.
+//                               __
+//                      /\    .-" /
+//                     /  ; .'  .' 
+//                    :   :/  .'   
+//                     \  ;-.'     
+//        .--""""--..__/     `.    
+//      .'           .'    `o  \     -"I eat the bugs and make sure they dont show up!~"
+//     /                    `   ;  
+//    :                  \      :  
+//  .-;        -.         `.__.-'  
+// :  ;          \     ,   ;       
+// '._:           ;   :   (        
+//     \/  .__    ;    \   `-.     
+//  bug ;     "-,/_..--"`-..__)  bunny 
+//      '""--.._:
+
 class Student_model extends CI_model
 {
     //>>Student
@@ -104,30 +125,6 @@ class Student_model extends CI_model
     //Search funcs idk what these do tbh
     public function setSearchBy($SearchKey) { $this->searchKey = $SearchKey; }
     public function getSearchBy() { return $this->searchKey; }
-
-//  Nothing will last forever,
-//  unless it's in a sea of code!
-//
-//  This is Elphie bunny
-//  and she's the debug bunny.
-//                               __
-//                      /\    .-" /
-//                     /  ; .'  .' 
-//                    :   :/  .'   
-//                     \  ;-.'     
-//        .--""""--..__/     `.    
-//      .'           .'    `o  \     -I eat the bugs and make sure they dont show up!
-//     /                    `   ;  
-//    :                  \      :  
-//  .-;        -.         `.__.-'  
-// :  ;          \     ,   ;       
-// '._:           ;   :   (        
-//     \/  .__    ;    \   `-.     
-//  bug ;     "-,/_..--"`-..__)  bunny 
-//      '""--.._:
-
-
-
 
     //CRUD
     public function insert_students() //INSERT
