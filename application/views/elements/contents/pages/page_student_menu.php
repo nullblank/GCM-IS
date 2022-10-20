@@ -1,5 +1,5 @@
+<input type='hidden' name='s_id' value='32644170'/>
 <div class="">
-
     <section class="py-24 bg-coolGray-900" style="background-image: url('<?php echo base_url(); ?><flex-ui-assets/elements/pattern-dark2.svg'); background-position: center;">
         <div class="container px-4 mx-auto">
             <div class="max-w-4xl mx-auto mb-12 text-center">
@@ -8,7 +8,8 @@
                 <p class="text-lg md:text-xl text-coolGray-400 font-medium">In order for the Guidance and Testing Office to properly help and guide you, you need to fill out the following so we can get to know you better. The more we know about you, the more we can help you grow as an individual.</p>
             </div>
             <div class="max-w-3xl mx-auto">
-                <a class="group block mb-6" href="#">
+                <!-- Educational Background -->
+                <a class="group block mb-6" href="<?php echo base_url();?>student/Education/educ/<?php echo $stud_id; ?>">
                     <div class="flex items-center justify-between flex-wrap p-10 bg-coolGray-800 group-hover:bg-coolGray-700 rounded-md shadow-md transition duration-200">
                         <div class="w-full md:w-1/2 mb-2 md:mb-0">
                             <h3 class="text-lg md:text-xl text-white group-hover:text-coolGray-100 font-semibold">Educational Background</h3>
@@ -23,6 +24,7 @@
                         </div>
                     </div>
                 </a>
+                <!-- Home and Family Background -->
                 <a class="group block mb-6" href="#">
                     <div class="flex items-center justify-between flex-wrap p-10 bg-coolGray-800 group-hover:bg-coolGray-700 rounded-md shadow-md transition duration-200">
                         <div class="w-full md:w-1/2 mb-2 md:mb-0">
@@ -38,6 +40,7 @@
                         </div>
                     </div>
                 </a>
+                <!-- Medical History -->
                 <a class="group block mb-6" href="#">
                     <div class="flex items-center justify-between flex-wrap p-10 bg-coolGray-800 group-hover:bg-coolGray-700 rounded-md shadow-md transition duration-200">
                         <div class="w-full md:w-1/2 mb-2 md:mb-0">
@@ -53,6 +56,7 @@
                         </div>
                     </div>
                 </a>
+                <!-- Mental Health Checklist -->
                 <a class="group block mb-6" href="#">
                     <div class="flex items-center justify-between flex-wrap p-10 bg-coolGray-800 group-hover:bg-coolGray-700 rounded-md shadow-md transition duration-200">
                         <div class="w-full md:w-1/2 mb-2 md:mb-0">
@@ -68,6 +72,7 @@
                         </div>
                     </div>
                 </a>
+                <!-- Short Self Positive Survey -->
                 <a class="group block" href="#">
                     <div class="flex items-center justify-between flex-wrap p-10 bg-coolGray-800 group-hover:bg-coolGray-700 rounded-md shadow-md transition duration-200">
                         <div class="w-full md:w-1/2 mb-2 md:mb-0">
@@ -83,7 +88,9 @@
                         </div>
                     </div>
                 </a>
+
             </div>
         </div>
     </section>
 </div>
+</form>

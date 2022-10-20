@@ -8,6 +8,8 @@ class Record extends MY_Controller
         $stud_first=$this->input->post('s_first');
         $stud_last=$this->input->post('s_last');
         $stud_mi=$this->input->post('s_mi');
+        $stud_course=$this->input->post('s_course');
+        $stud_year=$this->input->post('s_year');
         $stud_stat=$this->input->post('s_stat');
         $stud_email=$this->input->post('s_email');
         $stud_gender=$this->input->post('s_gender');
@@ -34,6 +36,8 @@ class Record extends MY_Controller
         $this->Student_model->setSFName($stud_first);
         $this->Student_model->setSLName($stud_last);
         $this->Student_model->setSMI($stud_mi);
+        $this->Student_model->setSCourse($stud_course);
+        $this->Student_model->setSYear($stud_year);
         $this->Student_model->setSStat($stud_stat);
         $this->Student_model->setSEmail($stud_email);
         $this->Student_model->setSGender($stud_gender);
@@ -73,6 +77,7 @@ class Record extends MY_Controller
             else {
                 if ($this->Student_model->chk_id($stud_id) == false) {
                     $data['stud_id'] = $stud_id;
+                    $data['courses'] = $this->Student_model->getCourses();
                     $data['nor'] = $this->Student_model->getNOR();
                     $data['eth'] = $this->Student_model->getEthnicity();
                     $data['religion'] = $this->Student_model->getReligion();
@@ -81,7 +86,7 @@ class Record extends MY_Controller
                     $data['province'] = $this->Student_model->getProvince();
                     $data['main_content'] = 'elements/contents/forms/form_pdi';
                     $this->load->view('layouts/layout_student', $data);
-                    
+
                 } else { //If record existing
                     $this->session->set_flashdata('id_exist', 'You already have an existing record!');
                     $data['stud_id'] = $stud_id;
@@ -92,15 +97,21 @@ class Record extends MY_Controller
             }
         }
     }
+
+    public function toMenu($stud_id){
+        $data['stud_id'] = $stud_id;
+        $data['student'] = $this->Student_model->getStudent($stud_id);
+        $data['main_content'] = 'elements/contents/pages/page_student_menu';
+        $this->load->view('layouts/layout_student', $data);
+    }
     
-    public function register(){
+    public function register($stud_id){
         //form validation rules
         //complete validation rules later
         $this->form_validation->set_rules('s_first','Student First Name','required');
         
         if($this->form_validation->run()==FALSE){ //if form fail
             //$this->session->set_flashdata('id_exist', 'Student ID number a minimum of 8 numbers');
-            $stud_id=$this->input->post('s_id');
             $data['stud_id'] = $stud_id;
             $data['nor'] = $this->Student_model->getNOR();
             $data['eth'] = $this->Student_model->getEthnicity();
@@ -111,16 +122,17 @@ class Record extends MY_Controller
             $data['main_content'] = 'elements/contents/forms/form_pdi';
 			$this->load->view('layouts/layout_student', $data);
         } else {
-            if ($this->input->post('s_id') == NULL){ //if stud_id null incase of ilegal page access
-                redirect('layouts/layout_index');
+            if ($stud_id == NULL){ //if stud_id null incase of ilegal page access
+                $data['main_content'] = 'elements/contents/pages/page_index';
+                $this->load->view('layouts/layout_index', $data);
             }
             else { //all user has filled out the form
                 $this->setters();
                 $student = $this->Student_model->insert_students();
-                if($student==TRUE){
-                    $data['main_content'] = 'elements/contents/pages/page_student_menu';
-                    redirect('layouts/layout_student');
-                }
+                $data['stud_id'] = $stud_id;
+                $data['student'] = $this->Student_model->getStudent($stud_id);
+                $data['main_content'] = 'elements/contents/pages/page_student_menu';
+                $this->load->view('layouts/layout_student', $data);
             }
         }
     }

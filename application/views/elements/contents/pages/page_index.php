@@ -49,6 +49,7 @@
 
                         <h1 class="ml-6 mb-6 text-3xl md:text-5xl lg:text-6xl leading-tight text-white font-bold tracking-tight">The Guidance and Testing office is here for you!</h1>
                         <p class="ml-6 mb-8 text-lg md:text-xl text-coolGray-400 font-medium">To get started, please enter your ID Number below and fill out the forms. If you have done this before, you may head straight to the office for any corrections or to schedule your first counseling session. </p>
+                        
                         <form method="post" action="<?php echo base_url(); ?>student/record/chk_id">
                             <div class="ml-6 flex flex-wrap">
                                 <div class="w-full md:w-3/6">
@@ -64,6 +65,7 @@
                                 <?php endif; ?>
                             </div>
                         </form>
+                        
                     </div>
                     <div class="w-full md:w-1/2 px-4">
                         <div class="relative mx-auto md:mr-0 max-w-max">
