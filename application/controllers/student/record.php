@@ -61,9 +61,6 @@ class Record extends MY_Controller
 
     public function chk_id()
     {
-
-        //Add form validation if field is blank
-        //Add form validation if field is NOT a numerical value
         $this->form_validation->set_rules('stud_id','Student ID','trim|required|min_length[8]');
         if($this->form_validation->run()==FALSE){
             $this->session->set_flashdata('id_exist', 'Student ID number a minimum of 8 numbers');
@@ -91,6 +88,7 @@ class Record extends MY_Controller
                     $this->session->set_flashdata('id_exist', 'You already have an existing record!');
                     $data['stud_id'] = $stud_id;
                     $data['student'] = $this->Student_model->getStudent($stud_id);
+                    $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
                     $data['main_content'] = 'elements/contents/pages/page_student_menu';
                     $this->load->view('layouts/layout_student', $data);
                 }
@@ -101,6 +99,7 @@ class Record extends MY_Controller
     public function toMenu($stud_id){
         $data['stud_id'] = $stud_id;
         $data['student'] = $this->Student_model->getStudent($stud_id);
+        $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
         $data['main_content'] = 'elements/contents/pages/page_student_menu';
         $this->load->view('layouts/layout_student', $data);
     }
@@ -148,6 +147,8 @@ class Record extends MY_Controller
                 $student = $this->Student_model->insert_students();
                 $data['stud_id'] = $stud_id;
                 $data['student'] = $this->Student_model->getStudent($stud_id);
+
+                $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
                 $data['main_content'] = 'elements/contents/pages/page_student_menu';
                 $this->load->view('layouts/layout_student', $data);
             }

@@ -1,11 +1,10 @@
 <?php
 class Student_model extends CI_model
 {
-    //Student
+    //>>Student
     private $userid, $s_id;
     private $s_first, $s_last, $s_mi;
     private $s_course, $s_year;
-
     private $s_email;
     private $s_stat;
     private $s_gender,$s_bday, $s_age;
@@ -14,17 +13,36 @@ class Student_model extends CI_model
     private $s_brgy, $s_muni, $s_provi;
     private $s_nor;
     private $s_guardn, $s_guardno, $s_guardadd, $s_guardrel; //Guardian
+    //>>FORMS
+    //Education & Background
+    private $e_ename, $e_eyear, $e_ehonor;
+    private $e_jname, $e_jyear, $e_jhonor;
+    private $e_sname, $e_syear, $e_shonor;
+    private $e_cname, $e_cyear, $e_chonor;
+
     private $searchKey; //Misc
-    //>Setters
+    //>>Setters
+    //EDUC
+    public function setEEName($educ_ename) { $this->e_ename = $educ_ename; }
+    public function setEEYear($educ_eyear) { $this->e_eyear = $educ_eyear; }
+    public function setEEHonor($educ_ehonor) { $this->e_ehonor = $educ_ehonor; }
+    public function setEJName($educ_jname) { $this->e_jname = $educ_jname; }
+    public function setEJYear($educ_jyear) { $this->e_jyear = $educ_jyear; }
+    public function setEJHonor($educ_jhonor) { $this->e_jhonor = $educ_jhonor; }
+    public function setESName($educ_sname) { $this->e_sname = $educ_sname; }
+    public function setESYear($educ_syear) { $this->e_syear = $educ_syear; }
+    public function setESHonor($educ_shonor) { $this->e_shonor = $educ_shonor; }
+    public function setECName($educ_cname) { $this->e_cname = $educ_cname; }
+    public function setECYear($educ_cyear) { $this->e_cyear = $educ_cyear; }
+    public function setECHonor($educ_chonor) { $this->e_chonor = $educ_chonor; }
+    //PDI
     public function setUserID($UserID) { $this->userid = $UserID; } //For account logging
     public function setSID($stud_id) { $this->s_id = $stud_id; }
     public function setSFName($stud_first) { $this->s_first = $stud_first; }
     public function setSLName($stud_last) { $this->s_last = $stud_last; }
     public function setSMI($stud_mi) { $this->s_mi = $stud_mi; }
-
     public function setSCourse($stud_course) { $this->s_course = $stud_course; }
     public function setSYear($stud_year) { $this->s_year = $stud_year; }
-
     public function setSStat($stud_stat) { $this->s_stat = $stud_stat; }
     public function setSEmail($stud_email) { $this->s_email = $stud_email; }
     public function setSGender($stud_gender) { $this->s_gender = $stud_gender; }
@@ -39,21 +57,32 @@ class Student_model extends CI_model
     public function setSMuni($stud_muni) { $this->s_muni = $stud_muni; }
     public function setSProvi($stud_provi) { $this->s_provi = $stud_provi; }
     public function setSNOR($stud_nor) { $this->s_nor = $stud_nor; }
-
     public function setSGuardn($stud_guardn) { $this->s_guardn = $stud_guardn; }
     public function setSGuardno($stud_guardno) { $this->s_guardno = $stud_guardno; }
     public function setSGuardadd($stud_guardadd) { $this->s_guardadd = $stud_guardadd; }
     public function setSGuardrel($stud_guardrel) { $this->s_guardrel = $stud_guardrel; }
-    //>Getters
+    //>>Getters
+    //EDUC
+    public function getEEName() { return $this->e_ename; }
+    public function getEEYear() { return $this->e_eyear; }
+    public function getEEHonor() { return $this->e_ehonor; }
+    public function getEJName() { return $this->e_jname; }
+    public function getEJYear() { return $this->e_jyear; }
+    public function getEJHonor() { return $this->e_jhonor; }
+    public function getESName() { return $this->e_sname; }
+    public function getESYear() { return $this->e_syear; }
+    public function getESHonor() { return $this->e_shonor; }
+    public function getECName() { return $this->e_cname; }
+    public function getECYear() { return $this->e_cyear; }
+    public function getECHonor() { return $this->e_chonor; }
+    //PDI
     public function getUserID() { return $this->userid; } //For account logging
     public function getSID() { return $this->s_id; }
     public function getSFName() { return $this->s_first; }
     public function getSLName() { return $this->s_last; }
     public function getSMI() { return $this->s_mi; }
-
     public function getSCourse() { return $this->s_course; }
     public function getSYear() { return $this->s_year; }
-
     public function getSStat() { return $this->s_stat; }
     public function getSEmail() { return $this->s_email; }
     public function getSGender() { return $this->s_gender; }
@@ -68,16 +97,13 @@ class Student_model extends CI_model
     public function getSMuni() { return $this->s_muni; }
     public function getSProvi() { return $this->s_provi; }
     public function getSNOR() { return $this->s_nor; }
-
     public function getSGuardn() { return $this->s_guardn; }
     public function getSGuardno() { return $this->s_guardno; }
     public function getSGuardadd() { return $this->s_guardadd; }
     public function getSGuardrel() { return $this->s_guardrel; }
-
     //Search funcs idk what these do tbh
     public function setSearchBy($SearchKey) { $this->searchKey = $SearchKey; }
     public function getSearchBy() { return $this->searchKey; }
-
 
 //  Nothing will last forever,
 //  unless it's in a sea of code!
@@ -134,6 +160,39 @@ class Student_model extends CI_model
             's_datecreated' => date('Y-m-d H:i:s', time())                //TIMESTAMP, NN, CURRENT_TIMESTAMP
         );
         $query = $this->db->insert('tblstudents', $data);
+        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
+        // if ($query == true) {
+        //     $data = array(
+        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
+        //         'tablename' => 'tblstudent',
+        //         'userid' => $this->getUserID(),
+        //         'username' => $this->getUserName()
+        //     );
+        //     $this->db->insert('audit', $data);
+        //     return true;
+        // }
+    }
+
+    public function insert_educ() //INSERT
+    { //Update to audit staff		
+        $data = array(      
+            'stud_id' => $this->getSID(),
+            'e_ename' => $this->getEEName(),
+            'e_eyear' => $this->getEEYear(),
+            'e_ehonor' => $this->getEEHonor(),
+            'e_jname' => $this->getEJName(),
+            'e_jyear' => $this->getEJYear(),
+            'e_jhonor' => $this->getEJHonor(),
+            'e_sname' => $this->getESName(),
+            'e_syear' => $this->getESYear(),
+            'e_shonor' => $this->getESHonor(),
+            'e_cname' => $this->getECName(),
+            'e_cyear' => $this->getECYear(),
+            'e_chonor' => $this->getECHonor(),
+
+            'e_datecreated' => date('Y-m-d H:i:s', time())
+        );
+        $query = $this->db->insert('tbleducation', $data);
         // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
         // if ($query == true) {
         //     $data = array(
@@ -413,6 +472,31 @@ class Student_model extends CI_model
             return $result->row();
         }else{
             return false;
+        }
+    }
+
+    public function getStat($stat, $id){
+        if ($stat == 1){//educ
+            $this->db->select('*');
+            $this->db->from('tbleducation');
+            $this->db->where('stud_id', $id);				
+            $result=$this->db->get();			
+            if($result->num_rows() == 1){
+                return 'elements/contents/buttons/educ_button_disabled'; //if exist
+            }else{
+                return 'elements/contents/buttons/educ_button_enabled'; //if null
+            }
+        }
+        else if ($stat == 2) {
+            $this->db->select('*');
+            $this->db->from('tblhome');
+            $this->db->where('stud_id', $id);				
+            $result=$this->db->get();			
+            if($result->num_rows() == 1){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 }
