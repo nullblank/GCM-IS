@@ -129,6 +129,7 @@ class Record extends MY_Controller
         if($this->form_validation->run()==FALSE){ //if form fail
             //$this->session->set_flashdata('id_exist', 'Student ID number a minimum of 8 numbers');
             $data['stud_id'] = $stud_id;
+            $data['courses'] = $this->Student_model->getCourses();
             $data['nor'] = $this->Student_model->getNOR();
             $data['eth'] = $this->Student_model->getEthnicity();
             $data['religion'] = $this->Student_model->getReligion();

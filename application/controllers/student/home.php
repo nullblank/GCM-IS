@@ -35,7 +35,8 @@
             $home_kmsjk = $this->input->post('h_kmsjk');
             $home_kmsjkrel = $this->input->post('h_kmsjkrel');
 
-            //Pls finish form input here
+            $home_kmsdrink = $this->input->post('h_kmsdrink');
+            $home_kmsdrinkrel = $this->input->post('h_kmsdrinkrel');
 
 
 

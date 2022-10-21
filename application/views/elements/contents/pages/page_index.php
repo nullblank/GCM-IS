@@ -53,7 +53,7 @@
                         <form method="post" action="<?php echo base_url(); ?>student/record/chk_id">
                             <div class="ml-6 flex flex-wrap">
                                 <div class="w-full md:w-3/6">
-                                    <input name="stud_id" type="text" placeholder="Enter your ID number." class="h-12 w-full px-3.5 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                    <input maxlength="8" name="stud_id" type="text" placeholder="Enter your ID number." class="h-12 w-full px-3.5 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
                                 </div>
                                 <div class="w-full md:w-2/6">
                                     <button class="inline-block py-4 px-6 w-full text-base md:text-lg leading-4 text-blue-100 font-medium text-center bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 rounded-md shadow-sm ml-2" name="submit" type="submit">Submit</button>

@@ -44,16 +44,25 @@
                 $this->load->view('layouts/layout_index', $data);
             } else {
                 $data['stud_id'] = $stud_id;
+                $data['schools'] = $this->Student_model->getSchools();
                 $data['main_content'] = 'elements/contents/forms/form_educ';
                 $this->load->view('layouts/layout_student', $data);
             }
         }
 
         public function register($stud_id){
+            $this->form_validation->set_rules('e_ename','Elementary Name','required');
             $this->form_validation->set_rules('e_eyear','Elementary Year','required');
+
+            $this->form_validation->set_rules('e_jname','Junior High Name','required');
+            $this->form_validation->set_rules('e_jyear','Junior High Name','required');
+
+            $this->form_validation->set_rules('e_sname','Senior High Name','required');
+            $this->form_validation->set_rules('e_syear','Senior High Year','required');
 
             if($this->form_validation->run()==FALSE){ //if form fail
                 $data['stud_id'] = $stud_id;
+                $data['schools'] = $this->Student_model->getSchools();
                 $data['main_content'] = 'elements/contents/forms/form_educ';
                 $this->load->view('layouts/layout_student', $data);
             } else {

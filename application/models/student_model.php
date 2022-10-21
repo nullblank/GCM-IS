@@ -19,9 +19,23 @@
 //     \/  .__    ;    \   `-.     
 //  bug ;     "-,/_..--"`-..__)  bunny 
 //      '""--.._:
+//
+//  Walls have ears.
+//  Doors have eyes.
+//
+//  Trees have voices.
+//  Beasts tell lies.
+//
+//  Beware the rain.
+//  Beware the snow.
+//
+//  Beware the man
+//  You think you know.
+//
 
 class Student_model extends CI_model
 {
+    
     //>>Student
     private $userid, $s_id;
     private $s_first, $s_last, $s_mi;
@@ -34,15 +48,54 @@ class Student_model extends CI_model
     private $s_brgy, $s_muni, $s_provi;
     private $s_nor;
     private $s_guardn, $s_guardno, $s_guardadd, $s_guardrel; //Guardian
+
     //>>FORMS
     //Education & Background
     private $e_ename, $e_eyear, $e_ehonor;
     private $e_jname, $e_jyear, $e_jhonor;
     private $e_sname, $e_syear, $e_shonor;
     private $e_cname, $e_cyear, $e_chonor;
-
+    //Home stuff
+    private $h_fname, $h_fage, $h_fstat, $h_feduc, $h_fjob, $h_faddr, $h_fno, $h_fdesc; //Father
+    private $h_mname, $h_mage, $h_mstat, $h_meduc, $h_mjob, $h_maddr, $h_mno, $h_mdesc; //Mother
+    private $h_ofwchild, $h_ofwrel, $h_ofwemail;
+    private $h_pmarstat, $h_pecostat, $h_pbirthorder;
+    private $h_kmsdep, $h_kmsdeprel, $h_kms, $h_kmsrel, $h_kmsjk, $h_kmsjkrel;
+    private $h_kmsdrink, $h_kmsdrinkrel;
+    //
     private $searchKey; //Misc
     //>>Setters
+    
+    //HOME
+    public function setHFName($home_fname) { $this->h_fname = $home_fname; }//Father
+    public function setHFAge($home_fage) { $this->h_fage = $home_fage; }
+    public function setHFStat($home_fstat) { $this->h_fstat = $home_fstat; }
+    public function setHFEduc($home_feduc) { $this->h_feduc = $home_feduc; }
+    public function setHFJob($home_fjob) { $this->h_fjob = $home_fjob; }
+    public function setHFAddr($home_faddr) { $this->h_faddr = $home_faddr; }
+    public function setHFNo($home_fno) { $this->h_fno = $home_fno; }
+    public function setHFDesc($home_fdesc) { $this->h_fdesc = $home_fdesc; }
+    public function setHMName($home_mname) { $this->h_mname = $home_mname; }//Mother
+    public function setHMAge($home_mage) { $this->h_mage = $home_mage; }
+    public function setHMEduc($home_meduc) { $this->h_meduc = $home_meduc; }
+    public function setHMJob($home_mjob) { $this->h_mjob = $home_mjob; }
+    public function setHMAddr($home_maddr) { $this->h_maddr = $home_maddr; }
+    public function setHMNo($home_mno) { $this->h_mno = $home_mno; }
+    public function setHMDesc($home_mdesc) { $this->h_mdesc = $home_mdesc; }
+    public function setHOfwChild($home_ofwchild) { $this->h_ofwchild = $home_ofwchild; }
+    public function setHOfwRel($home_ofwrel) { $this->h_ofwrel = $home_ofwrel; }
+    public function setHOfwEmail($home_ofwemail) { $this->h_ofwemail = $home_ofwemail; }
+    public function setHPMarStat($home_pmarstat) { $this->h_pmarstat = $home_pmarstat; }
+    public function setHPEcoStat($home_pecostat) { $this->h_pecostat = $home_pecostat; }
+    public function setHPBirthOrder($home_pbirthorder) { $this->h_pbirthorder = $home_pbirthorder; }
+    public function setHKmsDep($home_kmsdep) { $this->h_kmsdep = $home_kmsdep; }
+    public function setHKmsDepRel($home_kmsdeprel) { $this->h_kmsdeprel = $home_kmsdeprel; }
+    public function setHKms($home_kms) { $this->h_kms = $home_kms; }
+    public function setHKmsRel($home_kmsdeprel) { $this->h_kmsdeprel = $home_kmsdeprel; }
+    public function setHKmsJk($home_kmsjk) { $this->h_kmsjk = $home_kmsjk; }
+    public function setHKmsJkRel($home_kmsjkrel) { $this->h_kmsjkrel = $home_kmsjkrel; }
+    public function setHKmsDrink($home_kmsdrink) { $this->h_kmsdrink = $home_kmsdrink; }
+    public function setHKmsDrinkRel($home_kmsdrinkrel) { $this->h_kmsdrinkrel = $home_kmsdrinkrel; }
     //EDUC
     public function setEEName($educ_ename) { $this->e_ename = $educ_ename; }
     public function setEEYear($educ_eyear) { $this->e_eyear = $educ_eyear; }
@@ -83,6 +136,37 @@ class Student_model extends CI_model
     public function setSGuardadd($stud_guardadd) { $this->s_guardadd = $stud_guardadd; }
     public function setSGuardrel($stud_guardrel) { $this->s_guardrel = $stud_guardrel; }
     //>>Getters
+    //HOME
+    public function getHFName() { return $this->h_fname; } //Father
+    public function getHFAge() { return $this->h_fage; }
+    public function getHFStat() { return $this->h_fstat; }
+    public function getHFEduc() { return $this->h_feduc; }
+    public function getHFJob() { return $this->h_fjob; }
+    public function getHFAddr() { return $this->h_faddr; }
+    public function getHFNo() { return $this->h_fno; }
+    public function getHFDesc() { return $this->h_fdesc; }
+    public function getHMName() { return $this->h_mname; } //Mother
+    public function getHMAge() { return $this->h_mage; }
+    public function getHMStat() { return $this->h_mstat; }
+    public function getHMEduc() { return $this->h_meduc; }
+    public function getHMJob() { return $this->h_mjob; }
+    public function getHMAddr() { return $this->h_maddr; }
+    public function getHMNo() { return $this->h_mno; }
+    public function getHMDesc() { return $this->h_mdesc; }
+    public function getHOfwChild() { return $this->h_ofwchild; }
+    public function getHOfwRel() { return $this->h_ofwrel; }
+    public function getHOfwEmail() { return $this->h_ofwemail; }
+    public function getHPMarStat() { return $this->h_pmarstat; }
+    public function getHPEcoStat() { return $this->h_pecostat; }
+    public function getHPBirthOrder() { return $this->h_pbirthorder; }
+    public function getHKmsDep() { return $this->h_kmsdep; }
+    public function getHKmsDepRel() { return $this->h_kmsdeprel; }
+    public function getHKms() { return $this->h_kms; }
+    public function getHKmsRel() { return $this->h_kmsrel; }
+    public function getHKmsJk() { return $this->h_kmsjk; }
+    public function getHKmsJkRel() { return $this->h_kmsjkrel; }
+    public function getHKmsDrink() { return $this->h_kmsdrink; }
+    public function getHKmsDrinkRel() { return $this->h_kmsdrinkrel; }
     //EDUC
     public function getEEName() { return $this->e_ename; }
     public function getEEYear() { return $this->e_eyear; }
@@ -190,6 +274,72 @@ class Student_model extends CI_model
             'e_datecreated' => date('Y-m-d H:i:s', time())
         );
         $query = $this->db->insert('tbleducation', $data);
+        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
+        // if ($query == true) {
+        //     $data = array(
+        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
+        //         'tablename' => 'tblstudent',
+        //         'userid' => $this->getUserID(),
+        //         'username' => $this->getUserName()
+        //     );
+        //     $this->db->insert('audit', $data);
+        //     return true;
+        // }
+    }
+
+    // private $h_fname, $h_fage, $h_feduc, $h_fjob, $h_faddr, $h_fno, $h_fdesc; //Father
+    // private $h_mname, $h_mage, $h_meduc, $h_mjob, $h_maddr, $h_mno, $h_mdesc; //Mother
+    // private $h_ofwchild, $h_ofwrel, $h_ofwemail;
+    // private $h_pmarstat, $h_pecostat, $h_pbirthorder;
+    // private $h_kmsdep, $h_kmsdeprel, $h_kms, $h_kmsrel, $h_kmsjk, $h_kmsjkrel;
+    // private $h_kmsdrink, $h_kmsdrinkrel;
+
+
+    
+
+    
+
+
+
+
+    public function insert_home() //INSERT
+    { //Update to audit staff		
+        $data = array(      
+            'stud_id' => $this->getSID(),                   //NN
+            'h_fname' => $this->getHFName(),                //NN
+            'h_fage' => $this->getHFAge(),                  //NN
+            'h_fstat' => $this->getHFStat(),                //NN
+            'h_feduc' => $this->getHFEduc(),
+            'h_fjob' => $this->getHFJob(),
+            'h_faddr' => $this->getHFAddr(), 
+            'h_fno' => $this->getHFNo(),                    //NN
+            'h_fdesc' => $this->getHFDesc(),                //NN
+            'h_mname' => $this->getHMName(),                //NN
+            'h_mage' => $this->getHMAge(),                  //NN
+            'h_mstat' => $this->getHMStat(),                //NN
+            'h_meduc' => $this->getHMEduc(),
+            'h_mjob' => $this->getHMJob(),
+            'h_maddr' => $this->getHMAddr(),
+            'h_mno' => $this->getHMNo(),                    //NN
+            'h_mdesc' => $this->getHMDesc(),                //NN
+            'h_ofwchild' => $this->getHOfwChild(),          //NN
+            'h_ofwrel' => $this->getHOfwRel(),
+            'h_ofwemail' => $this->getHOfwEmail(),
+            'h_pmarstat' => $this->getHPMarStat(),          //NN
+            'h_pecostat' => $this->getHPEcoStat(),          //NN
+            'h_pbirthorder' => $this->getHPBirthOrder(),    //NN
+            'h_kmsdep' => $this->getHKmsDep(),              //NN
+            'h_kmsdeprel' => $this->getHKmsDepRel(),    
+            'h_kms' => $this->getHKms(),                    //NN
+            'h_kmsrel' => $this->getHKmsRel(),
+            'h_kmsjk' => $this->getHKmsJk(),                //NN
+            'h_kmsjkrel' => $this->getHKmsJkRel(),
+            'h_kmsdrink' => $this->getHKmsDrink(),          //NN
+            'h_kmsdrinkrel' => $this->getHKmsDrinkRel(),
+
+            'e_datecreated' => date('Y-m-d H:i:s', time())  
+        );
+        $query = $this->db->insert('tblhome', $data);
         // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
         // if ($query == true) {
         //     $data = array(
@@ -470,6 +620,14 @@ class Student_model extends CI_model
         }else{
             return false;
         }
+    }
+
+    public function getSchools(){
+        $this->db->select('*');
+        $this->db->from('school');
+        $query = $this->db->get();
+        $query->num_rows();
+        return $query->result();
     }
 
     public function getStat($stat, $id){
