@@ -49,7 +49,7 @@
                                 <p class="text-sm text-coolGray-800">If Yes, kindly specify the reason/s (sickness/illness) why you were confined.</p>
                             </div>
                             <div class="w-full md:w-2/3 p-3">
-                                <textarea name="m_confdesc" id="m_confdesc" class="h-64 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none" type="text" placeholder="Write here..."></textarea>
+                                <textarea  name="m_confdesc" id="m_confdesc" class="h-64 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none" type="text" placeholder="Write here..."></textarea>
                             </div>
                         </div>
                     </div>

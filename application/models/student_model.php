@@ -78,46 +78,35 @@ class Student_model extends CI_model
     private $searchKey; //Misc
     //>>Setters
     //MEDICAL
-    // private $m_conf, $m_confdesc;
     public function setMConf($medic_conf) { $this->m_conf = $medic_conf; }
     public function setMConfDesc($medic_confdesc) { $this->m_confdesc = $medic_confdesc; }
-    // private $m_medill;
     public function setMMedIll($medic_medill) { $this->m_medill = $medic_medill; }
-    // private $m_medcon1, $m_medcon2, $m_medcon3, $m_medcon4, $m_medcon5;
     public function setMMedCon1($medic_medcon1) { $this->m_medcon1 = $medic_medcon1; }
     public function setMMedCon2($medic_medcon2) { $this->m_medcon2 = $medic_medcon2; }
     public function setMMedCon3($medic_medcon3) { $this->m_medcon3 = $medic_medcon3; }
     public function setMMedCon4($medic_medcon4) { $this->m_medcon4 = $medic_medcon4; }
     public function setMMedCon5($medic_medcon5) { $this->m_medcon5 = $medic_medcon5; }
-    // private $m_medcon6, $m_medcon7, $m_medcon8, $m_medcon9, $m_medcon10;
     public function setMMedCon6($medic_medcon6) { $this->m_medcon6 = $medic_medcon6; }
     public function setMMedCon7($medic_medcon7) { $this->m_medcon7 = $medic_medcon7; }
     public function setMMedCon8($medic_medcon8) { $this->m_medcon8 = $medic_medcon8; }
     public function setMMedCon9($medic_medcon9) { $this->m_medcon9 = $medic_medcon9 ; }
     public function setMMedCon10($medic_medcon10) { $this->m_medcon10 = $medic_medcon10; }
-    // private $m_medcon11, $m_medcon12, $m_medcon13, $m_medcon14, $m_medcon15;
     public function setMMedCon11($medic_medcon11) { $this->m_medcon11 = $medic_medcon11; }
     public function setMMedCon12($medic_medcon12) { $this->m_medcon12 = $medic_medcon12; }
     public function setMMedCon13($medic_medcon13) { $this->m_medcon13 = $medic_medcon13; }
     public function setMMedCon14($medic_medcon14) { $this->m_medcon14 = $medic_medcon14; }
     public function setMMedCon15($medic_medcon15) { $this->m_medcon15 = $medic_medcon15; }
-    // private $m_medcon16, $m_medcon17, $m_medcon18, $m_medcon19, $m_medcon20;
     public function setMMedCon16($medic_medcon16) { $this->m_medcon16 = $medic_medcon16; }
     public function setMMedCon17($medic_medcon17) { $this->m_medcon17 = $medic_medcon17; }
     public function setMMedCon18($medic_medcon18) { $this->m_medcon18 = $medic_medcon18; }
     public function setMMedCon19($medic_medcon19) { $this->m_medcon19 = $medic_medcon19; }
     public function setMMedCon20($medic_medcon20) { $this->m_medcon20 = $medic_medcon20; }
-    // private $m_medconO;
     public function setMMedConO($medic_medconO) { $this->m_medconO = $medic_medconO; }
-    // private $m_medwhen;
     public function setMMedWhen($medic_medwhen) { $this->m_medwhen = $medic_medwhen; }
-    // private $m_presmed, $m_presmeddesc;
     public function setMPresMed($medic_presmed) { $this->m_presmed = $medic_presmed; }
     public function setMPresMedDesc($medic_presmeddesc) { $this->m_presmeddesc = $medic_presmeddesc; }
-    // private $m_pastmed, $m_pastmeddesc;
     public function setMPastMed($medic_pastmed) { $this->m_pastmed = $medic_pastmed; }
     public function setMPastMedDesc($medic_pastmeddesc) { $this->m_pastmeddesc = $medic_pastmeddesc; }
-    // private $m_dis, $m_disdesc, $m_disass, $m_dismonth, $m_disyear;
     public function setMDis($medic_dis) { $this->m_dis = $medic_dis; }
     public function setMDisDesc($medic_disdesc) { $this->m_disdesc = $medic_disdesc; }
     public function setMDisAss($medic_disass) { $this->m_disass = $medic_disass; }
@@ -199,6 +188,41 @@ class Student_model extends CI_model
     public function setSGuardadd($stud_guardadd) { $this->s_guardadd = $stud_guardadd; }
     public function setSGuardrel($stud_guardrel) { $this->s_guardrel = $stud_guardrel; }
     //>>Getters
+    //MEDICAL
+    public function getMConf() { return $this->m_conf; }
+    public function getMConfDesc() { return $this->m_confdesc; }
+    public function getMMedIll() { return $this->m_medill; }
+    public function getMMedCon1() { return $this->m_medcon1; }
+    public function getMMedCon2() { return $this->m_medcon2; }
+    public function getMMedCon3() { return $this->m_medcon3; }
+    public function getMMedCon4() { return $this->m_medcon4; }
+    public function getMMedCon5() { return $this->m_medcon5; }
+    public function getMMedCon6() { return $this->m_medcon6; }
+    public function getMMedCon7() { return $this->m_medcon7; }
+    public function getMMedCon8() { return $this->m_medcon8; }
+    public function getMMedCon9() { return $this->m_medcon9; }
+    public function getMMedCon10() { return $this->m_medcon10; }
+    public function getMMedCon11() { return $this->m_medcon11; }
+    public function getMMedCon12() { return $this->m_medcon12; }
+    public function getMMedCon13() { return $this->m_medcon13; }
+    public function getMMedCon14() { return $this->m_medcon14; }
+    public function getMMedCon15() { return $this->m_medcon15; }
+    public function getMMedCon16() { return $this->m_medcon16; }
+    public function getMMedCon17() { return $this->m_medcon17; }
+    public function getMMedCon18() { return $this->m_medcon18; }
+    public function getMMedCon19() { return $this->m_medcon19; }
+    public function getMMedCon20() { return $this->m_medcon20; }
+    public function getMMedConO() { return $this->m_medconO; }
+    public function getMMedWhen() { return $this->m_medwhen; }
+    public function getMPresMed() { return $this->m_presmed; }
+    public function getMPresMedDesc() { return $this->m_presmeddesc; }
+    public function getMPastMed() { return $this->m_pastmed; }
+    public function getMPastMedDesc() { return $this->m_pastmeddesc; }
+    public function getMDis() { return $this->m_dis; }
+    public function getMDisDesc() { return $this->m_disdesc; }
+    public function getMDisAss() { return $this->m_disass; }
+    public function getMDisMonth() { return $this->m_dismonth; }
+    public function getMDisYear() { return $this->m_disyear; }
     //HOME
     public function getHFName() { return $this->h_fname; } //Father
     public function getHFAge() { return $this->h_fage; }
@@ -363,7 +387,26 @@ class Student_model extends CI_model
     // private $h_kmsdrink, $h_kmsdrinkrel;
 
 
-    
+    public function insert_med() //INSERT
+    { //Update to audit staff		
+        $data = array(      
+            'stud_id' => $this->getSID(),
+
+            'h_datecreated' => date('Y-m-d H:i:s', time())  
+        );
+        $query = $this->db->insert('tblhome', $data);
+        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
+        // if ($query == true) {
+        //     $data = array(
+        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
+        //         'tablename' => 'tblstudent',
+        //         'userid' => $this->getUserID(),
+        //         'username' => $this->getUserName()
+        //     );
+        //     $this->db->insert('audit', $data);
+        //     return true;
+        // }
+    }
 
     
 
