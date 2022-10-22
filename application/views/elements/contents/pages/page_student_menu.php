@@ -13,7 +13,7 @@
                 <!-- Home and Family Background -->
                 <?php $this->load->view($button_2); ?>
                 <!-- Medical History -->
-                <a class="group block mb-6" href="#">
+                <a class="group block mb-6" href="<?php echo base_url(); ?>student/Medical/med/<?php echo $stud_id; ?>">
                     <div class="flex items-center justify-between flex-wrap p-10 bg-coolGray-800 group-hover:bg-coolGray-700 rounded-md shadow-md transition duration-200">
                         <div class="w-full md:w-1/2 mb-2 md:mb-0">
                             <h3 class="text-lg md:text-xl text-white group-hover:text-coolGray-100 font-semibold">Medical History</h3>
