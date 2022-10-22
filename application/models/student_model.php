@@ -20,17 +20,17 @@
 //  bug ;     "-,/_..--"`-..__)  bunny 
 //      '""--.._:
 //
-//  Walls have ears.
-//  Doors have eyes.
+// >| Walls have ears.
+// >| Doors have eyes.
 //
-//  Trees have voices.
-//  Beasts tell lies.
+// >| Trees have voices.
+// >| Beasts tell lies.
 //
-//  Beware the rain.
-//  Beware the snow.
+// >| Beware the rain.
+// >| Beware the snow.
 //
-//  Beware the man
-//  You think you know.
+// >| Beware the man
+// >| You think you know.
 //
 
 class Student_model extends CI_model
@@ -61,7 +61,7 @@ class Student_model extends CI_model
     private $h_ofwchild, $h_ofwrel, $h_ofwemail;
     private $h_pmarstat, $h_pecostat, $h_pbirthorder;
     private $h_kmsdep, $h_kmsdeprel, $h_kms, $h_kmsrel, $h_kmsjk, $h_kmsjkrel;
-    private $h_kmsdrink, $h_kmsdrinkrel;
+    private $h_kmsdrinkrel_f, $h_kmsdrinkrel_m, $h_kmsdrinkrel_bs, $h_kmsdrinkrel_ua, $h_kmsdrinkrel_me, $h_kmsdrinkrel_g, $h_kmsdrinkrel_na;
     //
     private $searchKey; //Misc
     //>>Setters
@@ -77,6 +77,7 @@ class Student_model extends CI_model
     public function setHFDesc($home_fdesc) { $this->h_fdesc = $home_fdesc; }
     public function setHMName($home_mname) { $this->h_mname = $home_mname; }//Mother
     public function setHMAge($home_mage) { $this->h_mage = $home_mage; }
+    public function setHMStat($home_mstat) { $this->h_mstat = $home_mstat; }
     public function setHMEduc($home_meduc) { $this->h_meduc = $home_meduc; }
     public function setHMJob($home_mjob) { $this->h_mjob = $home_mjob; }
     public function setHMAddr($home_maddr) { $this->h_maddr = $home_maddr; }
@@ -94,8 +95,13 @@ class Student_model extends CI_model
     public function setHKmsRel($home_kmsdeprel) { $this->h_kmsdeprel = $home_kmsdeprel; }
     public function setHKmsJk($home_kmsjk) { $this->h_kmsjk = $home_kmsjk; }
     public function setHKmsJkRel($home_kmsjkrel) { $this->h_kmsjkrel = $home_kmsjkrel; }
-    public function setHKmsDrink($home_kmsdrink) { $this->h_kmsdrink = $home_kmsdrink; }
-    public function setHKmsDrinkRel($home_kmsdrinkrel) { $this->h_kmsdrinkrel = $home_kmsdrinkrel; }
+    public function setHKmsDrinkRel_F($home_kmsdrinkrel_f) { $this->h_kmsdrinkrel_f = $home_kmsdrinkrel_f; }
+    public function setHKmsDrinkRel_M($home_kmsdrinkrel_m) { $this->h_kmsdrinkrel_m = $home_kmsdrinkrel_m; }
+    public function setHKmsDrinkRel_BS($home_kmsdrinkrel_bs) { $this->h_kmsdrinkrel_bs = $home_kmsdrinkrel_bs; }
+    public function setHKmsDrinkRel_UA($home_kmsdrinkrel_ua) { $this->h_kmsdrinkrel_ua = $home_kmsdrinkrel_ua; }
+    public function setHKmsDrinkRel_ME($home_kmsdrinkrel_me) { $this->h_kmsdrinkrel_me = $home_kmsdrinkrel_me; }
+    public function setHKmsDrinkRel_G($home_kmsdrinkrel_g) { $this->h_kmsdrinkrel_g = $home_kmsdrinkrel_g; }
+    public function setHKmsDrinkRel_NA($home_kmsdrinkrel_na) { $this->h_kmsdrinkrel_na = $home_kmsdrinkrel_na; }
     //EDUC
     public function setEEName($educ_ename) { $this->e_ename = $educ_ename; }
     public function setEEYear($educ_eyear) { $this->e_eyear = $educ_eyear; }
@@ -165,8 +171,13 @@ class Student_model extends CI_model
     public function getHKmsRel() { return $this->h_kmsrel; }
     public function getHKmsJk() { return $this->h_kmsjk; }
     public function getHKmsJkRel() { return $this->h_kmsjkrel; }
-    public function getHKmsDrink() { return $this->h_kmsdrink; }
-    public function getHKmsDrinkRel() { return $this->h_kmsdrinkrel; }
+    public function getHKmsDrinkRel_F() { return $this->h_kmsdrinkrel_f; }
+    public function getHKmsDrinkRel_M() { return $this->h_kmsdrinkrel_m; }
+    public function getHKmsDrinkRel_BS() { return $this->h_kmsdrinkrel_bs; }
+    public function getHKmsDrinkRel_UA() { return $this->h_kmsdrinkrel_ua; }
+    public function getHKmsDrinkRel_ME() { return $this->h_kmsdrinkrel_me; }
+    public function getHKmsDrinkRel_G() { return $this->h_kmsdrinkrel_g; }
+    public function getHKmsDrinkRel_NA() { return $this->h_kmsdrinkrel_na; }
     //EDUC
     public function getEEName() { return $this->e_ename; }
     public function getEEYear() { return $this->e_eyear; }
@@ -334,10 +345,15 @@ class Student_model extends CI_model
             'h_kmsrel' => $this->getHKmsRel(),
             'h_kmsjk' => $this->getHKmsJk(),                //NN
             'h_kmsjkrel' => $this->getHKmsJkRel(),
-            'h_kmsdrink' => $this->getHKmsDrink(),          //NN
-            'h_kmsdrinkrel' => $this->getHKmsDrinkRel(),
+            'h_kmsdrinkrel_f' => $this->getHKmsDrinkRel_F(), //DEF FALSE
+            'h_kmsdrinkrel_m' => $this->getHKmsDrinkRel_M(), //DEF FALSE
+            'h_kmsdrinkrel_bs' => $this->getHKmsDrinkRel_BS(), //DEF FALSE
+            'h_kmsdrinkrel_ua' => $this->getHKmsDrinkRel_UA(), //DEF FALSE
+            'h_kmsdrinkrel_me' => $this->getHKmsDrinkRel_ME(), //DEF FALSE
+            'h_kmsdrinkrel_g' => $this->getHKmsDrinkRel_G(), //DEF FALSE
+            'h_kmsdrinkrel_na' => $this->getHKmsDrinkRel_NA(), //DEF FALSE
 
-            'e_datecreated' => date('Y-m-d H:i:s', time())  
+            'h_datecreated' => date('Y-m-d H:i:s', time())  
         );
         $query = $this->db->insert('tblhome', $data);
         // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
@@ -642,15 +658,15 @@ class Student_model extends CI_model
                 return 'elements/contents/buttons/educ_button_enabled'; //if null
             }
         }
-        else if ($stat == 2) {
+        if($stat == 2){
             $this->db->select('*');
             $this->db->from('tblhome');
             $this->db->where('stud_id', $id);				
             $result=$this->db->get();			
             if($result->num_rows() == 1){
-                return true;
+                return 'elements/contents/buttons/home_button_disabled'; //if exist
             }else{
-                return false;
+                return 'elements/contents/buttons/home_button_enabled'; //if null
             }
         }
     }
