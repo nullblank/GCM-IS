@@ -93,7 +93,7 @@ class Record extends MY_Controller
     }
 
     public function toMenu($stud_id){ //Ilegal access control
-        if ($this->Student_model->getStudent($stud_id) > 0){
+        if ($this->Student_model->chkStudent($stud_id) == true){
             $data['stud_id'] = $stud_id;
             $data['student'] = $this->Student_model->getStudent($stud_id);
             $data['button_1'] = $this->Student_model->getStat(1, $stud_id);

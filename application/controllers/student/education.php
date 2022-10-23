@@ -60,7 +60,7 @@
             $this->form_validation->set_rules('e_sname','Senior High Name','required');
             $this->form_validation->set_rules('e_syear','Senior High Year','required');
 
-            if($this->form_validation->run()==FALSE){ //if form fail
+            if($this->Student_model->chkStudent($stud_id) == false){ //if form fail
                 $data['stud_id'] = $stud_id;
                 $data['schools'] = $this->Student_model->getSchools();
                 $data['main_content'] = 'elements/contents/forms/form_educ';

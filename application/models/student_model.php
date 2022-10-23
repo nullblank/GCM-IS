@@ -771,6 +771,19 @@ class Student_model extends CI_model
         return $query->result();
     }
 
+    public function chkStudent($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tblstudents');
+        $this->db->where('stud_id', $id);
+        $query = $this->db->get();
+        if($query->num_rows() > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getStat($stat, $id){
         if ($stat == 1){//educ
             $this->db->select('*');

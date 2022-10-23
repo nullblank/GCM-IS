@@ -101,7 +101,7 @@
         public function register($stud_id){
             $this->form_validation->set_rules('h_fname','Father Name','required');
 
-            if($this->form_validation->run()==FALSE){ //if form fail
+            if($this->Student_model->chkStudent($stud_id) == false){ //if form fail
                 $data['stud_id'] = $stud_id;
                 $data['main_content'] = 'elements/contents/forms/form_home';
                 $this->load->view('layouts/layout_student', $data);
