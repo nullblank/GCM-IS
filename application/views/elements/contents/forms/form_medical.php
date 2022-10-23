@@ -42,6 +42,7 @@
                                         <option value="1">Yes</option>
                                     </select>
                                 </div>
+                                <p><?php echo form_error('m_conf'); ?></p>
                             </div>
                         </div>
                         <div class="flex flex-wrap -m-3">
@@ -380,13 +381,13 @@
                                         <option value="November">November</option>
                                         <option value="December">December</option>
                                     </select>
-                                    <p><?php echo form_error('e_ename'); ?></p>
+                                    <p><?php echo form_error('m_dismonth'); ?></p>
                                 </div>
                             </div>
                             <div class="w-full md:w-1/3 p-3">
                                 <div class="relative">
                                     <input min="1995" minlength="4" type="number" placeholder="Year" id="m_disyear" name="m_disyear" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input"></input>
-                                    <p><?php echo form_error('e_ename'); ?></p>
+                                    <p><?php echo form_error('m_disyear'); ?></p>
                                 </div>
                             </div>
                         </div>

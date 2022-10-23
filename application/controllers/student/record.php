@@ -86,24 +86,25 @@ class Record extends MY_Controller
 
                 } else { //If record existing
                     $this->session->set_flashdata('id_exist', 'You already have an existing record!');
-                    $data['stud_id'] = $stud_id;
-                    $data['student'] = $this->Student_model->getStudent($stud_id);
-                    $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
-                    $data['button_2'] = $this->Student_model->getStat(2, $stud_id);
-                    $data['main_content'] = 'elements/contents/pages/page_student_menu';
-                    $this->load->view('layouts/layout_student', $data);
+                    $this->toMenu($stud_id);
                 }
             }
         }
     }
 
-    public function toMenu($stud_id){
-        $data['stud_id'] = $stud_id;
-        $data['student'] = $this->Student_model->getStudent($stud_id);
-        $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
-        $data['button_2'] = $this->Student_model->getStat(2, $stud_id);
-        $data['main_content'] = 'elements/contents/pages/page_student_menu';
-        $this->load->view('layouts/layout_student', $data);
+    public function toMenu($stud_id){ //Ilegal access control
+        if ($this->Student_model->getStudent($stud_id) > 0){
+            $data['stud_id'] = $stud_id;
+            $data['student'] = $this->Student_model->getStudent($stud_id);
+            $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
+            $data['button_2'] = $this->Student_model->getStat(2, $stud_id);
+            $data['button_3'] = $this->Student_model->getStat(3, $stud_id);
+            $data['main_content'] = 'elements/contents/pages/page_student_menu';
+            $this->load->view('layouts/layout_student', $data);
+        } else {
+            $data['main_content'] = 'elements/contents/pages/page_index';
+            $this->load->view('layouts/layout_index', $data);
+        }
     }
     
     public function register($stud_id){
@@ -148,12 +149,7 @@ class Record extends MY_Controller
             else { //all user has filled out the form
                 $this->setters();
                 $student = $this->Student_model->insert_students();
-                $data['stud_id'] = $stud_id;
-                $data['student'] = $this->Student_model->getStudent($stud_id);
-                $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
-                $data['button_2'] = $this->Student_model->getStat(2, $stud_id);
-                $data['main_content'] = 'elements/contents/pages/page_student_menu';
-                $this->load->view('layouts/layout_student', $data);
+                $this->toMenu($stud_id);
             }
         }
     }

@@ -379,22 +379,48 @@ class Student_model extends CI_model
         // }
     }
 
-    // private $h_fname, $h_fage, $h_feduc, $h_fjob, $h_faddr, $h_fno, $h_fdesc; //Father
-    // private $h_mname, $h_mage, $h_meduc, $h_mjob, $h_maddr, $h_mno, $h_mdesc; //Mother
-    // private $h_ofwchild, $h_ofwrel, $h_ofwemail;
-    // private $h_pmarstat, $h_pecostat, $h_pbirthorder;
-    // private $h_kmsdep, $h_kmsdeprel, $h_kms, $h_kmsrel, $h_kmsjk, $h_kmsjkrel;
-    // private $h_kmsdrink, $h_kmsdrinkrel;
-
-
     public function insert_med() //INSERT
     { //Update to audit staff		
         $data = array(      
             'stud_id' => $this->getSID(),
+            'm_conf' => $this->getMConf(),//bool
+            'm_confdesc' => $this->getMConfDesc(),
+            'm_medill' => $this->getMMedIll(),//bool
+            'm_medcon1' => $this->getMMedCon1(),//bool
+            'm_medcon2' => $this->getMMedCon2(),//bool
+            'm_medcon3' => $this->getMMedCon3(),//bool
+            'm_medcon4' => $this->getMMedCon4(),//bool
+            'm_medcon5' => $this->getMMedCon5(),//bool
+            'm_medcon6' => $this->getMMedCon6(),//bool
+            'm_medcon7' => $this->getMMedCon7(),//bool
+            'm_medcon8' => $this->getMMedCon8(),//bool
+            'm_medcon9' => $this->getMMedCon9(),//bool
+            'm_medcon10' => $this->getMMedCon10(),//bool
+            'm_medcon11' => $this->getMMedCon11(),//bool
+            'm_medcon12' => $this->getMMedCon12(),//bool
+            'm_medcon13' => $this->getMMedCon13(),//bool
+            'm_medcon14' => $this->getMMedCon14(),//bool
+            'm_medcon15' => $this->getMMedCon15(),//bool
+            'm_medcon16' => $this->getMMedCon16(),//bool
+            'm_medcon17' => $this->getMMedCon17(),//bool
+            'm_medcon18' => $this->getMMedCon18(),//bool
+            'm_medcon19' => $this->getMMedCon19(),//bool
+            'm_medcon20' => $this->getMMedCon20(),//bool
+            'm_medconO' => $this->getMMedConO(),//varchar
+            'm_medwhen' => $this->getMMedWhen(),//varchar
+            'm_presmed' => $this->getMPresMed(),//bool
+            'm_presmeddesc' => $this->getMPresMedDesc(),//varchar
+            'm_pastmed' => $this->getMPastMed(),//bool
+            'm_pastmeddesc' => $this->getMPastMedDesc(),//varchar
+            'm_dis' => $this->getMDis(),//bool
+            'm_disdesc' => $this->getMDisDesc(),//varchar
+            'm_disass' => $this->getMDisAss(),//bool
+            'm_dismonth' => $this->getMDisMonth(),//varchar
+            'm_disyear' => $this->getMDisYear(),//int
 
-            'h_datecreated' => date('Y-m-d H:i:s', time())  
+            'm_datecreated' => date('Y-m-d H:i:s', time())  
         );
-        $query = $this->db->insert('tblhome', $data);
+        $query = $this->db->insert('tblmedical', $data);
         // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
         // if ($query == true) {
         //     $data = array(
@@ -409,7 +435,6 @@ class Student_model extends CI_model
     }
 
     
-
 
 
 
@@ -752,7 +777,7 @@ class Student_model extends CI_model
             $this->db->from('tbleducation');
             $this->db->where('stud_id', $id);				
             $result=$this->db->get();			
-            if($result->num_rows() == 1){
+            if($result->num_rows() > 0){
                 return 'elements/contents/buttons/educ_button_disabled'; //if exist
             }else{
                 return 'elements/contents/buttons/educ_button_enabled'; //if null
@@ -763,10 +788,21 @@ class Student_model extends CI_model
             $this->db->from('tblhome');
             $this->db->where('stud_id', $id);				
             $result=$this->db->get();			
-            if($result->num_rows() == 1){
+            if($result->num_rows() > 0){
                 return 'elements/contents/buttons/home_button_disabled'; //if exist
             }else{
                 return 'elements/contents/buttons/home_button_enabled'; //if null
+            }
+        }
+        if($stat == 3){
+            $this->db->select('*');
+            $this->db->from('tblmedical');
+            $this->db->where('stud_id', $id);				
+            $result=$this->db->get();			
+            if($result->num_rows() > 0){
+                return 'elements/contents/buttons/medical_button_disabled'; //if exist
+            }else{
+                return 'elements/contents/buttons/medical_button_enabled'; //if null
             }
         }
     }
