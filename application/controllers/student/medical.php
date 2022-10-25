@@ -132,6 +132,7 @@
                     $data['button_1'] = $this->Student_model->getStat(1, $stud_id);
                     $data['button_2'] = $this->Student_model->getStat(2, $stud_id);
                     $data['button_3'] = $this->Student_model->getStat(3, $stud_id);
+                    $data['button_4'] = $this->Student_model->getStat(4, $stud_id);
                     $data['main_content'] = 'elements/contents/pages/page_student_menu';
                     $this->load->view('layouts/layout_student', $data);
                 }

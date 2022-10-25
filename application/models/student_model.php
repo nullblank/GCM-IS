@@ -50,6 +50,10 @@ class Student_model extends CI_model
     private $s_guardn, $s_guardno, $s_guardadd, $s_guardrel; //Guardian
 
     //>>FORMS
+    //Mental
+    private $mt_die, $mt_q1, $mt_q2, $mt_q3, $mt_q4, $mt_q5;
+    private $mt_diein;
+    private $mt_hurtdesc, $mt_hurtres, $mt_hurtfirst, $mt_hurtlast, $mt_hurtquan, $mt_hurttalk;
     //Medical History
     private $m_conf, $m_confdesc;
     private $m_medill;
@@ -77,6 +81,20 @@ class Student_model extends CI_model
     //
     private $searchKey; //Misc
     //>>Setters
+    //MENTAL
+    public function setMTDie($men_die) { $this->mt_die = $men_die; }
+    public function setMTQ1($men_q1) { $this->mt_q1 = $men_q1; }
+    public function setMTQ2($men_q2) { $this->mt_q2 = $men_q2; }
+    public function setMTQ3($men_q3) { $this->mt_q3 = $men_q3; }
+    public function setMTQ4($men_q4) { $this->mt_q4 = $men_q4; }
+    public function setMTQ5($men_q5) { $this->mt_q5 = $men_q5; }
+    public function setMTDieIn($men_diein) { $this->mt_diein = $men_diein; }
+    public function setMTHurtDesc($men_hurtdesc) { $this->mt_hurtdesc = $men_hurtdesc; }
+    public function setMTHurtRes($men_hurtres) { $this->mt_hurtres = $men_hurtres; }
+    public function setMTHurtFirst($men_hurtfirst) { $this->mt_hurtfirst = $men_hurtfirst; }
+    public function setMTHurtLast($men_hurtlast) { $this->mt_hurtlast = $men_hurtlast; }
+    public function setMTHurtQuan($men_hurtquan) { $this->mt_hurtquan = $men_hurtquan; }
+    public function setMTHurtTalk($men_hurttalk) { $this->mt_hurttalk = $men_hurttalk; }
     //MEDICAL
     public function setMConf($medic_conf) { $this->m_conf = $medic_conf; }
     public function setMConfDesc($medic_confdesc) { $this->m_confdesc = $medic_confdesc; }
@@ -188,6 +206,20 @@ class Student_model extends CI_model
     public function setSGuardadd($stud_guardadd) { $this->s_guardadd = $stud_guardadd; }
     public function setSGuardrel($stud_guardrel) { $this->s_guardrel = $stud_guardrel; }
     //>>Getters
+    //MENTAL
+    public function getMTDie() { return $this->mt_die; }
+    public function getMTQ1() { return $this->mt_q1; }
+    public function getMTQ2() { return $this->mt_q2; }
+    public function getMTQ3() { return $this->mt_q3; }
+    public function getMTQ4() { return $this->mt_q4; }
+    public function getMTQ5() { return $this->mt_q5; }
+    public function getMTDieIn() { return $this->mt_diein; }
+    public function getMTHurtDesc() { return $this->mt_hurtdesc; }
+    public function getMTHurtRes() { return $this->mt_hurtres; }
+    public function getMTHurtFirst() { return $this->mt_hurtfirst; }
+    public function getMTHurtLast() { return $this->mt_hurtlast; }
+    public function getMTHurtQuan() { return $this->mt_hurtquan; }
+    public function getMTHurtTalk() { return $this->mt_hurttalk; }
     //MEDICAL
     public function getMConf() { return $this->m_conf; }
     public function getMConfDesc() { return $this->m_confdesc; }
@@ -434,7 +466,40 @@ class Student_model extends CI_model
         // }
     }
 
-    
+    public function insert_men() //INSERT
+    { //Update to audit staff		
+        $data = array(      
+            'stud_id' => $this->getSID(),
+
+            'mt_die' => $this->getMTDie(),
+            'mt_q1' => $this->getMTQ1(),
+            'mt_q2' => $this->getMTQ2(),
+            'mt_q3' => $this->getMTQ3(),
+            'mt_q4' => $this->getMTQ4(),
+            'mt_q5' => $this->getMTQ5(),
+            'mt_diein' => $this->getMTDieIn(),
+            'mt_hurtdesc' => $this->getMTHurtDesc(),
+            'mt_hurtres' => $this->getMTHurtRes(),
+            'mt_hurtfirst' => $this->getMTHurtFirst(),
+            'mt_hurtlast' => $this->getMTHurtLast(),
+            'mt_hurtquan' => $this->getMTHurtQuan(),
+            'mt_hurttalk' => $this->getMTHurtTalk(),
+
+            'mt_datecreated' => date('Y-m-d H:i:s', time())  
+        );
+        $query = $this->db->insert('tblmental', $data);
+        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
+        // if ($query == true) {
+        //     $data = array(
+        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
+        //         'tablename' => 'tblstudent',
+        //         'userid' => $this->getUserID(),
+        //         'username' => $this->getUserName()
+        //     );
+        //     $this->db->insert('audit', $data);
+        //     return true;
+        // }
+    }
 
 
 
@@ -816,6 +881,17 @@ class Student_model extends CI_model
                 return 'elements/contents/buttons/medical_button_disabled'; //if exist
             }else{
                 return 'elements/contents/buttons/medical_button_enabled'; //if null
+            }
+        }
+        if($stat == 4){
+            $this->db->select('*');
+            $this->db->from('tblmental');
+            $this->db->where('stud_id', $id);				
+            $result=$this->db->get();			
+            if($result->num_rows() > 0){
+                return 'elements/contents/buttons/mental_button_disabled'; //if exist
+            }else{
+                return 'elements/contents/buttons/mental_button_enabled'; //if null
             }
         }
     }
