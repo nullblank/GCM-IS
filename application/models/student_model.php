@@ -50,6 +50,11 @@ class Student_model extends CI_model
     private $s_guardn, $s_guardno, $s_guardadd, $s_guardrel; //Guardian
 
     //>>FORMS
+
+    //Behave
+    private $beh_q1, $beh_q2, $beh_q3, $beh_q4, $beh_q5;
+    private $beh_q6, $beh_q7, $beh_q8, $beh_q9, $beh_q10;
+    private $beh_qdesc;
     //Mental
     private $mt_die, $mt_q1, $mt_q2, $mt_q3, $mt_q4, $mt_q5;
     private $mt_diein;
@@ -81,6 +86,18 @@ class Student_model extends CI_model
     //
     private $searchKey; //Misc
     //>>Setters
+    //BEHAVE
+    public function setBehQ1($beha_q1) { $this->beh_q1 = $beha_q1; }
+    public function setBehQ2($beha_q2) { $this->beh_q2 = $beha_q2; }
+    public function setBehQ3($beha_q3) { $this->beh_q3 = $beha_q3; }
+    public function setBehQ4($beha_q4) { $this->beh_q4 = $beha_q4; }
+    public function setBehQ5($beha_q5) { $this->beh_q5 = $beha_q5; }
+    public function setBehQ6($beha_q6) { $this->beh_q6 = $beha_q6; }
+    public function setBehQ7($beha_q7) { $this->beh_q7 = $beha_q7; }
+    public function setBehQ8($beha_q8) { $this->beh_q8 = $beha_q8; }
+    public function setBehQ9($beha_q9) { $this->beh_q9 = $beha_q9; }
+    public function setBehQ10($beha_q10) { $this->beh_q10 = $beha_q10; }
+    public function setBehQDesc($beha_qdesc) { $this->beh_qdesc = $beha_qdesc; }
     //MENTAL
     public function setMTDie($men_die) { $this->mt_die = $men_die; }
     public function setMTQ1($men_q1) { $this->mt_q1 = $men_q1; }
@@ -206,6 +223,19 @@ class Student_model extends CI_model
     public function setSGuardadd($stud_guardadd) { $this->s_guardadd = $stud_guardadd; }
     public function setSGuardrel($stud_guardrel) { $this->s_guardrel = $stud_guardrel; }
     //>>Getters
+    //BEHAVE
+    // public function setBehQ1($beha_q1) { $this->beh_q1 = $beha_q1; }
+    public function getBehQ1() { return $this->beh_q1; }
+    public function getBehQ2() { return $this->beh_q2; }
+    public function getBehQ3() { return $this->beh_q3; }
+    public function getBehQ4() { return $this->beh_q4; }
+    public function getBehQ5() { return $this->beh_q5; }
+    public function getBehQ6() { return $this->beh_q6; }
+    public function getBehQ7() { return $this->beh_q7; }
+    public function getBehQ8() { return $this->beh_q8; }
+    public function getBehQ9() { return $this->beh_q9; }
+    public function getBehQ10() { return $this->beh_q10; }
+    public function getBehQDesc() { return $this->beh_qdesc; }
     //MENTAL
     public function getMTDie() { return $this->mt_die; }
     public function getMTQ1() { return $this->mt_q1; }
