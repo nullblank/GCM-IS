@@ -2,8 +2,31 @@
 class Behave extends MY_Controller {
     function setters(){
         $stud_id = $this->input->post('s_id');
-        $this->Student_model->setSID($stud_id);       
+        $this->Student_model->setSID($stud_id);
 
+        $beh_q1 = $this->input->post('beh_q1');
+        $beh_q2 = $this->input->post('beh_q2');
+        $beh_q3 = $this->input->post('beh_q3');
+        $beh_q4 = $this->input->post('beh_q4');
+        $beh_q5 = $this->input->post('beh_q5');
+        $beh_q6 = $this->input->post('beh_q6');
+        $beh_q7 = $this->input->post('beh_q7');
+        $beh_q8 = $this->input->post('beh_q8');
+        $beh_q9 = $this->input->post('beh_q9');
+        $beh_q10 = $this->input->post('beh_q10');
+        $beh_qdesc = $this->input->post('beh_qdesc');
+
+        $this->Student_model->setBehQ1($beh_q1);
+        $this->Student_model->setBehQ2($beh_q2);
+        $this->Student_model->setBehQ3($beh_q3);
+        $this->Student_model->setBehQ4($beh_q4);
+        $this->Student_model->setBehQ5($beh_q5);
+        $this->Student_model->setBehQ6($beh_q6);
+        $this->Student_model->setBehQ7($beh_q7);
+        $this->Student_model->setBehQ8($beh_q8);
+        $this->Student_model->setBehQ9($beh_q9);
+        $this->Student_model->setBehQ10($beh_q10);
+        $this->Student_model->setBehQDesc($beh_qdesc);
 
     }
 
@@ -40,6 +63,7 @@ class Behave extends MY_Controller {
                 $data['button_2'] = $this->Student_model->getStat(2, $stud_id);
                 $data['button_3'] = $this->Student_model->getStat(3, $stud_id);
                 $data['button_4'] = $this->Student_model->getStat(4, $stud_id);
+                $data['button_5'] = $this->Student_model->getStat(5, $stud_id);
                 $data['main_content'] = 'elements/contents/pages/page_student_menu';
                 $this->load->view('layouts/layout_student', $data);
             }

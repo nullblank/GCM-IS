@@ -2,48 +2,6 @@
 //  Nothing will last forever...
 //  Unless it's in a line of code!
 //
-
-//
-//      Happy birthday to me.
-//
-//
-//                                     (
-//                        (
-//                )                    )             (
-//                        )           (o)    )
-//                (      (o)    )     ,|,            )
-//               (o)     ,|,          |~\    (      (o)
-//               ,|,     |~\    (     \ |   (o)     ,|,
-//               \~|     \ |   (o)    |`\   ,|,     |~\
-//               |`\     |`\@@@,|,@@@@\ |@@@\~|     \ |
-//               \ | o@@@\ |@@@\~|@@@@|`\@@@|`\@@@o |`\
-//              o|`\@@@@@|`\@@@|`\@@@@\ |@@@\ |@@@@@\ |o
-//            o@@\ |@@@@@\ |@@@\ |@@@@@@@@@@|`\@@@@@|`\@@o
-//           @@@@|`\@@@@@@@@@@@|`\@@@@@@@@@@\ |@@@@@\ |@@@@
-//           p@@@@@@@@@@@@@@@@@\ |@@@@@@@@@@|`\@@@@@@@@@@@q
-//           @@o@@@@@@@@@@@@@@@|`\@@@@@@@@@@@@@@@@@@@@@@o@@
-//           @:@@@o@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@::@
-//           ::@@::@@o@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@:@@::@
-//           ::@@::@@@@::oo@@@@oo@@@@@ooo@@@@@o:::@@@::::::
-//           %::::::@::::::@@@@:::@@@:::::@@@@:::::@@:::::%
-//           %%::::::::::::@@::::::@:::::::@@::::::::::::%%
-//           ::%%%::::::::::@::::::::::::::@::::::::::%%%::
-//         .#::%::%%%%%%:::::::::::::::::::::::::%%%%%::%::#.
-//       .###::::::%%:::%:%%%%%%%%%%%%%%%%%%%%%:%:::%%:::::###.
-//     .#####::::::%:::::%%::::::%%%%:::::%%::::%::::::::::#####.
-//    .######`:::::::::::%:::::::%:::::::::%::::%:::::::::'######.
-//    .#########``::::::::::::::::::::::::::::::::::::''#########.
-//    `.#############```::::::::::::::::::::::::'''#############.'
-//     `.######################################################.'
-//       ` .###########,._.,,,. #######<_\##################. '
-//          ` .#######,;:      `,/____,__`\_____,_________,_____
-//             `  .###;;;`.   _,;>-,------,,--------,----------'
-//                 `  `,;' ~~~ ,'\######_/'#######  .  '
-//                     ''~`''''    -  .'/;  -    '  
-
-
-
-
 //  This is Elphie Bunny
 //  and she's the debug bunny.
 //                               __
@@ -470,6 +428,37 @@ class Student_model extends CI_model
             'e_datecreated' => date('Y-m-d H:i:s', time())
         );
         $query = $this->db->insert('tbleducation', $data);
+        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
+        // if ($query == true) {
+        //     $data = array(
+        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
+        //         'tablename' => 'tblstudent',
+        //         'userid' => $this->getUserID(),
+        //         'username' => $this->getUserName()
+        //     );
+        //     $this->db->insert('audit', $data);
+        //     return true;
+        // }
+    }
+
+    public function insert_beh() //INSERT
+    { //Update to audit staff		
+        $data = array(      
+            'stud_id' => $this->getSID(),
+            'beh_q1' => $this->getBehQ1(),
+            'beh_q2' => $this->getBehQ2(),
+            'beh_q3' => $this->getBehQ3(),
+            'beh_q4' => $this->getBehQ4(),
+            'beh_q5' => $this->getBehQ5(),
+            'beh_q6' => $this->getBehQ6(),
+            'beh_q7' => $this->getBehQ7(),
+            'beh_q8' => $this->getBehQ8(),
+            'beh_q9' => $this->getBehQ9(),
+            'beh_q10' => $this->getBehQ10(),
+            'beh_qdesc' => $this->getBehQDesc(),
+            'beh_datecreated' => date('Y-m-d H:i:s', time())
+        );
+        $query = $this->db->insert('tblbehave', $data);
         // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
         // if ($query == true) {
         //     $data = array(
@@ -964,6 +953,17 @@ class Student_model extends CI_model
                 return 'elements/contents/buttons/mental_button_disabled'; //if exist
             }else{
                 return 'elements/contents/buttons/mental_button_enabled'; //if null
+            }
+        }
+        if($stat == 5){
+            $this->db->select('*');
+            $this->db->from('tblbehave');
+            $this->db->where('stud_id', $id);				
+            $result=$this->db->get();			
+            if($result->num_rows() > 0){
+                return 'elements/contents/buttons/behave_button_disabled'; //if exist
+            }else{
+                return 'elements/contents/buttons/behave_button_enabled'; //if null
             }
         }
     }
