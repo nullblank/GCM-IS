@@ -13,6 +13,7 @@
   <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/birthday.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/datepicker.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/flowbite.js'); ?>"></script>
 </head>
 
 <style>

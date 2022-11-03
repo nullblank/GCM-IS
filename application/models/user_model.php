@@ -1,12 +1,10 @@
 <?php
 	class User_model extends CI_model{
-		private $userid;	
-		private $id;		
+		private $userid;		
 		private $user_name;
 		private $user_role;
 		private $user_account;
 		private $user_password;
-		private $user_id;
 		private $user_created;
 		private $user_isactive;
 		private $user_photo;
