@@ -10,7 +10,7 @@
             </button>
             <div class="py-6 px-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Enter New User Details</h3>
-                <form class="space-y-6" action="#">
+                <form class="space-y-6" action="<?php echo base_url(); ?>user/profile/addUser/<?php echo $user_items->user_id;?>">
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Account Username</label>
                         <input name="username" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-blue-500 border border-coolGray-200 rounded-lg bg-gray-50 shadow-input" placeholder="JohnDoe12" required>

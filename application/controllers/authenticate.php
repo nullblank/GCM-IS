@@ -22,7 +22,6 @@
 					$session_data = array(
 						'id' => $id,
 						'username' => $username,
-						'created' => $created,
 						'userid' => $userid,
 						'last_login' => date('Y-m-d H:i:s'),
 						'loggedin' => true

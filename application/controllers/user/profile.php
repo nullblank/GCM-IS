@@ -16,9 +16,9 @@ class Profile extends CI_Controller
 		$this->User_model->setUserIsActive($usr_isactive);
 	}
 
-	public function register($stud_id){
+	public function register($stud_id)
+	{
         //form validation rules
-        //complete validation rules later
         $this->form_validation->set_rules('s_first','First Name','required');
         $this->form_validation->set_rules('s_last','Last Name','required');
         $this->form_validation->set_rules('s_mi','Middle Initials','required');
@@ -53,31 +53,13 @@ class Profile extends CI_Controller
 	}
 
 	public function addUser() //not session locked yet
-	{
+	{ 
 		if ($this->session->has_userdata('id')) {
-			$id = $this->session->has_userdata('id');
-			// insert user form
-			if($this->form_validation->run()==FALSE){ //if form fail
-				$data['user'] = $this->User_model->showUser($id);
-				$data['main_content'] = 'elements/contents/pages/page_admin_welcome';
-				$this->load->view('layouts/layout_student', $data);
-			} else {
-				$this->setters();                                                                                                                                                                                                                                                                                                                                                                                           
-				$this->Student_model->insert_students();
-				$data['user'] = $this->User_model->showUser($id);
-				$data['main_content'] = 'elements/contents/pages/page_admin_welcome';
-				$this->load->view('layouts/layout_student', $data);
-			}
-			$data['user'] = $this->User_model->showUser($id);
-			$data['main_content'] = 'elements/contents/pages/page_admin_welcome';
-			$this->load->view('layouts/layout_admin', $data);
+			$this->setters();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->User_model->insert_user();
+			redirect('DashboardAdmin');
 		} else {
 			redirect('login');
 		}
-	}
-
-	public function edit($id)
-	{
-		
 	}
 }
