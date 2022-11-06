@@ -23,11 +23,23 @@ class DashboardAdmin extends MY_Controller
 		$this->session->set_userdata('');
 		$session_data = $this->session->userdata('id');
 		$this->User_model->get_login($session_data);
-		$page = $this->uri->segment(3);
-
 		$data['user'] = $this->User_model->get_login($session_data);
 		$data['main_content'] = 'elements/contents/forms/form_pdi';
 		$this->load->view('layouts/layout_admin', $data);
+	}
+
+	public function Settings(){
+		if ($this->session->has_userdata('id')) {
+			$this->session->set_userdata('');
+			$session_data = $this->session->userdata('id');
+			$this->User_model->get_login($session_data);
+			$data['user'] = $this->User_model->get_login($session_data);
+			$data['schools'] = $this->User_model->get_schools();
+			$data['main_content'] = 'elements/contents/forms/form_settings';
+			$this->load->view('layouts/layout_admin', $data);
+		} else {
+			redirect('login');
+		}
 	}
 }
 ?>

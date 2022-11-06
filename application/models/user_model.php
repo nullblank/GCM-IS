@@ -61,6 +61,13 @@
 			return $query->result();
 		}
 
+		public function get_schools(){
+			$this->db->select('*');
+			$this->db->from('school');			
+			$query=$this->db->get();				
+			return $query->result();
+		}
+
 		public function login_user($username,$password){						
 			$enc_password = md5($password);	
 			$this->db->select('*'); 
