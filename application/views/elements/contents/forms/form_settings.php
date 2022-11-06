@@ -9,7 +9,7 @@
                 </svg>
                 <span class="sr-only">Close modal</span>
             </button>
-            <form class="space-y-6" action="<?php echo base_url(); ?>user/profile/addUser/" method="post">
+            <form class="space-y-6" action="<?php echo base_url(); ?>user/settings/addSchool/" method="post">
                 <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="py-6 px-6 lg:px-8">
@@ -69,14 +69,14 @@
                             </div>
 
                             <!-- table -->
-                            <div class="px-6 overflow-x-auto">
+                            <div class="px-2 overflow-x-auto">
                                 <table class="w-full">
                                     <tr class="whitespace-nowrap h-11 bg-coolGray-50 bg-opacity-80">
                                         <th class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left rounded-l-md">
                                             <p>FULL NAME OF SCHOOL</p>
                                         </th>
                                         <th class="whitespace-nowrap px-4 font-semibold text-xs text-coolGray-500 uppercase text-center">ACRONYM</th>
-                                        <th></th>
+                                        <th></th><th></th>
                                     </tr>
                                     <!--Start item loop-->
                                     <?php if ($schools) : ?>
