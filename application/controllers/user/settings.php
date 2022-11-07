@@ -19,6 +19,46 @@ class Settings extends CI_Controller
 		$this->Settings_model->setReligionName($religion_name);
 		$this->Settings_model->setUPReligionName($religion_upname);
 	}
+
+	public function setBar(){
+		$barangay = $this->input->post('barangay');
+		$upbarangay = $this->input->post('upbarangay');
+		$this->Settings_model->setBarangay($barangay);
+		$this->Settings_model->setUPBarangay($upbarangay);
+	}
+	//Address
+	public function addBarangay()
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setBar();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->insert_barangay();
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+
+	public function editBarangay($id)
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setBar();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->update_barangay($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+
+	public function deleteBarangay($id)
+	{
+		if ($this->session->has_userdata('id')) {
+			$this->setBar();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->delete_barangay($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
 	//Religion
 	public function addReligion()
 	{ 

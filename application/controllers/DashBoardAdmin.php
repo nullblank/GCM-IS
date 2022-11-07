@@ -36,6 +36,7 @@ class DashboardAdmin extends MY_Controller
 			$data['user'] = $this->User_model->get_login($session_data);
 			$data['schools'] = $this->Settings_model->get_schools();
 			$data['religions'] = $this->Settings_model->get_religions();
+			$data['barangays'] = $this->Settings_model->get_barangay();
 			$data['main_content'] = 'elements/contents/forms/form_settings';
 			$this->load->view('layouts/layout_admin', $data);
 		} else {
