@@ -40,6 +40,13 @@ class Settings extends CI_Controller
 		$this->Settings_model->setProvince($province);
 		$this->Settings_model->setUPProvince($upprovince);
 	}
+
+	public function setCourse(){
+		$course = $this->input->post('course');
+		$upcourse = $this->input->post('upcourse');
+		$this->Settings_model->setCourse($course);
+		$this->Settings_model->setUPCourse($upcourse);
+	}
 	//Address
 	public function addBarangay()
 	{ 
@@ -72,6 +79,17 @@ class Settings extends CI_Controller
 		}
 	}
 
+	public function addCourse()
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setCourse();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->insert_course();
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+
 	public function editBarangay($id)
 	{ 
 		if ($this->session->has_userdata('id')) {
@@ -97,6 +115,17 @@ class Settings extends CI_Controller
 		if ($this->session->has_userdata('id')) {
 			$this->setPro();                                                                                                                                                                                                                                                                                                                                                                                           
 			$this->Settings_model->update_province($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+
+	public function editCourse($id)
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setCourse();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->update_course($id);
 			redirect('DashboardAdmin/Settings');
 		} else {
 			redirect('login');
@@ -194,6 +223,17 @@ class Settings extends CI_Controller
 		if ($this->session->has_userdata('id')) {
 			$this->setSchool();                                                                                                                                                                                                                                                                                                                                                                                           
 			$this->Settings_model->delete_school($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+
+	public function deleteCourse($id)
+	{
+		if ($this->session->has_userdata('id')) {
+			$this->setCourse();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->delete_course($id);
 			redirect('DashboardAdmin/Settings');
 		} else {
 			redirect('login');

@@ -1,12 +1,18 @@
 <?php
 	class Settings_model extends CI_model{
         private $schoolfullname, $schoolacro;
-        private $up_schoolfullname, $up_schoolacro;
-
-		private $rel_name, $rel_upname;
-
+        private $up_schoolfullname, $up_schoolacro; //Update Variables
+		private $rel_name;
+		private $rel_upname;
 		private $barangay, $municipality, $province;
-		private $upbarangay, $upmunicipality, $upprovince;
+		private $upbarangay, $upmunicipality, $upprovince; //Update Variables
+		private $course;
+		private $upcourse; //Update Variables
+		//Course
+		public function setCourse($FormData){$this->course = $FormData;}
+		public function getCourse(){return $this->course;}
+		public function setUPCourse($FormData){$this->upcourse = $FormData;}
+		public function getUPCourse(){return $this->upcourse;}
 		//Address
 		public function setBarangay($FormData){$this->barangay = $FormData;}
 		public function setMunicipality($FormData){$this->municipality = $FormData;}
@@ -14,8 +20,7 @@
 		public function getBarangay(){ return $this->barangay;}
 		public function getMunicipality(){ return $this->municipality;}
 		public function getProvince(){ return $this->province;}
-
-		public function setUPBarangay($FormData){$this->upbarangay = $FormData;}
+		public function setUPBarangay($FormData){$this->upbarangay = $FormData;} //Update Variables
 		public function setUPMunicipality($FormData){$this->upmunicipality = $FormData;}
 		public function setUPProvince($FormData){$this->upprovince = $FormData;}
 		public function getUPBarangay(){ return $this->upbarangay;}
@@ -26,17 +31,42 @@
         public function getSchoolFullName(){ return $this->schoolfullname;}
         public function setSchoolAcronym($FormData){$this->schoolacro = $FormData;}
         public function getSchoolAcronym(){ return $this->schoolacro;}
-        public function setUPSchoolFullName($FormData){$this->up_schoolfullname = $FormData;}
+        public function setUPSchoolFullName($FormData){$this->up_schoolfullname = $FormData;} //Update Variables
         public function getUPSchoolFullName(){ return $this->up_schoolfullname;}
         public function setUPSchoolAcronym($FormData){$this->up_schoolacro = $FormData;}
         public function getUPSchoolAcronym(){ return $this->up_schoolacro;}
 		//Religion
 		public function setReligionName($FormData){$this->rel_name = $FormData;}
 		public function getReligionName(){return $this->rel_name;}
-		public function setUPReligionName($FormData){$this->rel_upname = $FormData;}
+		public function setUPReligionName($FormData){$this->rel_upname = $FormData;} //Update Variables
 		public function getUPReligionName(){return $this->rel_upname;}
-
-		//address
+		//Course
+		public function get_courses(){
+			$this->db->select('*');
+			$this->db->from('courses');			
+			$query=$this->db->get();				
+			return $query->result();
+		}
+		public function insert_course(){	
+			$data = array(                       
+				'course' => $this->getCourse(),
+			);
+			$query = $this->db->insert('courses', $data);
+    	}
+		public function update_course($id){
+			if ($this->getUPCourse()){
+				$data = array(                       
+					'course' => $this->getUPCourse(),
+				);
+				$this->db->where('id', $id);
+				$query = $this->db->update('courses', $data);
+			} else {}
+    	}
+		public function delete_course($id){
+			$this->db->where('id', $id);
+			$query = $this->db->delete('courses');
+    	}
+		//Address
 		public function get_barangay(){
 			$this->db->select('*');
 			$this->db->from('barangay');			
