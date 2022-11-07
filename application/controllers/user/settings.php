@@ -26,12 +26,46 @@ class Settings extends CI_Controller
 		$this->Settings_model->setBarangay($barangay);
 		$this->Settings_model->setUPBarangay($upbarangay);
 	}
+
+	public function setMun(){
+		$municipality = $this->input->post('municipality');
+		$upmunicipality = $this->input->post('upmunicipality');
+		$this->Settings_model->setMunicipality($municipality);
+		$this->Settings_model->setUPMunicipality($upmunicipality);
+	}
+
+	public function setPro(){
+		$province = $this->input->post('province');
+		$upprovince = $this->input->post('upprovince');
+		$this->Settings_model->setProvince($province);
+		$this->Settings_model->setUPProvince($upprovince);
+	}
 	//Address
 	public function addBarangay()
 	{ 
 		if ($this->session->has_userdata('id')) {
 			$this->setBar();                                                                                                                                                                                                                                                                                                                                                                                           
 			$this->Settings_model->insert_barangay();
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+	public function addMunicipality()
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setMun();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->insert_municipality();
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+	public function addProvince()
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setPro();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->insert_province();
 			redirect('DashboardAdmin/Settings');
 		} else {
 			redirect('login');
@@ -48,12 +82,52 @@ class Settings extends CI_Controller
 			redirect('login');
 		}
 	}
+	public function editMunicipality($id)
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setMun();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->update_municipality($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+	public function editProvince($id)
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setPro();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->update_province($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
 
 	public function deleteBarangay($id)
 	{
 		if ($this->session->has_userdata('id')) {
 			$this->setBar();                                                                                                                                                                                                                                                                                                                                                                                           
 			$this->Settings_model->delete_barangay($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+	public function deleteMunicipality($id)
+	{
+		if ($this->session->has_userdata('id')) {
+			$this->setMun();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->delete_municipality($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+	public function deleteProvince($id)
+	{
+		if ($this->session->has_userdata('id')) {
+			$this->setPro();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->delete_province($id);
 			redirect('DashboardAdmin/Settings');
 		} else {
 			redirect('login');

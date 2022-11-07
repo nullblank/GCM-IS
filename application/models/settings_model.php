@@ -61,18 +61,22 @@
 				'barangay' => $this->getBarangay(),
 			);
 			$query = $this->db->insert('barangay', $data);
-			// AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
-			// if ($query == true) {
-			//     $data = array(
-			//         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
-			//         'tablename' => 'tblstudent',
-			//         'userid' => $this->getUserID(),
-			//         'username' => $this->getUserName()
-			//     );
-			//     $this->db->insert('audit', $data);
-			//     return true;
-			//
     	}
+
+		public function insert_municipality(){	
+			$data = array(                       
+				'municipality' => $this->getMunicipality(),
+			);
+			$query = $this->db->insert('municipality', $data);
+    	}
+
+		public function insert_province(){	
+			$data = array(                       
+				'province' => $this->getProvince(),
+			);
+			$query = $this->db->insert('province', $data);
+    	}
+
 		public function update_barangay($id){
 			if ($this->getUPBarangay()){
 				$data = array(                       
@@ -81,33 +85,41 @@
 				$this->db->where('id', $id);
 				$query = $this->db->update('barangay', $data);
 			} else {}
-			// AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
-			// if ($query == true) {
-			//     $data = array(
-			//         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
-			//         'tablename' => 'tblstudent',
-			//         'userid' => $this->getUserID(),
-			//         'username' => $this->getUserName()
-			//     );
-			//     $this->db->insert('audit', $data);
-			//     return true;
-			//
+    	}
+
+		public function update_municipality($id){
+			if ($this->getUPMunicipality()){
+				$data = array(                       
+					'municipality' => $this->getUPMunicipality(),
+				);
+				$this->db->where('id', $id);
+				$query = $this->db->update('municipality', $data);
+			} else {}
+    	}
+
+		public function update_province($id){
+			if ($this->getUPProvince()){
+				$data = array(                       
+					'province' => $this->getUPProvince(),
+				);
+				$this->db->where('id', $id);
+				$query = $this->db->update('province', $data);
+			} else {}
     	}
 
 		public function delete_barangay($id){
 			$this->db->where('id', $id);
 			$query = $this->db->delete('barangay');
-			// AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
-			// if ($query == true) {
-			//     $data = array(
-			//         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
-			//         'tablename' => 'tblstudent',
-			//         'userid' => $this->getUserID(),
-			//         'username' => $this->getUserName()
-			//     );
-			//     $this->db->insert('audit', $data);
-			//     return true;
-			//
+    	}
+
+		public function delete_municipality($id){
+			$this->db->where('id', $id);
+			$query = $this->db->delete('municipality');
+    	}
+
+		public function delete_province($id){
+			$this->db->where('id', $id);
+			$query = $this->db->delete('province');
     	}
 
 		//religion
