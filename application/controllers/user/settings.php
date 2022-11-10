@@ -47,6 +47,44 @@ class Settings extends CI_Controller
 		$this->Settings_model->setCourse($course);
 		$this->Settings_model->setUPCourse($upcourse);
 	}
+
+	public function setEth(){
+		$ethnicity = $this->input->post('ethnicity');
+		$upethnicity = $this->input->post('upethnicity');
+		$this->Settings_model->setEthnicity($ethnicity);
+		$this->Settings_model->setUPEthnicity($upethnicity);
+	}
+	//Ethnicity
+	public function addEthnicity()
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setEth();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->insert_ethnicity();
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+	public function editEthnicity($id)
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$this->setEth();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->update_ethnicity($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
+	public function deleteEthnicity($id)
+	{
+		if ($this->session->has_userdata('id')) {
+			$this->setEth();                                                                                                                                                                                                                                                                                                                                                                                           
+			$this->Settings_model->delete_ethnicity($id);
+			redirect('DashboardAdmin/Settings');
+		} else {
+			redirect('login');
+		}
+	}
 	//Address
 	public function addBarangay()
 	{ 

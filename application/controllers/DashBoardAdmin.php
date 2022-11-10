@@ -40,6 +40,7 @@ class DashboardAdmin extends MY_Controller
 			$data['municipalities'] = $this->Settings_model->get_municipality();
 			$data['provinces'] = $this->Settings_model->get_province();
 			$data['courses'] = $this->Settings_model->get_courses();
+			$data['ethnicities'] = $this->Settings_model->get_ethnicities();
 			$data['main_content'] = 'elements/contents/forms/form_settings';
 			$this->load->view('layouts/layout_admin', $data);
 		} else {

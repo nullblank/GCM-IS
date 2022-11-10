@@ -8,6 +8,12 @@
 		private $upbarangay, $upmunicipality, $upprovince; //Update Variables
 		private $course;
 		private $upcourse; //Update Variables
+		private $ethnicity, $upethnicity;
+		//Ethnicity
+		public function setEthnicity($FormData){$this->ethnicity = $FormData;}
+		public function getEthnicity(){return $this->ethnicity;}
+		public function setUPEthnicity($FormData){$this->upethnicity = $FormData;}
+		public function getUPEthnicity(){return $this->upethnicity;}
 		//Course
 		public function setCourse($FormData){$this->course = $FormData;}
 		public function getCourse(){return $this->course;}
@@ -40,6 +46,33 @@
 		public function getReligionName(){return $this->rel_name;}
 		public function setUPReligionName($FormData){$this->rel_upname = $FormData;} //Update Variables
 		public function getUPReligionName(){return $this->rel_upname;}
+		
+		//Ethnicity
+		public function get_ethnicities(){
+			$this->db->select('*');
+			$this->db->from('ethnicity');			
+			$query=$this->db->get();				
+			return $query->result();
+		}
+		public function insert_ethnicity(){	
+			$data = array(                       
+				'ethnicity' => $this->getEthnicity(),
+			);
+			$query = $this->db->insert('ethnicity', $data);
+    	}
+		public function update_ethnicity($id){
+			if ($this->getUPEthnicity()){
+				$data = array(                       
+					'ethnicity' => $this->getUPEthnicity(),
+				);
+				$this->db->where('id', $id);
+				$query = $this->db->update('ethnicity', $data);
+			} else {}
+    	}
+		public function delete_ethnicity($id){
+			$this->db->where('id', $id);
+			$query = $this->db->delete('ethnicity');
+    	}
 		//Course
 		public function get_courses(){
 			$this->db->select('*');
