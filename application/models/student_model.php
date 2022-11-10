@@ -707,11 +707,11 @@ class Student_model extends CI_model
         return $this->db->count_all('tblstudents');
     }
 
-    public function get_students($limit, $offset)
+    public function get_students()
     {
-        $this->db->limit($limit, $offset);
+        $this->db->limit(10);
         $this->db->select('*');
-        $this->db->from('tblstudent');
+        $this->db->from('tblstudents');
         $query = $this->db->get();
         return $query->result();
     }
