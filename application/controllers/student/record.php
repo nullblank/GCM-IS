@@ -155,4 +155,13 @@ class Record extends MY_Controller
             }
         }
     }
+
+    public function view($id){
+        $id=$this->input->post('sid');
+        $data['student'] = $this->Record_model->get_student($id);
+        $data['main_content'] = 'elements/contents/forms/form_studrec';
+		$this->load->view('layouts/layout_admin', $data);
+    }
+
+
 }

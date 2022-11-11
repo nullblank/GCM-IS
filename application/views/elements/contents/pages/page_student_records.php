@@ -110,12 +110,22 @@
                                 </th>
                                 <th class="whitespace-nowrap px-4 bg-white text-left">
                                     <div class="flex items-center -m-2">
+                                    
+
+
+                                    <form method="post" action="<?php echo base_url(); ?>student/record/view/">
+                                    <input type='hidden' name='sid' value='<?php echo $stud_id; ?>' />
                                         <div class="w-auto p-2">
-                                            <button type="button" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm border border-blue-500 rounded-md shadow-button">
+                                            <button type="submit" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm border border-blue-500 rounded-md shadow-button">
                                                 View Records
                                             </button>
                                         </div>
                                     </div>
+                                    </form>
+
+
+
+
                                 </th>
                             </tr>
                         <?php endforeach; ?>
