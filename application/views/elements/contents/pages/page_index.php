@@ -48,24 +48,29 @@
                     <div class="w-full md:w-1/2 px-4 mb-16 md:mb-0">
 
                         <h1 class="ml-6 mb-6 text-3xl md:text-5xl lg:text-6xl leading-tight text-white font-bold tracking-tight">The Guidance and Testing office is here for you!</h1>
-                        <p class="ml-6 mb-8 text-lg md:text-xl text-coolGray-400 font-medium">To get started, please enter your ID Number below and fill out the forms. If you have done this before, you may head straight to the office for any corrections or to schedule your first counseling session. </p>
-                        
-                        <form method="post" action="<?php echo base_url(); ?>student/record/chk_id">
-                            <div class="ml-6 flex flex-wrap">
-                                <div class="w-full md:w-3/6">
-                                    <input maxlength="8" name="stud_id" type="text" placeholder="Enter your ID number." class="h-12 w-full px-3.5 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                        <p class="ml-6 mb-8 text-lg md:text-xl leading-relaxed text-coolGray-400 font-medium max-w-5xl">To get started, please enter your ID Number below and fill out the forms. If you have done this before, you may head straight to the office for any corrections or to schedule your first counseling session.</p>
+                        <div class="md:max-w-md">
+                            <form method="post" action="<?php echo base_url(); ?>student/record/chk_id">
+                                <div class=" ml-6 flex flex-wrap mb-1">
+                                    <div class="w-full md:flex-1 mb-3 md:mb-0 md:mr-6">
+                                        <input required type="text" name="stud_id" placeholder="Enter your ID number" class="w-full py-3 px-4 text-coolGray-500 leading-tight placeholder-coolGray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-coolGray-200 rounded-lg shadow-xsm">
+                                    </div>
+                                    <div class="w-full md:w-auto">
+                                        <button type="submit" class="inline-block py-3 px-10 w-full leading-5 text-white bg-blue-500 hover:bg-blue-600 font-medium text-center focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 border border-transparent rounded-md shadow-sm" href="#">
+                                            Submit
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="w-full md:w-2/6">
-                                    <button class="inline-block py-4 px-6 w-full text-base md:text-lg leading-4 text-blue-100 font-medium text-center bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 rounded-md shadow-sm ml-2" name="submit" type="submit">Submit</button>
-                                </div>
-                            </div>
-                            <div class="ml-6 flex flex-wrap text-red-500">
-                                <?php if ($this->session->flashdata('id_exist')) : ?>
-                                    <?php echo '<p>' . $this->session->flashdata('id_exist') . '</p>'; ?>
-                                <?php endif; ?>
-                            </div>
-                        </form>
-                        
+                                <span class="ml-6 text-xs text-coolGray-500 font-medium">
+                                    <span>We care about your data in our</span>
+                                    <a class="text-blue-500 hover:text-blue-600" href="#">privacy policy</a><br />
+                                    <?php if ($this->session->flashdata('id_exist')) : ?>
+                                        <?php echo '<span class="ml-6 text-red-500">' . $this->session->flashdata('id_exist') . '</span>'; ?>
+                                    <?php endif; ?>
+                                </span>
+                            </form>
+                        </div>
+
                     </div>
                     <div class="w-full md:w-1/2 px-4">
                         <div class="relative mx-auto md:mr-0 max-w-max">
@@ -81,6 +86,8 @@
             </svg>
         </div>
     </section>
+
+
 
     <section class="py-20 md:py-24 bg-white" style="background-image: url('<?php echo base_url(); ?>assets/flex-ui-assets/elements/pattern-white.svg'); background-position: center;">
         <div class="container px-4 mx-auto">

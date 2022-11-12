@@ -114,7 +114,7 @@
 
 
                                     <form method="post" action="<?php echo base_url(); ?>student/record/view/">
-                                    <input type='hidden' name='sid' value='<?php echo $stud_id; ?>' />
+                                    <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
                                         <div class="w-auto p-2">
                                             <button type="submit" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm border border-blue-500 rounded-md shadow-button">
                                                 View Records

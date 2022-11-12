@@ -8,7 +8,12 @@
             $this->db->from('tblstudents');
             $this->db->where('stud_id', $id);
             $query = $this->db->get();
-            return $query->result();
+            if ($query->num_rows() == 0){
+                return false;
+            } else {
+                return $query->row();
+            }
+            
         }
 
 
