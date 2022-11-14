@@ -165,6 +165,37 @@ class Record extends MY_Controller
             $data['user'] = $this->User_model->get_login($session_data);
             $data['student'] = $this->Record_model->get_student($id);
             $data['main_content'] = 'elements/contents/forms/form_studrec';
+            $data['record_content'] = 'elements/contents/pages/blank';
+            $this->load->view('layouts/layout_admin', $data);
+        } else {
+            redirect('login');
+        }
+    }
+
+    public function viewrecord($page){
+        if ($this->session->has_userdata('id')) {
+            $id=$this->input->post('sid');
+            $this->session->set_userdata('');
+            $session_data = $this->session->userdata('id');
+            $this->User_model->get_login($session_data);
+            $data['user'] = $this->User_model->get_login($session_data);
+            $data['student'] = $this->Record_model->get_student($id);
+            $data['main_content'] = 'elements/contents/forms/form_studrec';
+            if ($page == 'pi') {
+                $data['record_content'] = 'elements/contents/pages/page_record_personal_information';
+            }
+            else if ($page == 'educ') {
+                $data['record_content'] = 'elements/contents/pages/page_record_educational_background';
+            }
+            else if ($page == 'med') {
+                $data['record_content'] = 'elements/contents/pages/page_record_medical_history';
+            }
+            else if ($page == 'men') {
+                $data['record_content'] = 'elements/contents/pages/page_record_mental_health';
+            }
+            else if ($page == 'sur') {
+                $data['record_content'] = 'elements/contents/pages/page_record_survey';
+            }
             $this->load->view('layouts/layout_admin', $data);
         } else {
             redirect('login');
