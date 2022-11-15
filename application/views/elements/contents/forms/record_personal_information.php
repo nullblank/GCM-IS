@@ -167,7 +167,7 @@
             </div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Date of Birth</p>
-                <input value="<?php echo $student->s_bday; ?>" name="s_bday" datepicker onblur="ageCalculator()" id="DOB" type="text" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" placeholder="Please select your birthday">
+                <input value="<?php echo $student->s_bday; ?>" name="s_bday" datepicker onblur="ageCalculator()" id="DOB" type="text" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none bg-white focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" placeholder="Please select your birthday">
             </div>
             <div class="w-full md:w-1/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Age</p>
