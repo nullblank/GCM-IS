@@ -180,6 +180,13 @@ class Record extends MY_Controller
             $this->User_model->get_login($session_data);
             $data['user'] = $this->User_model->get_login($session_data);
             $data['student'] = $this->Record_model->get_student($id);
+            $data['courses'] = $this->Student_model->getCourses();
+            $data['nor'] = $this->Student_model->getNOR();
+            $data['eth'] = $this->Student_model->getEthnicity();
+            $data['religion'] = $this->Student_model->getReligion();
+            $data['brgy'] = $this->Student_model->getBarangay();
+            $data['municipality'] = $this->Student_model->getMunicipality();		
+            $data['province'] = $this->Student_model->getProvince();
             $data['main_content'] = 'elements/contents/forms/form_studrec';
             if ($page == 'pi') {
                 $data['record_content'] = 'elements/contents/pages/page_record_personal_information';
@@ -195,6 +202,43 @@ class Record extends MY_Controller
             }
             else if ($page == 'sur') {
                 $data['record_content'] = 'elements/contents/pages/page_record_survey';
+            }
+            $this->load->view('layouts/layout_admin', $data);
+        } else {
+            redirect('login');
+        }
+    }
+
+    public function editrecord($page){
+        if ($this->session->has_userdata('id')) {
+            $id=$this->input->post('sid');
+            $this->session->set_userdata('');
+            $session_data = $this->session->userdata('id');
+            $this->User_model->get_login($session_data);
+            $data['user'] = $this->User_model->get_login($session_data);
+            $data['student'] = $this->Record_model->get_student($id);
+            $data['courses'] = $this->Student_model->getCourses();
+            $data['nor'] = $this->Student_model->getNOR();
+            $data['eth'] = $this->Student_model->getEthnicity();
+            $data['religion'] = $this->Student_model->getReligion();
+            $data['brgy'] = $this->Student_model->getBarangay();
+            $data['municipality'] = $this->Student_model->getMunicipality();		
+            $data['province'] = $this->Student_model->getProvince();
+            $data['main_content'] = 'elements/contents/forms/form_studrec';
+            if ($page == 'pi') {
+                $data['record_content'] = 'elements/contents/forms/record_personal_information';
+            }
+            else if ($page == 'educ') {
+                $data['record_content'] = 'elements/contents/forms/record_educational_background';
+            }
+            else if ($page == 'med') {
+                $data['record_content'] = 'elements/contents/forms/record_medical_history';
+            }
+            else if ($page == 'men') {
+                $data['record_content'] = 'elements/contents/forms/record_mental_health';
+            }
+            else if ($page == 'sur') {
+                $data['record_content'] = 'elements/contents/forms/record_survey';
             }
             $this->load->view('layouts/layout_admin', $data);
         } else {

@@ -67,6 +67,8 @@
                     </div>
                 </div>
             </div>
+            
+            
 
             <?php $this->load->view($record_content); ?>
 
