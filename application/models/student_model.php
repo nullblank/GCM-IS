@@ -365,6 +365,60 @@ class Student_model extends CI_model
     public function getSearchBy() { return $this->searchKey; }
 
     //CRUD
+
+    public function update_course($id){
+        if ($this->getUPCourse()){
+            $data = array(                       
+                'course' => $this->getUPCourse(),
+            );
+            $this->db->where('id', $id);
+            $query = $this->db->update('courses', $data);
+        } else {}
+    }
+
+
+    public function update_student($id){ //Update to audit staff		
+        $data = array(                              //Table DRAFT
+            'stud_id' => $this->getSID(),              //int(11) NN
+            's_first' => $this->getSFName(),        //varchar(50) NN, NULL
+            's_last' => $this->getSLName(),         //varchar(50) NN, NULL
+            's_mi' => $this->getSMI(),              //varchar(25) NN, NULL
+            's_course' => $this->getSCourse(),
+            's_year' => $this->getSYear(),
+            's_stat' => $this->getSStat(),          //varchar(25) NN, NULL
+            's_email' => $this->getSEmail(),
+            's_gender' => $this->getSGender(),      //varchar(25) NN, NULL
+            's_bday' => $this->getSBDay(),          //varchar(25) NN, NULL
+            's_age' => $this->getSAge(),            //int(5) NN, NULL
+            's_eth' => $this->getSEth(),            //varchar(25) NN, NULL
+            's_rel' => $this->getSRel(),            //varchar(25) NN, NULL
+            's_marstat' => $this->getSmarstat(),    //varchar(45) NN, NULL
+            's_nspouse' => $this->getSNSpouse(),    //varchar(80) NN, NULL
+            's_nchild' => $this->getSNChild(),      //int(2) NN, NULL
+            's_brgy' => $this->getSBrgy(),          //varchar(45) NN, NULL
+            's_muni' => $this->getSMuni(),          //varchar(45) NN, NULL
+            's_provi' => $this->getSProvi(),        //varchar(45) NN, NULL
+            's_nor' => $this->getSNOR(),            //varchar(45) NN, NULL
+            's_guardn' => $this->getSGuardn(),      //varchar(80) NN, NULL
+            's_guardno' => $this->getSGuardno(),    //int(11) NN, NULL
+            's_guardadd' => $this->getSGuardadd(),   //varchar(200) NN, NULL
+            's_guardrel' => $this->getSGuardrel(),  //varchar(20) NN, NULL
+        );
+        $this->db->where('stud_id', $id);
+        $query = $this->db->update('tblstudents', $data);
+        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
+        // if ($query == true) {
+        //     $data = array(
+        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
+        //         'tablename' => 'tblstudent',
+        //         'userid' => $this->getUserID(),
+        //         'username' => $this->getUserName()
+        //     );
+        //     $this->db->insert('audit', $data);
+        //     return true;
+        // }
+    }
+
     public function insert_students() //INSERT
     { //Update to audit staff		
         $data = array(                              //Table DRAFT

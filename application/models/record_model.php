@@ -2,6 +2,7 @@
     class Record_model extends CI_model {
 
 
+
         public function get_student($id)
         {
             $this->db->select('*');
