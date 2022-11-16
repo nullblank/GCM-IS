@@ -10,6 +10,9 @@
                         </div>
                         <div class="w-full md:w-1/6 p-3"></div>
                         <div class="w-full md:w-1/6 p-3">
+                            <a href="<?php echo base_url('DashboardAdmin/StudentRecords');?>" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
+                                Print
+                            </a>
                         </div>
                         <div class="w-full md:w-1/6 p-3">
                             <a href="<?php echo base_url('DashboardAdmin/StudentRecords');?>" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">

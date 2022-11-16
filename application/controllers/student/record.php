@@ -3,6 +3,11 @@ class Record extends MY_Controller
 {
     public function setters(){ //Did not set user session ID for debugging
 
+        //User Data
+        $uid = $this->input->post('uid');
+        $un = $this->input->post('un');
+        $this->Student_model->setUserID($uid);
+        $this->Student_model->setUserName($un);
         //Student Data
         $stud_id=$this->input->post('s_id');
         $stud_first=$this->input->post('s_first');
@@ -264,7 +269,6 @@ class Record extends MY_Controller
         if ($this->session->has_userdata('id')) {
             $this->setters();
             $this->Student_model->update_student($id);
-            $data['student'] = $this->Record_model->get_student($id);
             if ($page == 'pi') {
                 $data['record_content'] = 'elements/contents/pages/page_record_personal_information';
             }

@@ -37,7 +37,7 @@ class Student_model extends CI_model
 {
     
     //>>Student
-    private $userid, $s_id;
+    private $userid, $s_id, $username;
     private $s_first, $s_last, $s_mi;
     private $s_course, $s_year;
     private $s_email;
@@ -198,6 +198,7 @@ class Student_model extends CI_model
     public function setECHonor($educ_chonor) { $this->e_chonor = $educ_chonor; }
     //PDI
     public function setUserID($UserID) { $this->userid = $UserID; } //For account logging
+    public function setUserName($UserID) { $this->username = $UserID; } //For account logging
     public function setSID($stud_id) { $this->s_id = $stud_id; }
     public function setSFName($stud_first) { $this->s_first = $stud_first; }
     public function setSLName($stud_last) { $this->s_last = $stud_last; }
@@ -336,6 +337,7 @@ class Student_model extends CI_model
     public function getECHonor() { return $this->e_chonor; }
     //PDI
     public function getUserID() { return $this->userid; } //For account logging
+    public function getUserName() { return $this->username; } //For account logging
     public function getSID() { return $this->s_id; }
     public function getSFName() { return $this->s_first; }
     public function getSLName() { return $this->s_last; }
@@ -365,18 +367,6 @@ class Student_model extends CI_model
     public function getSearchBy() { return $this->searchKey; }
 
     //CRUD
-
-    public function update_course($id){
-        if ($this->getUPCourse()){
-            $data = array(                       
-                'course' => $this->getUPCourse(),
-            );
-            $this->db->where('id', $id);
-            $query = $this->db->update('courses', $data);
-        } else {}
-    }
-
-
     public function update_student($id){ //Update to audit staff		
         $data = array(                              //Table DRAFT
             'stud_id' => $this->getSID(),              //int(11) NN
@@ -406,17 +396,16 @@ class Student_model extends CI_model
         );
         $this->db->where('stud_id', $id);
         $query = $this->db->update('tblstudents', $data);
-        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
-        // if ($query == true) {
-        //     $data = array(
-        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
-        //         'tablename' => 'tblstudent',
-        //         'userid' => $this->getUserID(),
-        //         'username' => $this->getUserName()
-        //     );
-        //     $this->db->insert('audit', $data);
-        //     return true;
-        // }
+        if ($query and $this->getUserID()) {
+            $data = array(
+                'action' => 'UPDATED the record of ' . $this->getSFName() . ' ' . $this->getSLName(),
+                'tablename' => 'tblstudents',
+                'userid' => $this->getUserID(),
+                'username' => $this->getUserName()
+            );
+            $this->db->insert('audit', $data);
+            return true;
+        }
     }
 
     public function insert_students() //INSERT
@@ -449,17 +438,16 @@ class Student_model extends CI_model
             's_datecreated' => date('Y-m-d H:i:s', time())                //TIMESTAMP, NN, CURRENT_TIMESTAMP
         );
         $query = $this->db->insert('tblstudents', $data);
-        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
-        // if ($query == true) {
-        //     $data = array(
-        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
-        //         'tablename' => 'tblstudent',
-        //         'userid' => $this->getUserID(),
-        //         'username' => $this->getUserName()
-        //     );
-        //     $this->db->insert('audit', $data);
-        //     return true;
-        // }
+        if ($query == true) {
+            $data = array(
+                'action' => 'REGISTERED the record of ' . $this->getSFName() . ' ' . $this->getSLName(),
+                'tablename' => 'tblstudent',
+                'userid' => $this->getSID(),
+                'username' => $this->getSFName() . ' ' . $this->getSLName()
+            );
+            $this->db->insert('audit', $data);
+            return true;
+        }
     }
 
     public function insert_educ() //INSERT
