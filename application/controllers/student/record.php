@@ -179,39 +179,35 @@ class Record extends MY_Controller
 
     public function viewrecord($page){
         if ($this->session->has_userdata('id')) {
-            $id=$this->input->post('sid');
+            
             $this->session->set_userdata('');
             $session_data = $this->session->userdata('id');
             $this->User_model->get_login($session_data);
             $data['user'] = $this->User_model->get_login($session_data);
-            $data['courses'] = $this->Student_model->getCourses();
-            $data['nor'] = $this->Student_model->getNOR();
-            $data['eth'] = $this->Student_model->getEthnicity();
-            $data['religion'] = $this->Student_model->getReligion();
-            $data['brgy'] = $this->Student_model->getBarangay();
-            $data['municipality'] = $this->Student_model->getMunicipality();		
-            $data['province'] = $this->Student_model->getProvince();
-            $data['main_content'] = 'elements/contents/forms/form_studrec';
-            if ($page == 'pi') {
-                $data['record_content'] = 'elements/contents/pages/page_record_personal_information';
-            }
-            else if ($page == 'educ') {
-                $data['record_content'] = 'elements/contents/pages/page_record_educational_background';
-            }
-            else if ($page == 'med') {
-                $data['record_content'] = 'elements/contents/pages/page_record_medical_history';
-            }
-            else if ($page == 'men') {
-                $data['record_content'] = 'elements/contents/pages/page_record_mental_health';
-            }
-            else if ($page == 'sur') {
-                $data['record_content'] = 'elements/contents/pages/page_record_survey';
-            }
-            $data['student'] = $this->Record_model->get_student($id);
+
+            $data = $this->getDataArray($page, $data);
+
             $this->load->view('layouts/layout_admin', $data);
         } else {
             redirect('login');
         }
+    }
+
+    public function getDataArray($page, $data){
+        $id=$this->input->post('sid');
+        $data['courses'] = $this->Student_model->getCourses();
+        $data['nor'] = $this->Student_model->getNOR();
+        $data['eth'] = $this->Student_model->getEthnicity();
+        $data['religion'] = $this->Student_model->getReligion();
+        $data['brgy'] = $this->Student_model->getBarangay();
+        $data['municipality'] = $this->Student_model->getMunicipality();		
+        $data['province'] = $this->Student_model->getProvince();
+        $data['main_content'] = 'elements/contents/forms/form_studrec';
+        $data['student'] = $this->Record_model->get_student($id);
+        $data['record_content'] = $this->pagelist($page, $id);
+        $data['educ'] = $this->Record_model->get_education($id);
+        $data['schools'] = $this->Student_model->getSchools($id);
+        return $data;
     }
 
     public function editrecord($page){
@@ -221,14 +217,7 @@ class Record extends MY_Controller
             $session_data = $this->session->userdata('id');
             $this->User_model->get_login($session_data);
             $data['user'] = $this->User_model->get_login($session_data);
-            $data['courses'] = $this->Student_model->getCourses();
-            $data['nor'] = $this->Student_model->getNOR();
-            $data['eth'] = $this->Student_model->getEthnicity();
-            $data['religion'] = $this->Student_model->getReligion();
-            $data['brgy'] = $this->Student_model->getBarangay();
-            $data['municipality'] = $this->Student_model->getMunicipality();		
-            $data['province'] = $this->Student_model->getProvince();
-            $data['main_content'] = 'elements/contents/forms/form_studrec';
+            $data = $this->getDataArray($page, $data);
             if ($page == 'pi') {
                 $data['record_content'] = 'elements/contents/forms/record_personal_information';
             }
@@ -251,6 +240,31 @@ class Record extends MY_Controller
         }
     }
 
+    public function pagelist($page, $id) {
+        if ($page == 'pi') {
+            return 'elements/contents/pages/page_record_personal_information';
+        }
+        else if ($page == 'educ') {
+            if ($this->Record_model->get_education($id)){
+                return 'elements/contents/pages/page_record_educational_background';
+            } else {
+                return 'elements/contents/pages/page_record_no';
+            }
+        }
+        else if ($page == 'med') {
+            return 'elements/contents/pages/page_record_medical_history';
+        }
+        else if ($page == 'men') {
+            return 'elements/contents/pages/page_record_mental_health';
+        }
+        else if ($page == 'sur') {
+            return "elements/contents/pages/page_record_survey";
+        }
+        else {
+            return false;
+        }
+    }
+
     public function updaterecord($page){
         $id=$this->input->post('sid');
         $this->session->set_userdata('');
@@ -269,21 +283,7 @@ class Record extends MY_Controller
         if ($this->session->has_userdata('id')) {
             $this->setters();
             $this->Student_model->update_student($id);
-            if ($page == 'pi') {
-                $data['record_content'] = 'elements/contents/pages/page_record_personal_information';
-            }
-            else if ($page == 'educ') {
-                $data['record_content'] = 'elements/contents/pages/page_record_educational_background';
-            }
-            else if ($page == 'med') {
-                $data['record_content'] = 'elements/contents/pages/page_record_medical_history';
-            }
-            else if ($page == 'men') {
-                $data['record_content'] = 'elements/contents/pages/page_record_mental_health';
-            }
-            else if ($page == 'sur') {
-                $data['record_content'] = 'elements/contents/pages/page_record_survey';
-            }
+            $data['record_content'] = $this->pagelist($page, $id);
             $id = $this->Student_model->getSID();
             $data['student'] = $this->Record_model->get_student($id);
             $this->load->view('layouts/layout_admin', $data);
