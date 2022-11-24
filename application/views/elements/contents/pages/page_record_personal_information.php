@@ -66,9 +66,27 @@
                 <p><?php echo $student->s_course; ?></p>
             </div>
             <div class="w-full md:w-2/6 p-3">
-                <p class="text-sm text-coolGray-400 font-regular">Level Enrolled</p>
-                <p><?php echo $student->s_year; ?></p>
+                <p class="text-sm text-coolGray-400 font-regular">School</p>
+                <p><?php echo $student->s_school; ?></p>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="pb-6 border-b border-coolGray-100 py-6 ">
+    <div class="w-full md:w-6/6">
+        <div class="flex flex-wrap -m-3">
+            <div class="w-full md:w-1/6 p-3"></div>
+            <div class="w-full md:w-2/6 p-3">
+                <p class="text-sm text-coolGray-400 font-regular">Year Enrolled</p>
+                <p><?php echo $student->s_year; ?></p>
+                
+            </div>
+            <div class="w-full md:w-2/6 p-3">
+                <p class="text-sm text-coolGray-400 font-regular">School Year Enrolled</p>
+                <p><?php echo $student->s_schoolyear; ?></p>
+            </div>
+            <div class="w-full md:w-1/6 p-3"></div>
         </div>
     </div>
 </div>
@@ -80,6 +98,7 @@
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Status</p>
                 <p><?php echo $student->s_stat; ?></p>
+                
             </div>
             <div class="w-full md:w-2/6 p-3"></div>
             <div class="w-full md:w-1/6 p-3"></div>

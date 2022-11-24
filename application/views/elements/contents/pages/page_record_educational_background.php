@@ -71,7 +71,7 @@
             </div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Name of School Graduated/Last Attended</p>
-                <p><?php echo $educ->e_ename; ?></p>
+                <p><?php echo $educ->e_jname; ?></p>
             </div>
         </div>
     </div>
@@ -83,11 +83,11 @@
             <div class="w-full md:w-1/6 p-3"></div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Year Graduated</p>
-                <p><?php echo $educ->e_eyear; ?></p>
+                <p><?php echo $educ->e_jyear; ?></p>
             </div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Honors Recieved</p>
-                <p><?php echo $educ->e_ehonor; ?></p>
+                <p><?php echo $educ->e_jhonor; ?></p>
             </div>
             <div class="w-full md:w-2/6 p-3"></div>
             <div class="w-full md:w-1/6 p-3"></div>
@@ -107,7 +107,7 @@
             </div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Name of School Graduated/Last Attended</p>
-                <p><?php echo $educ->e_ename; ?></p>
+                <p><?php echo $educ->e_sname; ?></p>
             </div>
         </div>
     </div>
@@ -119,11 +119,11 @@
             <div class="w-full md:w-1/6 p-3"></div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Year Graduated</p>
-                <p><?php echo $educ->e_eyear; ?></p>
+                <p><?php echo $educ->e_syear; ?></p>
             </div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Honors Recieved</p>
-                <p><?php echo $educ->e_ehonor; ?></p>
+                <p><?php echo $educ->e_shonor; ?></p>
             </div>
             <div class="w-full md:w-2/6 p-3"></div>
             <div class="w-full md:w-1/6 p-3"></div>
@@ -143,7 +143,7 @@
             </div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Name of School Graduated/Last Attended</p>
-                <p><?php echo $educ->e_ename; ?></p>
+                <p><?php echo $educ->e_cname; ?></p>
             </div>
         </div>
     </div>
@@ -155,11 +155,11 @@
             <div class="w-full md:w-1/6 p-3"></div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Year Graduated</p>
-                <p><?php echo $educ->e_eyear; ?></p>
+                <p><?php echo $educ->e_cyear; ?></p>
             </div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">Honors Recieved</p>
-                <p><?php echo $educ->e_ehonor; ?></p>
+                <p><?php echo $educ->e_chonor; ?></p>
             </div>
             <div class="w-full md:w-2/6 p-3"></div>
             <div class="w-full md:w-1/6 p-3"></div>

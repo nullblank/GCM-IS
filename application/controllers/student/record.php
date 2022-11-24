@@ -8,13 +8,48 @@ class Record extends MY_Controller
         $un = $this->input->post('un');
         $this->Student_model->setUserID($uid);
         $this->Student_model->setUserName($un);
+
+        //Education
+        $educ_ename = $this->input->post('e_ename');
+        $educ_eyear = $this->input->post('e_eyear');
+        $educ_ehonor = $this->input->post('e_ehonor');
+
+        $educ_jname = $this->input->post('e_jname');
+        $educ_jyear = $this->input->post('e_jyear');
+        $educ_jhonor = $this->input->post('e_jhonor');
+
+        $educ_sname = $this->input->post('e_sname');
+        $educ_syear = $this->input->post('e_syear');
+        $educ_shonor = $this->input->post('e_shonor');
+
+        $educ_cname = $this->input->post('e_cname');
+        $educ_cyear = $this->input->post('e_cyear');
+        $educ_chonor = $this->input->post('e_chonor');
+
+        $this->Student_model->setEEName($educ_ename);
+        $this->Student_model->setEEYear($educ_eyear);
+        $this->Student_model->setEEHonor($educ_ehonor);
+
+        $this->Student_model->setEJName($educ_jname);
+        $this->Student_model->setEJYear($educ_jyear);
+        $this->Student_model->setEJHonor($educ_jhonor);
+
+        $this->Student_model->setESName($educ_sname);
+        $this->Student_model->setESYear($educ_syear);
+        $this->Student_model->setESHonor($educ_shonor);
+
+        $this->Student_model->setECName($educ_cname);
+        $this->Student_model->setECYear($educ_cyear);
+        $this->Student_model->setECHonor($educ_chonor);
         //Student Data
         $stud_id=$this->input->post('s_id');
         $stud_first=$this->input->post('s_first');
         $stud_last=$this->input->post('s_last');
         $stud_mi=$this->input->post('s_mi');
         $stud_course=$this->input->post('s_course');
+        $stud_school=$this->input->post('s_school');
         $stud_year=$this->input->post('s_year');
+        $stud_schoolyear=$this->input->post('s_schoolyear');
         $stud_stat=$this->input->post('s_stat');
         $stud_email=$this->input->post('s_email');
         $stud_gender=$this->input->post('s_gender');
@@ -42,7 +77,9 @@ class Record extends MY_Controller
         $this->Student_model->setSLName($stud_last);
         $this->Student_model->setSMI($stud_mi);
         $this->Student_model->setSCourse($stud_course);
+        $this->Student_model->setSSchool($stud_school);
         $this->Student_model->setSYear($stud_year);
+        $this->Student_model->setSSchoolYear($stud_schoolyear);
         $this->Student_model->setSStat($stud_stat);
         $this->Student_model->setSEmail($stud_email);
         $this->Student_model->setSGender($stud_gender);
@@ -119,9 +156,10 @@ class Record extends MY_Controller
         //complete validation rules later
         $this->form_validation->set_rules('s_first','First Name','required');
         $this->form_validation->set_rules('s_last','Last Name','required');
-        $this->form_validation->set_rules('s_mi','Middle Initials','required');
         $this->form_validation->set_rules('s_course','Course','required');
+        $this->form_validation->set_rules('s_school','School','required');
         $this->form_validation->set_rules('s_year','Year','required');
+        $this->form_validation->set_rules('s_schoolyear','School Year','required');
         $this->form_validation->set_rules('s_stat','Status','required');
         $this->form_validation->set_rules('s_email','Email','required');
         $this->form_validation->set_rules('s_gender','Gender','required');
@@ -207,6 +245,7 @@ class Record extends MY_Controller
         $data['record_content'] = $this->pagelist($page, $id);
         $data['educ'] = $this->Record_model->get_education($id);
         $data['schools'] = $this->Student_model->getSchools($id);
+        $data['depschools'] = $this->Student_model->getDepSchools($id);
         return $data;
     }
 
@@ -267,27 +306,25 @@ class Record extends MY_Controller
 
     public function updaterecord($page){
         $id=$this->input->post('sid');
+        $stud_id=$this->input->post('s_id');
         $this->session->set_userdata('');
         $session_data = $this->session->userdata('id');
         $this->User_model->get_login($session_data);
         $data['user'] = $this->User_model->get_login($session_data);
-        $data['courses'] = $this->Student_model->getCourses();
-        $data['nor'] = $this->Student_model->getNOR();
-        $data['eth'] = $this->Student_model->getEthnicity();
-        $data['religion'] = $this->Student_model->getReligion();
-        $data['brgy'] = $this->Student_model->getBarangay();
-        $data['municipality'] = $this->Student_model->getMunicipality();		
-        $data['province'] = $this->Student_model->getProvince();
-        $data['student'] = $this->Record_model->get_student($id);
         $data['main_content'] = 'elements/contents/forms/form_studrec';
         if ($this->session->has_userdata('id')) {
             $this->setters();
-            $this->Student_model->update_student($id);
-            $data['record_content'] = $this->pagelist($page, $id);
-            $id = $this->Student_model->getSID();
-            $data['student'] = $this->Record_model->get_student($id);
+            if ($page == 'pi'){
+                $this->Student_model->update_student($id);
+                $data = $this->getDataArray($page, $data);
+                $data['student'] = $this->Record_model->get_student($stud_id);
+            }
+            if ($page == 'educ'){
+                $this->Student_model->update_educ($id);
+                $data = $this->getDataArray($page, $data);
+                $data['student'] = $this->Record_model->get_student($id);
+            }      
             $this->load->view('layouts/layout_admin', $data);
-
         } else {
             redirect('login');
         }

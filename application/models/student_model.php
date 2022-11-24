@@ -39,7 +39,8 @@ class Student_model extends CI_model
     //>>Student
     private $userid, $s_id, $username;
     private $s_first, $s_last, $s_mi;
-    private $s_course, $s_year;
+    private $s_course, $s_school;
+    private $s_year, $s_schoolyear;
     private $s_email;
     private $s_stat;
     private $s_gender,$s_bday, $s_age;
@@ -204,7 +205,9 @@ class Student_model extends CI_model
     public function setSLName($stud_last) { $this->s_last = $stud_last; }
     public function setSMI($stud_mi) { $this->s_mi = $stud_mi; }
     public function setSCourse($stud_course) { $this->s_course = $stud_course; }
+    public function setSSchool($data) { $this->s_school = $data; }
     public function setSYear($stud_year) { $this->s_year = $stud_year; }
+    public function setSSchoolYear($data) { $this->s_schoolyear = $data; }
     public function setSStat($stud_stat) { $this->s_stat = $stud_stat; }
     public function setSEmail($stud_email) { $this->s_email = $stud_email; }
     public function setSGender($stud_gender) { $this->s_gender = $stud_gender; }
@@ -343,7 +346,9 @@ class Student_model extends CI_model
     public function getSLName() { return $this->s_last; }
     public function getSMI() { return $this->s_mi; }
     public function getSCourse() { return $this->s_course; }
+    public function getSSchool() { return $this->s_school; }
     public function getSYear() { return $this->s_year; }
+    public function getSSchoolYear() { return $this->s_schoolyear; }
     public function getSStat() { return $this->s_stat; }
     public function getSEmail() { return $this->s_email; }
     public function getSGender() { return $this->s_gender; }
@@ -374,7 +379,9 @@ class Student_model extends CI_model
             's_last' => $this->getSLName(),         //varchar(50) NN, NULL
             's_mi' => $this->getSMI(),              //varchar(25) NN, NULL
             's_course' => $this->getSCourse(),
+            's_school' => $this->getSSchool(),
             's_year' => $this->getSYear(),
+            's_schoolyear' => $this->getSSchoolYear(),
             's_stat' => $this->getSStat(),          //varchar(25) NN, NULL
             's_email' => $this->getSEmail(),
             's_gender' => $this->getSGender(),      //varchar(25) NN, NULL
@@ -416,7 +423,9 @@ class Student_model extends CI_model
             's_last' => $this->getSLName(),         //varchar(50) NN, NULL
             's_mi' => $this->getSMI(),              //varchar(25) NN, NULL
             's_course' => $this->getSCourse(),
+            's_school' => $this->getSSchool(),
             's_year' => $this->getSYear(),
+            's_schoolyear' => $this->getSSchoolYear(),
             's_stat' => $this->getSStat(),          //varchar(25) NN, NULL
             's_email' => $this->getSEmail(),
             's_gender' => $this->getSGender(),      //varchar(25) NN, NULL
@@ -444,6 +453,35 @@ class Student_model extends CI_model
                 'tablename' => 'tblstudent',
                 'userid' => $this->getSID(),
                 'username' => $this->getSFName() . ' ' . $this->getSLName()
+            );
+            $this->db->insert('audit', $data);
+            return true;
+        }
+    }
+
+    public function update_educ($id){ //Update to audit staff		
+        $data = array(                              //Table DRAFT
+            'e_ename' => $this->getEEName(),
+            'e_eyear' => $this->getEEYear(),
+            'e_ehonor' => $this->getEEHonor(),
+            'e_jname' => $this->getEJName(),
+            'e_jyear' => $this->getEJYear(),
+            'e_jhonor' => $this->getEJHonor(),
+            'e_sname' => $this->getESName(),
+            'e_syear' => $this->getESYear(),
+            'e_shonor' => $this->getESHonor(),
+            'e_cname' => $this->getECName(),
+            'e_cyear' => $this->getECYear(),
+            'e_chonor' => $this->getECHonor(),
+        );
+        $this->db->where('stud_id', $id);
+        $query = $this->db->update('tbleducation', $data);
+        if ($query and $this->getUserID()) {
+            $data = array(
+                'action' => 'UPDATED the record of ' . $this->getSFName() . ' ' . $this->getSLName(),
+                'tablename' => 'tbleducation',
+                'userid' => $this->getUserID(),
+                'username' => $this->getUserName()
             );
             $this->db->insert('audit', $data);
             return true;
@@ -934,6 +972,14 @@ class Student_model extends CI_model
     public function getSchools(){
         $this->db->select('*');
         $this->db->from('school');
+        $query = $this->db->get();
+        $query->num_rows();
+        return $query->result();
+    }
+
+    public function getDepSchools(){
+        $this->db->select('*');
+        $this->db->from('depschools');
         $query = $this->db->get();
         $query->num_rows();
         return $query->result();
