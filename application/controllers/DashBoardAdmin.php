@@ -21,17 +21,34 @@ class DashboardAdmin extends MY_Controller
 	public function StudentRecords() //sidebar link
 	{
 		if ($this->session->has_userdata('id')) {
+
 			$this->session->set_userdata('');
 			$session_data = $this->session->userdata('id');
 			$this->User_model->get_login($session_data);
 			$data['user'] = $this->User_model->get_login($session_data);
-			$data['students'] = $this->Student_model->get_students();
-			$data['main_content'] = 'elements/contents/pages/page_student_records';
+
+			if ($this->input->post('searchby') && $this->input->post('searchby')){
+				$search = $this->input->post('search');
+				$searchby = $this->input->post('searchby');
+				$data['students'] = $this->Student_model->get_studentsby($search, $searchby);
+				$data['main_content'] = 'elements/contents/pages/page_student_records';
+			}
+			else if ($this->input->post('searchby')){
+				$search = $this->input->post('search');
+				$searchby = $this->input->post('searchby');
+				$data['students'] = $this->Student_model->get_studentsby($search, $searchby);
+				$data['main_content'] = 'elements/contents/pages/page_student_records';
+			}
+			else {
+				$data['students'] = $this->Student_model->get_students();
+				$data['main_content'] = 'elements/contents/pages/page_student_records';
+			}
 			$this->load->view('layouts/layout_admin', $data);
 		} else {
 			redirect('login');
 		}
 	}
+	
 
 	public function Reports(){
 		if ($this->session->has_userdata('id')) {

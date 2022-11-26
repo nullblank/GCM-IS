@@ -792,8 +792,30 @@ class Student_model extends CI_model
         $this->db->limit(10);
         $this->db->select('*');
         $this->db->from('tblstudents');
+        $this->db->order_by('s_first', 'asc');
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function get_studentsby($search, $searchby)
+    {
+        if ($search){
+            $this->db->limit(10);
+            $this->db->select('*');
+            $this->db->from('tblstudents');
+            $this->db->where($searchby, $search);
+            $this->db->order_by($searchby, 'asc');
+            $query = $this->db->get();
+            return $query->result();
+        }
+        else {
+            $this->db->limit(10);
+            $this->db->select('*');
+            $this->db->from('tblstudents');
+            $this->db->order_by($searchby, 'asc');
+            $query = $this->db->get();
+            return $query->result();
+        }
     }
 
     public function getCourses()
