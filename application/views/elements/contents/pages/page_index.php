@@ -1,5 +1,68 @@
 <div class="">
 
+
+    <div id="defaultModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <!-- Heroicon name: outline/exclamation-triangle -->
+                                <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v3.75m-9.303 3.376C1.83 19.126 2.914 21 4.645 21h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 4.88c-.866-1.501-3.032-1.501-3.898 0L2.697 17.626zM12 17.25h.007v.008H12v-.008z" />
+                                </svg>
+                            </div>
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                <h3 class="text-lg font-medium leading-6 text-gray-900" id="defaultModal">Privacy Policy for GCM-IS</h3>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-500">
+                                    At The Guidance Counselor Management and Information System, accessible from 127.0.0.1/GCM-IS, one of our main priorities is the privacy of our visitors.<br /> <br />
+                                    This Privacy Policy document contains types of information that is collected and recorded by The Guidance Counselor Management and Information System and how we use it.
+                                    </p><br />
+                                    <p class="text-sm text-gray-500">If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p><br />
+
+                                    <h2 class="text-lg font-medium leading-6 text-gray-900">Consent</h2>
+                                    <p class="mt-2 text-sm text-gray-500">By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p><br />
+
+                                    <h2 class="text-lg font-medium leading-6 text-gray-900">Information we collect</h2>
+                                    <p class="mt-2 text-sm text-gray-500">The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.</p><br />
+                                    <p class="text-sm text-gray-500">If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</p><br />
+                                    <p class="text-sm text-gray-500">When you fill out the student Personal Data Inventory (PDI) forms, we may ask for your contact information, including items such as name, address, email address, and phone number.</p><br />
+
+                                    <h2 class="text-lg font-medium leading-6 text-gray-900">How we use your information</h2>
+                                    <p class="mt-2 text-sm text-gray-500">We use the information we collect in various ways, including to:</p><br />
+                                    <ul class="mt-2 text-sm text-gray-500">
+                                        <li>- Provide, operate, and maintain the GCM-IS Website</li>
+                                        <li>- Improve, personalize, and expand our services to you, the student.</li>
+                                        <li>- Understand you better so that we can properly help you.</li>
+                                        <li>- Communicate with you, either directly or through counseling sessions, to provide you with support and guidance during your tertiary academic years.</li>
+                                        <li>- Send you emails</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button data-modal-toggle="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">I Understand</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     <section class="relative bg-white overflow-hidden">
         <div class="bg-coolGray-900">
             <nav class="flex justify-between p-6 px-4">
@@ -63,7 +126,7 @@
                                 </div>
                                 <span class="ml-6 text-xs text-coolGray-500 font-medium">
                                     <span>We care about your data in our</span>
-                                    <a class="text-blue-500 hover:text-blue-600" href="#">privacy policy</a><br />
+                                    <button type="button" data-modal-toggle="defaultModal" class="text-blue-500 hover:text-blue-600">privacy policy</button><br />
                                     <?php if ($this->session->flashdata('id_exist')) : ?>
                                         <?php echo '<span class="ml-6 text-red-500">' . $this->session->flashdata('id_exist') . '</span>'; ?>
                                     <?php endif; ?>
