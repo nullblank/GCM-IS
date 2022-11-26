@@ -24,7 +24,7 @@
                             <option value="stud_id">ID Number</option>
                             <option value="s_first">First Name</option>
                             <option value="s_last">Last Name</option>
-                            <option value="4">Course</option>
+                            <option value="s_course">Course</option>
                         </select>
                     </div>
                     <div class="w-full md:w-1/6 p-3">

@@ -799,11 +799,11 @@ class Student_model extends CI_model
 
     public function get_studentsby($search, $searchby)
     {
-        if ($search){
+        if ($searchby){
             $this->db->limit(10);
             $this->db->select('*');
             $this->db->from('tblstudents');
-            $this->db->where($searchby, $search);
+            $this->db->like($searchby, $search);
             $this->db->order_by($searchby, 'asc');
             $query = $this->db->get();
             return $query->result();
@@ -812,7 +812,11 @@ class Student_model extends CI_model
             $this->db->limit(10);
             $this->db->select('*');
             $this->db->from('tblstudents');
-            $this->db->order_by($searchby, 'asc');
+            $this->db->like('stud_id',$search);
+            $this->db->or_like('s_first',$search);
+            $this->db->or_like('s_last',$search);
+            $this->db->or_like('s_course',$search);
+            $this->db->order_by($searchby, 'asc');  
             $query = $this->db->get();
             return $query->result();
         }
