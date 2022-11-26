@@ -60,6 +60,9 @@
                         <th class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left rounded-l-md">
                             <p>Address</p>
                         </th>
+                        <th class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left rounded-l-md">
+                            <p>EDUC/MED/MEN/SURV</p>
+                        </th>
                         <th />
                     </tr>
                     <!--Start item loop-->
@@ -104,7 +107,39 @@
                                 <th class="whitespace-nowrap px-4 bg-white text-left">
                                     <div class="flex items-center -m-2">
                                         <div class="w-auto p-2">
-                                            <p class="text-sm font-medium text-coolGray-800"><?php echo $student->s_brgy; ?> <?php echo $student->s_muni; ?>, <?php echo $student->s_provi; ?></p>
+                                            <p class="text-sm font-medium text-coolGray-800"></p>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="whitespace-nowrap px-4 bg-white text-left">
+                                    <div class="flex items-center -m-4">
+                                        <div class="w-auto p-4">
+                                            <p class="text-sm font-medium text-coolGray-800">
+                                                <?php if ($this->Record_model->get_education($student->stud_id)):?>
+                                                    ✔️
+                                                <?php else : ?>
+                                                    ❌
+                                                <?php endif; ?>
+
+                                                <?php if ($this->Record_model->get_medical($student->stud_id)):?>
+                                                    ✔️
+                                                <?php else : ?>
+                                                    ❌
+                                                <?php endif; ?>
+
+                                                <?php if ($this->Record_model->get_mental($student->stud_id)):?>
+                                                    ✔️
+                                                <?php else : ?>
+                                                    ❌
+                                                <?php endif; ?>
+
+                                                <?php if ($this->Record_model->get_survey($student->stud_id)):?>
+                                                    ✔️
+                                                <?php else : ?>
+                                                    ❌
+                                                <?php endif; ?>
+                                                </svg>
+                                            </p>
                                         </div>
                                     </div>
                                 </th>
@@ -123,10 +158,14 @@
                                     </div>
                                     </form>
 
+                                    
+
 
 
 
                                 </th>
+
+                                
                             </tr>
                         <?php endforeach; ?>
                     <?php else : ?>

@@ -291,13 +291,25 @@ class Record extends MY_Controller
             }
         }
         else if ($page == 'med') {
-            return 'elements/contents/pages/page_record_medical_history';
+            if ($this->Record_model->get_medical($id)){
+                return 'elements/contents/pages/page_record_medical_history';
+            } else {
+                return 'elements/contents/pages/page_record_no';
+            }
         }
         else if ($page == 'men') {
-            return 'elements/contents/pages/page_record_mental_health';
+            if ($this->Record_model->get_mental($id)){
+                return 'elements/contents/pages/page_record_mental_health';
+            } else {
+                return 'elements/contents/pages/page_record_no';
+            }
         }
         else if ($page == 'sur') {
-            return "elements/contents/pages/page_record_survey";
+            if ($this->Record_model->get_survey($id)){
+                return "elements/contents/pages/page_record_survey";
+            } else {
+                return 'elements/contents/pages/page_record_no';
+            }
         }
         else {
             return false;

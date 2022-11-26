@@ -46,7 +46,7 @@
                     <div class="w-full md:w-auto p-2">
                         <form method="post" action="<?php echo base_url(); ?>student/record/viewrecord/med">
                             <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
-                            <button type="button" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
+                            <button type="submit" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
                                 Medical History
                             </button>
                         </form>
@@ -55,7 +55,7 @@
                     <div class="w-full md:w-auto p-2">
                         <form method="post" action="<?php echo base_url(); ?>student/record/viewrecord/men">
                             <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
-                            <button type="button" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
+                            <button type="submit" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
                                 Mental Health
                             </button>
                         </form>
@@ -63,7 +63,7 @@
                     <div class="w-full md:w-auto p-2">
                         <form method="post" action="<?php echo base_url(); ?>student/record/viewrecord/sur">
                             <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
-                            <button type="button" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
+                            <button type="submit" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
                                 View Survey Answers
                             </button>
                         </form>
