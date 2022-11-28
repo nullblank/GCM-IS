@@ -74,7 +74,7 @@
                     </div>
                     <div class="w-full md:w-2/6 p-3">
                         <p class="text-sm text-coolGray-400 font-regular">Honors Recieved</p>
-                        <textarea value="<?php echo $educ->e_ehonor; ?>" name="e_ehonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"><?php echo $educ->e_ehonor; ?></textarea>
+                        <textarea name="e_ehonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"><?php echo $educ->e_ehonor; ?></textarea>
                     </div>
                     <div class="w-full md:w-2/6 p-3"></div>
                     <div class="w-full md:w-1/6 p-3"></div>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="w-full md:w-2/6 p-3">
                         <p class="text-sm text-coolGray-400 font-regular">Honors Recieved</p>
-                        <textarea name="e_jhonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
+                        <textarea name="e_jhonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"><?php echo $educ->e_jhonor; ?></textarea>
                     </div>
                     <div class="w-full md:w-2/6 p-3"></div>
                     <div class="w-full md:w-1/6 p-3"></div>
@@ -172,7 +172,7 @@
                     </div>
                     <div class="w-full md:w-2/6 p-3">
                         <p class="text-sm text-coolGray-400 font-regular">Honors Recieved</p>
-                        <p><?php echo $educ->e_shonor; ?></p>
+                        <textarea name="e_shonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"><?php echo $educ->e_shonor; ?></textarea>
                     </div>
                     <div class="w-full md:w-2/6 p-3"></div>
                     <div class="w-full md:w-1/6 p-3"></div>
@@ -221,7 +221,7 @@
                     </div>
                     <div class="w-full md:w-2/6 p-3">
                         <p class="text-sm text-coolGray-400 font-regular">Honors Recieved</p>
-                        <p><?php echo $educ->e_chonor; ?></p>
+                        <textarea name="e_chonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"><?php echo $educ->e_chonor; ?></textarea>
                     </div>
                     <div class="w-full md:w-2/6 p-3"></div>
                     <div class="w-full md:w-1/6 p-3"></div>

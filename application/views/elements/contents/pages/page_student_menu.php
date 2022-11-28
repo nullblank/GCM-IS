@@ -4,7 +4,7 @@
         <div class="container px-4 mx-auto">
             <div class="max-w-4xl mx-auto mb-12 text-center">
 
-                <h3 class="mb-4 text-3xl md:text-4xl leading-tight text-white font-bold tracking-tighter">Welcome <?php echo $student->s_first; ?>, <?php echo $student->s_last; ?>!  [Debug ID:<?php echo $stud_id; ?>]</h3>
+                <h3 class="mb-4 text-3xl md:text-4xl leading-tight text-white font-bold tracking-tighter">Welcome <?php echo $student->s_first; ?>, <?php echo $student->s_last; ?>!</h3>
                 <p class="text-lg md:text-xl text-coolGray-400 font-medium">In order for the Guidance and Testing Office to properly help and guide you, you need to fill out the following so we can get to know you better. The more we know about you, the more we can help you grow as an individual.</p>
             </div>
             <div class="max-w-3xl mx-auto">

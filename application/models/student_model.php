@@ -822,6 +822,22 @@ class Student_model extends CI_model
         }
     }
 
+    public function getStudentMale()
+    {
+        $this->db->select('*');
+        $this->db->from('tblstudents');
+        $this->db->where('s_gender', "Male");
+        return $this->db->count_all_results();
+    }
+
+    public function getStudentFemale()
+    {
+        $this->db->select('*');
+        $this->db->from('tblstudents');
+        $this->db->where('s_gender', "Female");
+        return $this->db->count_all_results();
+    }
+
     public function getCourses()
     {
         $this->db->select('*');

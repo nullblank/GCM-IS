@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/tailwind/tailwind.min.css'); ?>" media="all" />
   <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
+
 </head>
 
 
@@ -24,6 +25,7 @@ $this->form_validation->set_error_delimiters('<p class="text-xs text-coolGray-50
   .error {
     color: red;
   }
+
   body::-webkit-scrollbar {
     width: 0.75rem;
   }
@@ -38,7 +40,26 @@ $this->form_validation->set_error_delimiters('<p class="text-xs text-coolGray-50
 </style>
 
 
-<body class="antialiased bg-body text-body font-body bg-coolGray-900">
+<body onload="init()" class="antialiased bg-body text-body font-body bg-coolGray-900">
+
+<!-- put element IDs here to hide them -->
+  <script>
+    function init() {
+        $("#h_ofwemail").hide();
+        $("#h_ofwrel2").hide();
+        $("#h_kmsdeprel").hide();
+        $("#h_kmsrel").hide();
+        $("#s_nspouse").hide();
+        $("#s_nochild").hide();
+    }
+  </script>
+
+
+
+
+
+
+
   <div class="">
     <section class="overflow-hidden min-h-full pt-20 pb-20">
       <div class="xl:ml-48 xl:mr-48">

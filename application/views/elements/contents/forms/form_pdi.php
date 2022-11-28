@@ -230,6 +230,20 @@
                     </div>
                 </div>
 
+                <script>
+                    function change_mar() {
+                        var type = $("#s_marstat").val();
+                        if (type == 'Married') {
+                            $("#s_nspouse").show();
+                            $("#s_nochild").show();
+                        } else {
+                            $("#s_nspouse").hide();
+                            $("#s_nochild").hide();
+                        }
+
+                    }
+                </script>
+
                 <div class="py-6 border-b border-coolGray-100">
                     <div class="w-full md:w-9/12">
                         <div class="flex flex-wrap -m-3">
@@ -237,7 +251,7 @@
                                 <p class="text-sm text-coolGray-800 font-semibold">Marital Status</p>
                             </div>
                             <div class="w-full md:flex-1 p-3">
-                                <select name="s_marstat" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
+                                <select onchange="change_mar()" id="s_marstat" name="s_marstat" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
                                     <option disabled selected>Please select an option</option>
                                     <option value="Single">Single</option>
                                     <option value="Married">Married</option>
@@ -250,13 +264,13 @@
                             <div class="w-full md:w-1/3 p-3"></div>
                             <div class="w-full md:w-2/3 p-3">
                                 <p><?php echo form_error('s_marstat'); ?></p>
-                                <input name="s_nspouse" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="Name of spouse if married">
+                                <input id="s_nspouse" name="s_nspouse" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="Name of spouse if married">
                             </div>
                         </div>
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3"></div>
                             <div class="w-full md:w-2/3 p-3">
-                                <input name="s_nochild" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="number" placeholder="Number of children if married">
+                                <input id="s_nochild" name="s_nochild" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="number" placeholder="Number of children if married">
                             </div>
                         </div>
                     </div>

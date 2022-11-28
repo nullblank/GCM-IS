@@ -75,16 +75,16 @@
                     <p class="text-lg md:text-xl text-coolGray-500 font-medium">Student Records Registered</p>
                 </div>
                 <div class="w-full md:w-1/3 lg:w-1/4 px-4 mb-8 lg:mb-0">
-                    <h2 class="mb-2 font-bold text-4xl md:text-5xl text-blue-600 tracking-tighter">&lt;nil&gt;</h2>
-                    <p class="text-lg md:text-xl text-coolGray-500 font-medium">Students with suicidal tendencies</p>
+                    <h2 class="mb-2 font-bold text-4xl md:text-5xl text-blue-600 tracking-tighter"><?php echo $student_maleno; ?></h2>
+                    <p class="text-lg md:text-xl text-coolGray-500 font-medium">Number of Male Students</p>
                 </div>
                 <div class="w-full md:w-1/3 lg:w-1/4 px-4 mb-8 lg:mb-0">
-                    <h2 class="mb-2 font-bold text-4xl md:text-5xl text-blue-600 tracking-tighter">&lt;nil&gt;</h2>
-                    <p class="text-lg md:text-xl text-coolGray-500 font-medium">Students without parents</p>
+                    <h2 class="mb-2 font-bold text-4xl md:text-5xl text-blue-600 tracking-tighter"><?php echo $student_femaleno; ?></h2>
+                    <p class="text-lg md:text-xl text-coolGray-500 font-medium">Number of Female Students</p>
                 </div>
                 <div class="w-full md:w-1/3 lg:w-1/4 px-4">
-                    <h2 class="mb-2 font-bold text-4xl md:text-5xl text-blue-600 tracking-tighter">&lt;nil&gt;</h2>
-                    <p class="text-lg md:text-xl text-coolGray-500 font-medium">Student records processed</p>
+                    <h2 class="mb-2 font-bold text-4xl md:text-5xl text-blue-600 tracking-tighter">nil</h2>
+                    <p class="text-lg md:text-xl text-coolGray-500 font-medium">PLACEHOLDER</p>
                 </div>
             </div>
         </div>
