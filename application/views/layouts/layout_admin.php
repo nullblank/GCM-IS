@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 
 <head>
   <title>Welcome <?php echo $user->user_name; ?>!</title>
