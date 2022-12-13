@@ -40,7 +40,7 @@
                         </div>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a class="p-3 py-4 flex items-center justify-between text-coolGray-600 hover:text-blue-500 hover:bg-coolGray-800 rounded-md" href="#">
                         <div class="flex items-center">
                             <svg class="mr-2" width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@
                             <p class="text-white font-medium text-base">Guidance and Services</p>
                         </div>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="<?php echo base_url();?>DashboardAdmin/export" class="p-3 py-4 flex items-center justify-between text-coolGray-600 hover:text-blue-500 hover:bg-coolGray-800 rounded-md" href="#">
                         <div class="flex items-center">
@@ -61,7 +61,7 @@
                     </a>
                 </li>
             </ul>
-            <p class="px-8 mb-2 text-xs font-medium text-coolGray-500 uppercase">Workspace</p>
+            <!-- <p class="px-8 mb-2 text-xs font-medium text-coolGray-500 uppercase">Workspace</p>
             <ul class="px-4 pb-8">
                 <li>
                     <a class="p-3 py-4 flex items-center justify-between text-coolGray-600 hover:text-blue-500 hover:bg-coolGray-800 rounded-md" href="#">
@@ -82,7 +82,7 @@
                             <p class="text-white font-medium text-base">Analytics</p>
                         </div>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

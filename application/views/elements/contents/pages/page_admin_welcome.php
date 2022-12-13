@@ -28,7 +28,6 @@
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Account Role</label>
                         <select name="role" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input" required>
                             <option value="Administrator">Administrator</option>
-                            <option selected value="Staff">Staff User</option>
                         </select>
                     </div>
                     <div>
