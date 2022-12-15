@@ -797,6 +797,16 @@ class Student_model extends CI_model
         return $query->result();
     }
 
+    public function get_studentnull()
+    {
+        $this->db->limit(0);
+        $this->db->select('*');
+        $this->db->from('tblstudents');
+        $this->db->order_by('s_first', 'asc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function get_studentsby($search, $searchby)
     {
         if ($searchby){

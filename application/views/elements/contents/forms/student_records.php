@@ -129,7 +129,7 @@
                             </tr>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        <p style="color:red;">No Ethnicity Entries Found.</p>
+                        <p style="color:red;">No Student Entries Found.</p>
                     <?php endif ?>
                     <!--End of item-->
                 </table>

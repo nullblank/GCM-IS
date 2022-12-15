@@ -172,7 +172,7 @@
                         <?php endforeach; ?>
                     <?php else : ?>
                         <th /><th /><th />
-                        <th><p style="color:red;" class="mt-5 mb-5">No records found!</p></th>
+                        <th><p style="color:red;" class="mt-5 mb-5"></p></th>
                     <?php endif ?>
                     <!--End of item-->
                 </table>

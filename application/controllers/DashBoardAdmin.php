@@ -42,7 +42,7 @@ class DashboardAdmin extends MY_Controller
 				$data['main_content'] = 'elements/contents/pages/page_student_records';
 			}
 			else {
-				$data['students'] = $this->Student_model->get_students();
+				$data['students'] = $this->Student_model->get_studentnull();
 				$data['main_content'] = 'elements/contents/pages/page_student_records';
 			}
 			$this->load->view('layouts/layout_admin', $data);
