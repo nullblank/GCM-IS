@@ -786,6 +786,52 @@ class Student_model extends CI_model
         return $this->db->count_all('tblstudents');
     }
 
+    public function deleteEntry($id)
+	{
+		$this->db->where('cid', $id);
+		$query = $this->db->delete('counselor_remarks');
+        if ($query == true) {
+            $data = array(
+                'action' => 'DELETED counselor remarks of ' . $this->getSFName() . ' ' . $this->getSLName(),
+                'tablename' => 'counselor_remarks',
+                'userid' => $this->getSID(),
+                'username' => $this->getSFName() . ' ' . $this->getSLName()
+            );
+            $this->db->insert('audit', $data);
+            return true;
+        }
+	}
+
+    public function addEntry($uid, $sid, $remarks)
+	{
+		$data = array(      
+            'stud_id' => $sid,
+            'user_id' => $uid,
+            'remark' => $remarks,
+            'timestamp' => date('Y-m-d H:i:s', time())  
+        );
+        $query = $this->db->insert('counselor_remarks', $data);
+        if ($query == true) {
+            $data = array(
+                'action' => 'ADDED counselor remarks of ' . $sid,
+                'tablename' => 'counselor_remarks',
+                'userid' => $uid,
+                'username' => $uid
+            );
+            $this->db->insert('audit', $data);
+            return true;
+        }
+	}
+
+    public function getRemarks($id){
+        $this->db->select('*');
+        $this->db->from('counselor_remarks');
+        $this->db->where('stud_id', $id);
+        $this->db->order_by('timestamp', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function get_students()
     {
         $this->db->limit(10);

@@ -45,7 +45,7 @@
                 <table class="w-full">
                     <tr class="whitespace-nowrap h-11 bg-coolGray-50 bg-opacity-80">
                         <th class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left rounded-l-md">
-                            <p>STUDENT ID#</p>
+                            <p>STUDENT ID Number</p>
                         </th>
                         <th class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left rounded-l-md">
                             <p>NAME</p>
@@ -60,11 +60,12 @@
                             <p>Year</p>
                         </th>
                         <th class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left rounded-l-md">
-                            <p>Address</p>
+                            <p>Year Registered</p>
                         </th>
                         <th class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left rounded-l-md">
                             <p>EDUC/MED/MEN/SURV</p>
                         </th>
+                        <th />
                         <th />
                     </tr>
                     <!--Start item loop-->

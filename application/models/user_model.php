@@ -40,6 +40,15 @@
 			$query=$this->db->get();				
 			return $query->row();	
 		}
+
+		public function get_user_detail($id){
+			$this->db->select('*');
+			$this->db->from('tblusers');
+			$this->db->where('user_id', $id);					
+			$query=$this->db->get();
+			$ret = $query->row();		
+			return $ret->user_name;
+		}
 		public function get_login($session_data){
 			$this->db->select('*');
 			$this->db->from('tblusers');

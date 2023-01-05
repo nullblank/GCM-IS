@@ -389,4 +389,50 @@ class Record extends MY_Controller
         }
     }
 
+    public function cn(){
+        $stud_id=$this->input->post('sid');
+        $this->session->set_userdata('');
+        $session_data = $this->session->userdata('id');
+        $users = $this->Authenticate_model->get_login($session_data);
+        $this->User_model->get_login($session_data);
+        $data['user'] = $this->User_model->get_login($session_data);
+        $data['student'] = $this->Record_model->get_student($stud_id);
+        $data['counselor_remarks'] = $this->Student_model->getRemarks($stud_id);
+        $data['main_content'] = 'elements/contents/pages/page_record_counselor_notes';
+        $this->load->view('layouts/layout_admin', $data);
+    }
+
+    public function delRec(){ //$this->Student_model->deleteEntry($cid);
+        $cid=$this->input->post('cid');
+        $this->Student_model->deleteEntry($cid);
+        $stud_id=$this->input->post('sid');
+        $this->session->set_userdata('');
+        $session_data = $this->session->userdata('id');
+        $users = $this->Authenticate_model->get_login($session_data);
+        $this->User_model->get_login($session_data);
+        $data['user'] = $this->User_model->get_login($session_data);
+        $data['student'] = $this->Record_model->get_student($stud_id);
+        $data['counselor_remarks'] = $this->Student_model->getRemarks($stud_id);
+        $data['main_content'] = 'elements/contents/pages/page_record_counselor_notes';
+        $this->load->view('layouts/layout_admin', $data);
+    }
+
+    public function addRec(){
+        $uid=$this->input->post('uid');
+        $stud_id=$this->input->post('sid');
+        $remarks=$this->input->post('remarks');
+
+        $this->Student_model->addEntry($uid, $stud_id, $remarks);
+
+        $this->session->set_userdata('');
+        $session_data = $this->session->userdata('id');
+        $users = $this->Authenticate_model->get_login($session_data);
+        $this->User_model->get_login($session_data);
+        $data['user'] = $this->User_model->get_login($session_data);
+        $data['student'] = $this->Record_model->get_student($stud_id);
+        $data['counselor_remarks'] = $this->Student_model->getRemarks($stud_id);
+        $data['main_content'] = 'elements/contents/pages/page_record_counselor_notes';
+        $this->load->view('layouts/layout_admin', $data);
+    }
+
 }
