@@ -201,15 +201,29 @@ class Record extends MY_Controller
 
     public function view(){
         if ($this->session->has_userdata('id')) {
+            $session_data = $this->session->userdata('id'); 
+            $users = $this->Authenticate_model->get_login($session_data);
+            if ($users == false){
+				return false;
+			} else {
+				$userrole = $users->user_role;
+			}
             $id=$this->input->post('sid');
             $this->session->set_userdata('');
             $session_data = $this->session->userdata('id');
             $this->User_model->get_login($session_data);
             $data['user'] = $this->User_model->get_login($session_data);
             $data['student'] = $this->Record_model->get_student($id);
-            $data['main_content'] = 'elements/contents/forms/form_studrec';
             $data['record_content'] = 'elements/contents/pages/blank';
-            $this->load->view('layouts/layout_admin', $data);
+            if($userrole =='Administrator'){ //Admin
+                $data['main_content'] = 'elements/contents/forms/form_studrec';
+                $this->load->view('layouts/layout_admin', $data);
+            }
+            if($userrole == 'Staff'){ //Staff
+                $data['main_content'] = 'elements/contents/forms/form_studrec_staff';
+                $this->load->view('layouts/layout_staff', $data);
+            }
+            
         } else {
             redirect('login');
         }
@@ -217,15 +231,26 @@ class Record extends MY_Controller
 
     public function viewrecord($page){
         if ($this->session->has_userdata('id')) {
-            
             $this->session->set_userdata('');
-            $session_data = $this->session->userdata('id');
+            $session_data = $this->session->userdata('id'); 
+            $users = $this->Authenticate_model->get_login($session_data);
+            if ($users == false){
+				return false;
+			} else {
+				$userrole = $users->user_role;
+			}
             $this->User_model->get_login($session_data);
             $data['user'] = $this->User_model->get_login($session_data);
 
             $data = $this->getDataArray($page, $data);
 
-            $this->load->view('layouts/layout_admin', $data);
+            if($userrole =='Administrator'){ //Admin
+                $this->load->view('layouts/layout_admin', $data);
+            }
+            if($userrole == 'Staff'){ //Staff
+                $this->load->view('layouts/layout_staff', $data);
+            }
+            
         } else {
             redirect('login');
         }
@@ -253,7 +278,13 @@ class Record extends MY_Controller
         if ($this->session->has_userdata('id')) {
             $id=$this->input->post('sid');
             $this->session->set_userdata('');
-            $session_data = $this->session->userdata('id');
+            $session_data = $this->session->userdata('id'); 
+            $users = $this->Authenticate_model->get_login($session_data);
+            if ($users == false){
+				return false;
+			} else {
+				$userrole = $users->user_role;
+			}
             $this->User_model->get_login($session_data);
             $data['user'] = $this->User_model->get_login($session_data);
             $data = $this->getDataArray($page, $data);
@@ -273,7 +304,12 @@ class Record extends MY_Controller
                 $data['record_content'] = 'elements/contents/forms/record_survey';
             }
             $data['student'] = $this->Record_model->get_student($id);
-            $this->load->view('layouts/layout_admin', $data);
+            if($userrole =='Administrator'){ //Admin
+                $this->load->view('layouts/layout_admin', $data);
+            }
+            if($userrole == 'Staff'){ //Staff
+                $this->load->view('layouts/layout_staff', $data);
+            }
         } else {
             redirect('login');
         }
@@ -320,7 +356,8 @@ class Record extends MY_Controller
         $id=$this->input->post('sid');
         $stud_id=$this->input->post('s_id');
         $this->session->set_userdata('');
-        $session_data = $this->session->userdata('id');
+        $session_data = $this->session->userdata('id'); 
+        $users = $this->Authenticate_model->get_login($session_data);
         $this->User_model->get_login($session_data);
         $data['user'] = $this->User_model->get_login($session_data);
         $data['main_content'] = 'elements/contents/forms/form_studrec';
@@ -336,7 +373,17 @@ class Record extends MY_Controller
                 $data = $this->getDataArray($page, $data);
                 $data['student'] = $this->Record_model->get_student($id);
             }      
-            $this->load->view('layouts/layout_admin', $data);
+            if ($users == false){
+				return false;
+			} else {
+				$userrole = $users->user_role;
+			}
+            if($userrole =='Administrator'){ //Admin
+                $this->load->view('layouts/layout_admin', $data);
+            }
+            if($userrole == 'Staff'){ //Staff
+                $this->load->view('layouts/layout_staff', $data);
+            }
         } else {
             redirect('login');
         }

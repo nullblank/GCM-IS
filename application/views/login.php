@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
   <title>Login</title>
   <meta charset="utf-8">
@@ -25,9 +25,9 @@
           <form class="form-signin" method="post" action="<?php echo base_url(); ?>login">
             <!-- PHP HERE -->
             <div class="text-red-500">
-            <?php if ($this->session->flashdata('fail_login')) : ?>
-              <?php echo '<p>' . $this->session->flashdata('fail_login') . '</p>'; ?>
-            <?php endif; ?>
+              <?php if ($this->session->flashdata('fail_login')) : ?>
+                <?php echo '<p>' . $this->session->flashdata('fail_login') . '</p>'; ?>
+              <?php endif; ?>
             </div>
             <!-- END OF PHP -->
             <div class="mb-6">

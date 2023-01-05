@@ -6,35 +6,35 @@
 
 
 
-            <form method="post" action="<?php echo base_url(); ?>DashboardAdmin/StudentRecords">
-                <div class="pb-6 border-b border-coolGray-100">
-                    <div class="flex flex-wrap items-center justify-between -m-2">
-                        <div class="w-full md:w-auto p-2">
-                            <h2 class="text-coolGray-900 text-lg font-semibold">Student Records</h2>
-                            <p class="text-xs text-coolGray-500 font-medium">The search feature is CASE SENSITIVE</p>
-                        </div>
+        <form method="post" action="<?php echo base_url(); ?>DashboardStaff/StudentRecords">
+            <div class="pb-6 border-b border-coolGray-100">
+                <div class="flex flex-wrap items-center justify-between -m-2">
+                    <div class="w-full md:w-auto p-2">
+                        <h2 class="text-coolGray-900 text-lg font-semibold">Student Records</h2>
+                        <p class="text-xs text-coolGray-500 font-medium">The search feature is CASE SENSITIVE</p>
+                    </div>
 
-                        <div class="w-full md:w-1/3 p-3">
-                            <input placeholder="Search..." name="search" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-blue-500 border border-coolGray-200 rounded-lg shadow-input">
-                            <p><?php echo form_error('search'); ?></p>
-                        </div>
-                        <div class="w-full md:w-1/6 p-3">
-                            <select name="searchby" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
-                                <option disabled selected value="stud_id">Search by...</option>
-                                <option value="stud_id">ID Number</option>
-                                <option value="s_first">First Name</option>
-                                <option value="s_last">Last Name</option>
-                                <option value="s_course">Course</option>
-                            </select>
-                        </div>
-                        <div class="w-full md:w-1/6 p-3">
-                            <button type="submit" name="submit" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-blue-500 rounded-md shadow-button">
-                                Search
-                            </button>
-                        </div>
+                    <div class="w-full md:w-1/3 p-3">
+                        <input placeholder="Search..." name="search" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-blue-500 border border-coolGray-200 rounded-lg shadow-input">
+                        <p><?php echo form_error('search'); ?></p>
+                    </div>
+                    <div class="w-full md:w-1/6 p-3">
+                        <select name="searchby" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
+                            <option disabled selected value="stud_id">Search by...</option>
+                            <option value="stud_id">ID Number</option>
+                            <option value="s_first">First Name</option>
+                            <option value="s_last">Last Name</option>
+                            <option value="s_course">Course</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-1/6 p-3">
+                        <button type="submit" name="submit" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-blue-500 rounded-md shadow-button">
+                            Search
+                        </button>
                     </div>
                 </div>
-            </form>
+            </div>
+        </form>
 
 
 
@@ -117,25 +117,25 @@
                                     <div class="flex items-center -m-4">
                                         <div class="w-auto p-4">
                                             <p class="text-sm font-medium text-coolGray-800">
-                                                <?php if ($this->Record_model->get_education($student->stud_id)) : ?>
+                                                <?php if ($this->Record_model->get_education($student->stud_id)):?>
                                                     ✔️
                                                 <?php else : ?>
                                                     ❌
                                                 <?php endif; ?>
 
-                                                <?php if ($this->Record_model->get_medical($student->stud_id)) : ?>
+                                                <?php if ($this->Record_model->get_medical($student->stud_id)):?>
                                                     ✔️
                                                 <?php else : ?>
                                                     ❌
                                                 <?php endif; ?>
 
-                                                <?php if ($this->Record_model->get_mental($student->stud_id)) : ?>
+                                                <?php if ($this->Record_model->get_mental($student->stud_id)):?>
                                                     ✔️
                                                 <?php else : ?>
                                                     ❌
                                                 <?php endif; ?>
 
-                                                <?php if ($this->Record_model->get_survey($student->stud_id)) : ?>
+                                                <?php if ($this->Record_model->get_survey($student->stud_id)):?>
                                                     ✔️
                                                 <?php else : ?>
                                                     ❌
@@ -147,40 +147,32 @@
                                 </th>
                                 <th class="whitespace-nowrap px-4 bg-white text-left">
                                     <div class="flex items-center -m-2">
-                                        <form method="post" action="<?php echo base_url(); ?>student/record/view/">
-                                            <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
-                                            <div class="w-auto p-2">
-                                                <button type="submit" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm border border-blue-500 rounded-md shadow-button">
-                                                    View Records
-                                                </button>
-                                            </div>
+                                    
+
+
+                                    <form method="post" action="<?php echo base_url(); ?>student/record/view/">
+                                    <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
+                                        <div class="w-auto p-2">
+                                            <button type="submit" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm border border-blue-500 rounded-md shadow-button">
+                                                View Records
+                                            </button>
+                                        </div>
                                     </div>
                                     </form>
+
+                                    
+
+
+
+
                                 </th>
 
-                                <th class="whitespace-nowrap px-4 bg-white text-left">
-                                    <div class="flex items-center -m-2">
-                                        <form method="post" action="<?php echo base_url(); ?>student/record/cn/">
-                                            <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
-                                            <div class="w-auto p-2">
-                                                <button type="submit" class="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm border border-blue-500 rounded-md shadow-button">
-                                                    View Counselor's Notes
-                                                </button>
-                                            </div>
-                                    </div>
-                                    </form>
-                                </th>
-
-
+                                
                             </tr>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        <th />
-                        <th />
-                        <th />
-                        <th>
-                            <p style="color:red;" class="mt-5 mb-5"></p>
-                        </th>
+                        <th /><th /><th />
+                        <th><p style="color:red;" class="mt-5 mb-5"></p></th>
                     <?php endif ?>
                     <!--End of item-->
                 </table>

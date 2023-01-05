@@ -559,27 +559,27 @@ class Student_model extends CI_model
             'm_conf' => $this->getMConf(),//bool
             'm_confdesc' => $this->getMConfDesc(),
             'm_medill' => $this->getMMedIll(),//bool
-            'm_medcon1' => $this->getMMedCon1(),//bool
-            'm_medcon2' => $this->getMMedCon2(),//bool
-            'm_medcon3' => $this->getMMedCon3(),//bool
-            'm_medcon4' => $this->getMMedCon4(),//bool
-            'm_medcon5' => $this->getMMedCon5(),//bool
-            'm_medcon6' => $this->getMMedCon6(),//bool
-            'm_medcon7' => $this->getMMedCon7(),//bool
-            'm_medcon8' => $this->getMMedCon8(),//bool
-            'm_medcon9' => $this->getMMedCon9(),//bool
-            'm_medcon10' => $this->getMMedCon10(),//bool
-            'm_medcon11' => $this->getMMedCon11(),//bool
-            'm_medcon12' => $this->getMMedCon12(),//bool
-            'm_medcon13' => $this->getMMedCon13(),//bool
-            'm_medcon14' => $this->getMMedCon14(),//bool
-            'm_medcon15' => $this->getMMedCon15(),//bool
-            'm_medcon16' => $this->getMMedCon16(),//bool
-            'm_medcon17' => $this->getMMedCon17(),//bool
-            'm_medcon18' => $this->getMMedCon18(),//bool
-            'm_medcon19' => $this->getMMedCon19(),//bool
-            'm_medcon20' => $this->getMMedCon20(),//bool
-            'm_medconO' => $this->getMMedConO(),//varchar
+            'm_medcon1' => $this->getMMedCon1(),//Heart Failure
+            'm_medcon2' => $this->getMMedCon2(),//Astma
+            'm_medcon3' => $this->getMMedCon3(),//HUV/AIDS
+            'm_medcon4' => $this->getMMedCon4(),//Sleeping Problem
+            'm_medcon5' => $this->getMMedCon5(),//Allergies
+            'm_medcon6' => $this->getMMedCon6(),//UTI
+            'm_medcon7' => $this->getMMedCon7(),//Hepatitis
+            'm_medcon8' => $this->getMMedCon8(),//Lung Conditions
+            'm_medcon9' => $this->getMMedCon9(),//Depression
+            'm_medcon10' => $this->getMMedCon10(),//Hypertension
+            'm_medcon11' => $this->getMMedCon11(),//Hearing Loss
+            'm_medcon12' => $this->getMMedCon12(),//Kidney Problem
+            'm_medcon13' => $this->getMMedCon13(),//Diabetes
+            'm_medcon14' => $this->getMMedCon14(),//Covid-19
+            'm_medcon15' => $this->getMMedCon15(),//Speech Problem
+            'm_medcon16' => $this->getMMedCon16(),//Visual Problem
+            'm_medcon17' => $this->getMMedCon17(),//Anxiety
+            'm_medcon18' => $this->getMMedCon18(),//Anemia
+            'm_medcon19' => $this->getMMedCon19(),//Skin
+            'm_medcon20' => $this->getMMedCon20(),//Cancer
+            'm_medconO' => $this->getMMedConO(),//Others
             'm_medwhen' => $this->getMMedWhen(),//varchar
             'm_presmed' => $this->getMPresMed(),//bool
             'm_presmeddesc' => $this->getMPresMedDesc(),//varchar
@@ -594,17 +594,16 @@ class Student_model extends CI_model
             'm_datecreated' => date('Y-m-d H:i:s', time())  
         );
         $query = $this->db->insert('tblmedical', $data);
-        // AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
-        // if ($query == true) {
-        //     $data = array(
-        //         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
-        //         'tablename' => 'tblstudent',
-        //         'userid' => $this->getUserID(),
-        //         'username' => $this->getUserName()
-        //     );
-        //     $this->db->insert('audit', $data);
-        //     return true;
-        // }
+        if ($query == true) {
+            $data = array(
+                'action' => 'REGISTERED the record of ' . $this->getSFName() . ' ' . $this->getSLName(),
+                'tablename' => 'tblstudent',
+                'userid' => $this->getSID(),
+                'username' => $this->getSFName() . ' ' . $this->getSLName()
+            );
+            $this->db->insert('audit', $data);
+            return true;
+        }
     }
 
     public function insert_men() //INSERT
