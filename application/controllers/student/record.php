@@ -49,7 +49,7 @@ class Record extends MY_Controller
         $stud_course=$this->input->post('s_course');
         $stud_school=$this->input->post('s_school');
         $stud_year=$this->input->post('s_year');
-        $stud_schoolyear=$this->input->post('s_schoolyear');
+        $stud_yearreg=$this->input->post('s_yearreg');
         $stud_stat=$this->input->post('s_stat');
         $stud_email=$this->input->post('s_email');
         $stud_gender=$this->input->post('s_gender');
@@ -79,7 +79,7 @@ class Record extends MY_Controller
         $this->Student_model->setSCourse($stud_course);
         $this->Student_model->setSSchool($stud_school);
         $this->Student_model->setSYear($stud_year);
-        $this->Student_model->setSSchoolYear($stud_schoolyear);
+        $this->Student_model->setSYearReg($stud_yearreg);
         $this->Student_model->setSStat($stud_stat);
         $this->Student_model->setSEmail($stud_email);
         $this->Student_model->setSGender($stud_gender);

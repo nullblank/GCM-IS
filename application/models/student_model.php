@@ -40,7 +40,7 @@ class Student_model extends CI_model
     private $userid, $s_id, $username;
     private $s_first, $s_last, $s_mi;
     private $s_course, $s_school;
-    private $s_year, $s_schoolyear;
+    private $s_year, $s_yearreg;
     private $s_email;
     private $s_stat;
     private $s_gender,$s_bday, $s_age;
@@ -207,7 +207,7 @@ class Student_model extends CI_model
     public function setSCourse($stud_course) { $this->s_course = $stud_course; }
     public function setSSchool($data) { $this->s_school = $data; }
     public function setSYear($stud_year) { $this->s_year = $stud_year; }
-    public function setSSchoolYear($data) { $this->s_schoolyear = $data; }
+    public function setSYearReg($data) { $this->s_yearreg = $data; }
     public function setSStat($stud_stat) { $this->s_stat = $stud_stat; }
     public function setSEmail($stud_email) { $this->s_email = $stud_email; }
     public function setSGender($stud_gender) { $this->s_gender = $stud_gender; }
@@ -348,7 +348,7 @@ class Student_model extends CI_model
     public function getSCourse() { return $this->s_course; }
     public function getSSchool() { return $this->s_school; }
     public function getSYear() { return $this->s_year; }
-    public function getSSchoolYear() { return $this->s_schoolyear; }
+    public function getSYearReg() { return $this->s_yearreg; }
     public function getSStat() { return $this->s_stat; }
     public function getSEmail() { return $this->s_email; }
     public function getSGender() { return $this->s_gender; }
@@ -381,7 +381,7 @@ class Student_model extends CI_model
             's_course' => $this->getSCourse(),
             's_school' => $this->getSSchool(),
             's_year' => $this->getSYear(),
-            's_schoolyear' => $this->getSSchoolYear(),
+            's_yearreg' => $this->getSYearReg(),
             's_stat' => $this->getSStat(),          //varchar(25) NN, NULL
             's_email' => $this->getSEmail(),
             's_gender' => $this->getSGender(),      //varchar(25) NN, NULL
@@ -425,7 +425,7 @@ class Student_model extends CI_model
             's_course' => $this->getSCourse(),
             's_school' => $this->getSSchool(),
             's_year' => $this->getSYear(),
-            's_schoolyear' => $this->getSSchoolYear(),
+            's_yearreg' => $this->getSYearReg(),
             's_stat' => $this->getSStat(),          //varchar(25) NN, NULL
             's_email' => $this->getSEmail(),
             's_gender' => $this->getSGender(),      //varchar(25) NN, NULL

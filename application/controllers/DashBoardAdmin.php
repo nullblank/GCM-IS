@@ -86,20 +86,78 @@ class DashboardAdmin extends MY_Controller
 		}
 	}
 
-	function export(){
-		$file_name = 'student_PI_records_'.date('m').'-'.date('d').'-'.date('Y').'.csv'; 
-		header("Content-Description: File Transfer"); 
-		header("Content-Disposition: attachment; filename=$file_name"); 
-		header("Content-Type: application/csv;");
-		$student_data = $this->Report_model->fetch_data();
-		$file = fopen('php://output', 'w');
-		$header = array("ID Number","First Name","Last Name","Middle Initial","Course","School","Year","School Year","Status","Email","Gender","Birthday","Age","Ethnicity","Religion","Marital Status","Name of Spouse","Number of Children","Barangay","Municipality","Province","Nature of Residence"); 
-		fputcsv($file, $header);
-		foreach ($student_data->result_array() as $key => $value){ 
-			fputcsv($file, $value); 
+	function report(){
+		if ($this->session->has_userdata('id')) {
+			$this->session->set_userdata('');
+			$session_data = $this->session->userdata('id');
+			$this->User_model->get_login($session_data);
+			$data['user'] = $this->User_model->get_login($session_data);
+			$data['main_content'] = 'elements/contents/pages/page_report_menu';
+			$this->load->view('layouts/layout_admin', $data);
+		} else {
+			redirect('login');
 		}
-		fclose($file); 
-		exit; 
+	}
+
+	function export(){
+		$freq=$this->input->post('rec_freq');
+		$type=$this->input->post('rec_type');
+		$filter=$this->input->post('rec_filter');
+		//Filtered
+		if($filter){
+			if($freq == 1){
+				if($type == 'tblstudents'){
+					$file_name = '['.$filter.']'.' Student_Personal_Information_'.date('m').'-'.date('d').'-'.date('Y').'.csv'; 
+					header("Content-Description: File Transfer"); 
+					header("Content-Disposition: attachment; filename=$file_name"); 
+					header("Content-Type: application/csv;");
+					$student_data = $this->Report_model->fetch_PersonalInfo();
+					$file = fopen('php://output', 'w');
+					$header = array("ID Number","First Name","Last Name","Middle Initial","Course","School","Year","School Year","Status","Email","Gender","Birthday","Age","Ethnicity","Religion","Marital Status","Name of Spouse","Number of Children","Barangay","Municipality","Province","Nature of Residence"); 
+					fputcsv($file, $header);
+					foreach ($student_data->result_array() as $key => $value){ 
+						fputcsv($file, $value); 
+					}
+					fclose($file); 
+					exit;
+				}
+				elseif($type == 'tbleducation'){
+					$file_name = '['.$filter.']'.' Student_Personal_Information_'.date('m').'-'.date('d').'-'.date('Y').'.csv'; 
+					header("Content-Description: File Transfer"); 
+					header("Content-Disposition: attachment; filename=$file_name"); 
+					header("Content-Type: application/csv;");
+					$student_data = $this->Report_model->fetch_Education();
+					$file = fopen('php://output', 'w');
+					$header = array("ID Number","First Name","Last Name","Middle Initial","Course","School","Year","School Year","Status","Email","Gender","Birthday","Age","Ethnicity","Religion","Marital Status","Name of Spouse","Number of Children","Barangay","Municipality","Province","Nature of Residence"); 
+					fputcsv($file, $header);
+					foreach ($student_data->result_array() as $key => $value){ 
+						fputcsv($file, $value); 
+					}
+					fclose($file); 
+					exit;
+				}
+			}
+		}
+		//No Filter
+		else {
+			if($freq == 1){
+				if($type == 'tblstudents'){
+					$file_name = 'MASTER_Student_Personal_Information_'.date('m').'-'.date('d').'-'.date('Y').'.csv'; 
+					header("Content-Description: File Transfer"); 
+					header("Content-Disposition: attachment; filename=$file_name"); 
+					header("Content-Type: application/csv;");
+					$student_data = $this->Report_model->fetch_data();
+					$file = fopen('php://output', 'w');
+					$header = array("ID Number","First Name","Last Name","Middle Initial","Course","School","Year","School Year","Status","Email","Gender","Birthday","Age","Ethnicity","Religion","Marital Status","Name of Spouse","Number of Children","Barangay","Municipality","Province","Nature of Residence"); 
+					fputcsv($file, $header);
+					foreach ($student_data->result_array() as $key => $value){ 
+						fputcsv($file, $value); 
+					}
+					fclose($file); 
+					exit;
+				}
+			}
+		}
 	}
 }
 ?>
