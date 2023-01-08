@@ -111,7 +111,7 @@ class DashboardAdmin extends MY_Controller
 					header("Content-Description: File Transfer"); 
 					header("Content-Disposition: attachment; filename=$file_name"); 
 					header("Content-Type: application/csv;");
-					$student_data = $this->Report_model->fetch_PersonalInfo();
+					$student_data = $this->Report_model->fetch_fPersonalInfo($filter);
 					$file = fopen('php://output', 'w');
 					$header = array("ID Number","First Name","Last Name","Middle Initial","Course","School","Year","School Year","Status","Email","Gender","Birthday","Age","Ethnicity","Religion","Marital Status","Name of Spouse","Number of Children","Barangay","Municipality","Province","Nature of Residence"); 
 					fputcsv($file, $header);
