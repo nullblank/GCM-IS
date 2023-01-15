@@ -802,11 +802,12 @@ class Student_model extends CI_model
         }
 	}
 
-    public function addEntry($uid, $sid, $remarks)
+    public function addEntry($uid, $sid, $remarks, $subject)
 	{
 		$data = array(      
             'stud_id' => $sid,
             'user_id' => $uid,
+            'subject' => $subject,
             'remark' => $remarks,
             'timestamp' => date('Y-m-d H:i:s', time())  
         );

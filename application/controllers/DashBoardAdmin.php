@@ -142,11 +142,11 @@ class DashboardAdmin extends MY_Controller
 		else {
 			if($freq == 1){
 				if($type == 'tblstudents'){
-					$file_name = 'MASTER_Student_Personal_Information_'.date('m').'-'.date('d').'-'.date('Y').'.csv'; 
+					$file_name = '[MASTER]'.' Student_Personal_Information_'.date('m').'-'.date('d').'-'.date('Y').'.csv'; 
 					header("Content-Description: File Transfer"); 
 					header("Content-Disposition: attachment; filename=$file_name"); 
 					header("Content-Type: application/csv;");
-					$student_data = $this->Report_model->fetch_data();
+					$student_data = $this->Report_model->fetch_PersonalInfo();
 					$file = fopen('php://output', 'w');
 					$header = array("ID Number","First Name","Last Name","Middle Initial","Course","School","Year","School Year","Status","Email","Gender","Birthday","Age","Ethnicity","Religion","Marital Status","Name of Spouse","Number of Children","Barangay","Municipality","Province","Nature of Residence"); 
 					fputcsv($file, $header);

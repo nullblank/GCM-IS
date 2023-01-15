@@ -62,7 +62,7 @@
                                 <p class="text-sm text-coolGray-800 font-semibold">Honors and Awards Recieved</p>
                             </div>
                             <div class="w-full md:flex-1 p-3">
-                                <textarea name="e_ehonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
+                                <textarea name="e_ehonor" class="block w-full p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                                 <p class="text-sm text-coolGray-800 font-semibold">Honors and Awards Recieved</p>
                             </div>
                             <div class="w-full md:flex-1 p-3">
-                                <textarea name="e_jhonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
+                                <textarea name="e_jhonor" class="block w-full p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                                 <p class="text-sm text-coolGray-800 font-semibold">Honors and Awards Recieved</p>
                             </div>
                             <div class="w-full md:flex-1 p-3">
-                                <textarea name="e_shonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
+                                <textarea name="e_shonor" class="block w-full p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                         <div id="e_cyear_field" class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3"></div>
                             <div class="w-full md:w-1/3 p-3">
-                                <input type="number" placeholder="Year Graduated" name="e_cyear" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                <input type="number" placeholder="Year Last Attended" name="e_cyear" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
                                 <p><?php echo form_error('e_cyear'); ?></p>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                                 <p class="text-sm text-coolGray-800 font-semibold">Honors and Awards Recieved</p>
                             </div>
                             <div class="w-full md:flex-1 p-3">
-                                <textarea name="e_chonor" class="block w-full h-64 p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
+                                <textarea name="e_chonor" class="block w-full p-6 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none"></textarea>
                             </div>
                         </div>
                     </div>

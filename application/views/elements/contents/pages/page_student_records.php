@@ -20,7 +20,7 @@
                         </div>
                         <div class="w-full md:w-1/6 p-3">
                             <select name="searchby" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
-                                <option disabled selected value="stud_id">Search by...</option>
+                                <option selected value="stud_id">Search by...</option>
                                 <option value="stud_id">ID Number</option>
                                 <option value="s_first">First Name</option>
                                 <option value="s_last">Last Name</option>
@@ -110,7 +110,7 @@
                                 <th class="whitespace-nowrap px-4 bg-white text-left">
                                     <div class="flex items-center -m-2">
                                         <div class="w-auto p-2">
-                                            <p class="text-sm font-medium text-coolGray-800"></p>
+                                            <p class="text-sm font-medium text-coolGray-800"><?php echo $student->s_yearreg; ?></p>
                                         </div>
                                     </div>
                                 </th>

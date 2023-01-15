@@ -267,7 +267,11 @@ class Record extends MY_Controller
         $data['province'] = $this->Student_model->getProvince();
         $data['main_content'] = 'elements/contents/forms/form_studrec';
         $data['student'] = $this->Record_model->get_student($id);
-        $data['record_content'] = $this->pagelist($page, $id);
+        
+        $data['record_content'] = $this->pagelist($page, $id); //Page
+        $data['med'] = $this->Record_model->get_medical($id);
+
+
         $data['educ'] = $this->Record_model->get_education($id);
         $data['schools'] = $this->Student_model->getSchools($id);
         $data['depschools'] = $this->Student_model->getDepSchools($id);
@@ -399,7 +403,12 @@ class Record extends MY_Controller
         $data['student'] = $this->Record_model->get_student($stud_id);
         $data['counselor_remarks'] = $this->Student_model->getRemarks($stud_id);
         $data['main_content'] = 'elements/contents/pages/page_record_counselor_notes';
-        $this->load->view('layouts/layout_admin', $data);
+        if ($users->user_role == 'Administrator'){
+            $this->load->view('layouts/layout_admin', $data);
+        }
+        elseif ($users->user_role == 'Staff'){
+            $this->load->view('layouts/layout_staff', $data);
+        }
     }
 
     public function delRec(){ //$this->Student_model->deleteEntry($cid);
@@ -421,8 +430,9 @@ class Record extends MY_Controller
         $uid=$this->input->post('uid');
         $stud_id=$this->input->post('sid');
         $remarks=$this->input->post('remarks');
+        $subject=$this->input->post('subject');
 
-        $this->Student_model->addEntry($uid, $stud_id, $remarks);
+        $this->Student_model->addEntry($uid, $stud_id, $remarks, $subject);
 
         $this->session->set_userdata('');
         $session_data = $this->session->userdata('id');
