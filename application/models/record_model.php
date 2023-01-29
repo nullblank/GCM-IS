@@ -13,6 +13,7 @@
             }
         }
 
+
         public function get_education($id){
             $this->db->select('*');
             $this->db->from('tbleducation');

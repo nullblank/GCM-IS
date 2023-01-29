@@ -13,8 +13,8 @@
                         <div class="w-full md:w-auto p-2">
                             <div class="flex flex-wrap justify-between -m-1.5">
                                 <div class="w-full md:w-auto p-1.5">
-                                    <button class="flex flex-wrap justify-center w-full px-4 py-2 bg-green-500 hover:bg-green-600 font-medium text-sm text-white border border-green-500 rounded-md shadow-button" type="submit">
-                                        <p>Edit</p>
+                                    <button class="flex flex-wrap justify-center w-full px-4 py-2 bg-red-500 hover:bg-red-600 font-medium text-sm text-white border border-red-500 rounded-md shadow-button" type="submit">
+                                        <p>Delete</p>
                                     </button>
                                 </div>
                             </div>
@@ -26,7 +26,7 @@
                     <div class="w-full md:w-9/12">
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3">
-                                <p class="text-sm text-coolGray-800 font-semibold">Have you been CONFINED in the Hospital?</p>
+                                <p class="text-sm text-coolGray-800 font-semibold">Has the student been CONFINED in the Hospital?</p>
                             </div>
                             <div class="w-full md:w-1/6 p-3">
                                 <div class="relative">
@@ -50,7 +50,7 @@
                     <div class="w-full md:w-9/12">
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3">
-                                <p class="text-sm text-coolGray-800 font-semibold">Have you been DIAGNOSED with any medical illness or conditions by a MEDICAL DOCTOR?</p>
+                                <p class="text-sm text-coolGray-800 font-semibold">Has the student been DIAGNOSED with any medical illness or conditions by a MEDICAL DOCTOR?</p>
                             </div>
                             <div class="w-full md:w-1/6 p-3">
                                 <div class="relative">
@@ -62,47 +62,44 @@
                     <div id="m_medcon_field" class="w-full md:w-9/12">
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3">
-                                <p class="text-sm text-coolGray-800">If Yes, kindly check all that apply</p>
+                                <p class="text-sm text-coolGray-800">The following are all that apply:</p>
                             </div>
 
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon1" name="m_medcon1" value="1">
-                                    <span class="ml-1">Heart Failure</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon2" name="m_medcon2" value="1">
-                                    <span class="ml-1">Asthma</span>
-                                </label>
+                                <?php if($med->m_medcon1){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Heart Failure</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon2){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Asthma</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full md:w-1/3 p-3">
                             </div>
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon3" name="m_medcon3" value="1">
-                                    <span class="ml-1">HIV/AIDS Disease</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon4" name="m_medcon4" value="1">
-                                    <span class="ml-1">Sleeping Problem</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-wrap -m-3">
-                            <div class="w-full md:w-1/3 p-3">
-                            </div>
-                            <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon5" name="m_medcon5" value="1">
-                                    <span class="ml-1">Allergies</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon6" name="m_medcon6" value="1">
-                                    <span class="ml-1">UTI</span>
-                                </label>
+                                <?php if($med->m_medcon3){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">HIV/AIDS Disease</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon4){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Sleeping Problem</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
 
@@ -110,14 +107,20 @@
                             <div class="w-full md:w-1/3 p-3">
                             </div>
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon7" name="m_medcon7" value="1">
-                                    <span class="ml-1">Hepatitis</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon8" name="m_medcon8" value="1">
-                                    <span class="ml-1">Lung Conditions</span>
-                                </label>
+                                <?php if($med->m_medcon5){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Allergies</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon6){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">UTI</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
 
@@ -125,14 +128,20 @@
                             <div class="w-full md:w-1/3 p-3">
                             </div>
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon9" name="m_medcon9" value="1">
-                                    <span class="ml-1">Depression</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon10" name="m_medcon10" value="1">
-                                    <span class="ml-1">Hypertension</span>
-                                </label>
+                                <?php if($med->m_medcon7){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Hepatitis</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon8){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Lung Conditions</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
 
@@ -140,14 +149,20 @@
                             <div class="w-full md:w-1/3 p-3">
                             </div>
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon11" name="m_medcon11" value="1">
-                                    <span class="ml-1">Hearing Loss</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon12" name="m_medcon12" value="1">
-                                    <span class="ml-1">Kidney Problem</span>
-                                </label>
+                                <?php if($med->m_medcon9){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Depression</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon10){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Hypertension</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
 
@@ -155,14 +170,20 @@
                             <div class="w-full md:w-1/3 p-3">
                             </div>
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon13" name="m_medcon13" value="1">
-                                    <span class="ml-1">Diabetes</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon14" name="m_medcon14" value="1">
-                                    <span class="ml-1">Covid-19</span>
-                                </label>
+                                <?php if($med->m_medcon11){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Hearing Loss</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon12){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Kidney Problem</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
 
@@ -170,14 +191,20 @@
                             <div class="w-full md:w-1/3 p-3">
                             </div>
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon15" name="m_medcon15" value="1">
-                                    <span class="ml-1">Speech Problem</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon16" name="m_medcon16" value="1">
-                                    <span class="ml-1">Visual Problem</span>
-                                </label>
+                                <?php if($med->m_medcon13){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Diabetes</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon14){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Covid-19</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
 
@@ -185,14 +212,20 @@
                             <div class="w-full md:w-1/3 p-3">
                             </div>
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon17" name="m_medcon17" value="1">
-                                    <span class="ml-1">Anxiety</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon18" name="m_medcon18" value="1">
-                                    <span class="ml-1">Anemia</span>
-                                </label>
+                                <?php if($med->m_medcon15){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Speech Problem</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon16){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Visual Problem</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
 
@@ -200,14 +233,41 @@
                             <div class="w-full md:w-1/3 p-3">
                             </div>
                             <div class="w-full md:w-2/3 p-3 mt-3">
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon19" name="m_medcon19" value="1">
-                                    <span class="ml-1">Skin</span>
-                                </label>
-                                <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
-                                    <input type="checkbox" id="m_medcon20" name="m_medcon20" value="1">
-                                    <span class="ml-1">Cancer</span>
-                                </label>
+                                <?php if($med->m_medcon17){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Anxiety</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon18){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Anemia</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap -m-3">
+                            <div class="w-full md:w-1/3 p-3">
+                            </div>
+                            <div class="w-full md:w-2/3 p-3 mt-3">
+                                <?php if($med->m_medcon19){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Skin</span>
+                                    </label>
+                                    ';
+                                }else{};?>
+                                <?php if($med->m_medcon20){
+                                    echo '
+                                    <label class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input">
+                                        <span class="ml-1">Cancer</span>
+                                    </label>
+                                    ';
+                                }else{};?>
                             </div>
                         </div>
                     </div>
@@ -220,7 +280,7 @@
                                 <p class="text-sm text-coolGray-800">Others</p>
                             </div>
                             <div class="w-full md:w-2/3 p-3">
-                                <textarea name="m_medconO" id="m_medconO" class="h-64 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none" type="text" placeholder="Write here..."></textarea>
+                                <span class="ml-1"><?php echo $med->m_medconO;?></span>
                             </div>
                         </div>
                     </div>
@@ -234,18 +294,7 @@
                             </div>
                             <div class="w-full md:flex-1 p-3">
                                 <div class="relative">
-                                    <svg class="absolute right-4 top-1/2 transform -translate-y-1/2" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.3333 6.1133C11.2084 5.98913 11.0395 5.91943 10.8633 5.91943C10.6872 5.91943 10.5182 5.98913 10.3933 6.1133L8.00001 8.47329L5.64001 6.1133C5.5151 5.98913 5.34613 5.91943 5.17001 5.91943C4.99388 5.91943 4.82491 5.98913 4.70001 6.1133C4.63752 6.17527 4.58792 6.249 4.55408 6.33024C4.52023 6.41148 4.50281 6.49862 4.50281 6.58663C4.50281 6.67464 4.52023 6.76177 4.55408 6.84301C4.58792 6.92425 4.63752 6.99799 4.70001 7.05996L7.52667 9.88663C7.58865 9.94911 7.66238 9.99871 7.74362 10.0326C7.82486 10.0664 7.912 10.0838 8.00001 10.0838C8.08801 10.0838 8.17515 10.0664 8.25639 10.0326C8.33763 9.99871 8.41136 9.94911 8.47334 9.88663L11.3333 7.05996C11.3958 6.99799 11.4454 6.92425 11.4793 6.84301C11.5131 6.76177 11.5305 6.67464 11.5305 6.58663C11.5305 6.49862 11.5131 6.41148 11.4793 6.33024C11.4454 6.249 11.3958 6.17527 11.3333 6.1133Z" fill="#8896AB"></path>
-                                    </svg><select name="m_medwhen" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
-                                        <option disabled selected value="">Please choose an option</option>
-                                        <option value="When I was still a baby">When I was still a baby</option>
-                                        <option value="When I was in my Preparatory Education">When I was in my Preparatory Education</option>
-                                        <option value="When I was in my Elementary Years">When I was in my Elementary Years</option>
-                                        <option value="When I was in my Junior High School">When I was in my Junior High School</option>
-                                        <option value="When I was in my Senior High School">When I was in my Senior High School</option>
-                                        <option value="More or less a month ago">More or less a month ago</option>
-                                    </select>
-                                    <p><?php echo form_error('e_ename'); ?></p>
+                                    <span class="ml-1"><?php echo $med->m_medwhen;?></span>
                                 </div>
                             </div>
                         </div>
@@ -260,12 +309,7 @@
                             </div>
                             <div class="w-full md:w-1/6 p-3">
                                 <div class="relative">
-                                    <svg class="absolute right-4 top-1/2 transform -translate-y-1/2" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.3333 6.1133C11.2084 5.98913 11.0395 5.91943 10.8633 5.91943C10.6872 5.91943 10.5182 5.98913 10.3933 6.1133L8.00001 8.47329L5.64001 6.1133C5.5151 5.98913 5.34613 5.91943 5.17001 5.91943C4.99388 5.91943 4.82491 5.98913 4.70001 6.1133C4.63752 6.17527 4.58792 6.249 4.55408 6.33024C4.52023 6.41148 4.50281 6.49862 4.50281 6.58663C4.50281 6.67464 4.52023 6.76177 4.55408 6.84301C4.58792 6.92425 4.63752 6.99799 4.70001 7.05996L7.52667 9.88663C7.58865 9.94911 7.66238 9.99871 7.74362 10.0326C7.82486 10.0664 7.912 10.0838 8.00001 10.0838C8.08801 10.0838 8.17515 10.0664 8.25639 10.0326C8.33763 9.99871 8.41136 9.94911 8.47334 9.88663L11.3333 7.05996C11.3958 6.99799 11.4454 6.92425 11.4793 6.84301C11.5131 6.76177 11.5305 6.67464 11.5305 6.58663C11.5305 6.49862 11.5131 6.41148 11.4793 6.33024C11.4454 6.249 11.3958 6.17527 11.3333 6.1133Z" fill="#8896AB"></path>
-                                    </svg><select name="m_presmed" id="m_presmed" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
-                                        <option selected value="0">No</option>
-                                        <option value="1">Yes</option>
-                                    </select>
+                                    <?php if($med->m_presmed == 1){echo 'Yes';}else{echo 'No';};?>
                                 </div>
                             </div>
                         </div>
@@ -274,7 +318,7 @@
                                 <p class="text-sm text-coolGray-800">If Yes, kindly specify the sickness/medical concern that your medication is for:</p>
                             </div>
                             <div class="w-full md:w-2/3 p-3">
-                                <textarea name="m_presmeddesc" id="m_presmeddesc" class="h-64 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none" type="text" placeholder="Write here..."></textarea>
+                                <span class="ml-1"><?php echo $med->m_presmeddesc;?></span>
                             </div>
                         </div>
                         <div class="flex flex-wrap -m-3">
@@ -283,12 +327,7 @@
                             </div>
                             <div class="w-full md:w-1/6 p-3">
                                 <div class="relative">
-                                    <svg class="absolute right-4 top-1/2 transform -translate-y-1/2" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.3333 6.1133C11.2084 5.98913 11.0395 5.91943 10.8633 5.91943C10.6872 5.91943 10.5182 5.98913 10.3933 6.1133L8.00001 8.47329L5.64001 6.1133C5.5151 5.98913 5.34613 5.91943 5.17001 5.91943C4.99388 5.91943 4.82491 5.98913 4.70001 6.1133C4.63752 6.17527 4.58792 6.249 4.55408 6.33024C4.52023 6.41148 4.50281 6.49862 4.50281 6.58663C4.50281 6.67464 4.52023 6.76177 4.55408 6.84301C4.58792 6.92425 4.63752 6.99799 4.70001 7.05996L7.52667 9.88663C7.58865 9.94911 7.66238 9.99871 7.74362 10.0326C7.82486 10.0664 7.912 10.0838 8.00001 10.0838C8.08801 10.0838 8.17515 10.0664 8.25639 10.0326C8.33763 9.99871 8.41136 9.94911 8.47334 9.88663L11.3333 7.05996C11.3958 6.99799 11.4454 6.92425 11.4793 6.84301C11.5131 6.76177 11.5305 6.67464 11.5305 6.58663C11.5305 6.49862 11.5131 6.41148 11.4793 6.33024C11.4454 6.249 11.3958 6.17527 11.3333 6.1133Z" fill="#8896AB"></path>
-                                    </svg><select name="m_pastmed" id="m_pastmed" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
-                                        <option selected value="0">No</option>
-                                        <option value="1">Yes</option>
-                                    </select>
+                                    <?php if($med->m_pastmed == 1){echo 'Yes';}else{echo 'No';};?>
                                 </div>
                             </div>
                         </div>
@@ -297,7 +336,7 @@
                                 <p class="text-sm text-coolGray-800">If Yes, kindly specify the sickness/medical concern that your medication was for:</p>
                             </div>
                             <div class="w-full md:w-2/3 p-3">
-                                <textarea name="m_pastmeddesc" id="m_pastmeddesc" class="h-64 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none" type="text" placeholder="Write here..."></textarea>
+                                <span class="ml-1"><?php echo $med->m_pastmeddesc;?></span>
                             </div>
                         </div>
                     </div>
@@ -311,12 +350,7 @@
                             </div>
                             <div class="w-full md:w-1/6 p-3">
                                 <div class="relative">
-                                    <svg class="absolute right-4 top-1/2 transform -translate-y-1/2" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.3333 6.1133C11.2084 5.98913 11.0395 5.91943 10.8633 5.91943C10.6872 5.91943 10.5182 5.98913 10.3933 6.1133L8.00001 8.47329L5.64001 6.1133C5.5151 5.98913 5.34613 5.91943 5.17001 5.91943C4.99388 5.91943 4.82491 5.98913 4.70001 6.1133C4.63752 6.17527 4.58792 6.249 4.55408 6.33024C4.52023 6.41148 4.50281 6.49862 4.50281 6.58663C4.50281 6.67464 4.52023 6.76177 4.55408 6.84301C4.58792 6.92425 4.63752 6.99799 4.70001 7.05996L7.52667 9.88663C7.58865 9.94911 7.66238 9.99871 7.74362 10.0326C7.82486 10.0664 7.912 10.0838 8.00001 10.0838C8.08801 10.0838 8.17515 10.0664 8.25639 10.0326C8.33763 9.99871 8.41136 9.94911 8.47334 9.88663L11.3333 7.05996C11.3958 6.99799 11.4454 6.92425 11.4793 6.84301C11.5131 6.76177 11.5305 6.67464 11.5305 6.58663C11.5305 6.49862 11.5131 6.41148 11.4793 6.33024C11.4454 6.249 11.3958 6.17527 11.3333 6.1133Z" fill="#8896AB"></path>
-                                    </svg><select name="m_dis" id="m_dis" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
-                                        <option selected value="0">No</option>
-                                        <option value="1">Yes</option>
-                                    </select>
+                                    <?php if($med->m_dis == 1){echo 'Yes';}else{echo 'No';};?>
                                 </div>
                             </div>
                         </div>
@@ -325,7 +359,7 @@
                                 <p class="text-sm text-coolGray-800">If Yes, kindly specify your Disability</p>
                             </div>
                             <div class="w-full md:w-2/3 p-3">
-                                <textarea name="m_disdesc" id="m_disdesc" class="h-64 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input resize-none" type="text" placeholder="Write here..."></textarea>
+                            <span class="ml-1"><?php echo $med->m_disdesc;?></span>
                             </div>
                         </div>
                         <div id="m_disass_field" class="flex flex-wrap -m-3">
@@ -334,12 +368,7 @@
                             </div>
                             <div class="w-full md:w-1/6 p-3">
                                 <div class="relative">
-                                    <svg class="absolute right-4 top-1/2 transform -translate-y-1/2" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.3333 6.1133C11.2084 5.98913 11.0395 5.91943 10.8633 5.91943C10.6872 5.91943 10.5182 5.98913 10.3933 6.1133L8.00001 8.47329L5.64001 6.1133C5.5151 5.98913 5.34613 5.91943 5.17001 5.91943C4.99388 5.91943 4.82491 5.98913 4.70001 6.1133C4.63752 6.17527 4.58792 6.249 4.55408 6.33024C4.52023 6.41148 4.50281 6.49862 4.50281 6.58663C4.50281 6.67464 4.52023 6.76177 4.55408 6.84301C4.58792 6.92425 4.63752 6.99799 4.70001 7.05996L7.52667 9.88663C7.58865 9.94911 7.66238 9.99871 7.74362 10.0326C7.82486 10.0664 7.912 10.0838 8.00001 10.0838C8.08801 10.0838 8.17515 10.0664 8.25639 10.0326C8.33763 9.99871 8.41136 9.94911 8.47334 9.88663L11.3333 7.05996C11.3958 6.99799 11.4454 6.92425 11.4793 6.84301C11.5131 6.76177 11.5305 6.67464 11.5305 6.58663C11.5305 6.49862 11.5131 6.41148 11.4793 6.33024C11.4454 6.249 11.3958 6.17527 11.3333 6.1133Z" fill="#8896AB"></path>
-                                    </svg><select name="m_disass" id="m_disass" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
-                                        <option selected value="0">No</option>
-                                        <option value="1">Yes</option>
-                                    </select>
+                                    <?php if($med->m_disass == 1){echo 'Yes';}else{echo 'No';};?>
                                 </div>
                             </div>
                         </div>
@@ -349,30 +378,7 @@
                             </div>
                             <div id="m_dismonth_field" class="w-full md:w-1/3 p-3">
                                 <div class="relative">
-                                    <svg class="absolute right-4 top-1/2 transform -translate-y-1/2" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.3333 6.1133C11.2084 5.98913 11.0395 5.91943 10.8633 5.91943C10.6872 5.91943 10.5182 5.98913 10.3933 6.1133L8.00001 8.47329L5.64001 6.1133C5.5151 5.98913 5.34613 5.91943 5.17001 5.91943C4.99388 5.91943 4.82491 5.98913 4.70001 6.1133C4.63752 6.17527 4.58792 6.249 4.55408 6.33024C4.52023 6.41148 4.50281 6.49862 4.50281 6.58663C4.50281 6.67464 4.52023 6.76177 4.55408 6.84301C4.58792 6.92425 4.63752 6.99799 4.70001 7.05996L7.52667 9.88663C7.58865 9.94911 7.66238 9.99871 7.74362 10.0326C7.82486 10.0664 7.912 10.0838 8.00001 10.0838C8.08801 10.0838 8.17515 10.0664 8.25639 10.0326C8.33763 9.99871 8.41136 9.94911 8.47334 9.88663L11.3333 7.05996C11.3958 6.99799 11.4454 6.92425 11.4793 6.84301C11.5131 6.76177 11.5305 6.67464 11.5305 6.58663C11.5305 6.49862 11.5131 6.41148 11.4793 6.33024C11.4454 6.249 11.3958 6.17527 11.3333 6.1133Z" fill="#8896AB"></path>
-                                    </svg><select id="m_dismonth" name="m_dismonth" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input">
-                                        <option disabled selected value="">Month</option>
-                                        <option value="January">January</option>
-                                        <option value="Febuary">Febuary</option>
-                                        <option value="March">March</option>
-                                        <option value="April">April</option>
-                                        <option value="May">May</option>
-                                        <option value="June">June</option>
-                                        <option value="July">July</option>
-                                        <option value="August">August</option>
-                                        <option value="September">September</option>
-                                        <option value="October">October</option>
-                                        <option value="November">November</option>
-                                        <option value="December">December</option>
-                                    </select>
-                                    <p><?php echo form_error('m_dismonth'); ?></p>
-                                </div>
-                            </div>
-                            <div id="m_disyear_field" class="w-full md:w-1/3 p-3">
-                                <div class="relative">
-                                    <input min="1995" minlength="4" type="number" placeholder="Year" id="m_disyear" name="m_disyear" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input"></input>
-                                    <p><?php echo form_error('m_disyear'); ?></p>
+                                    <span class="ml-1"><?php echo $med->m_dismonth.' '.$med->m_disyear;?></span>
                                 </div>
                             </div>
                         </div>

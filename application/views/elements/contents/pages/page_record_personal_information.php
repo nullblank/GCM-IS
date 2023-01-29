@@ -84,7 +84,7 @@
             </div>
             <div class="w-full md:w-2/6 p-3">
                 <p class="text-sm text-coolGray-400 font-regular">School Year Enrolled</p>
-                <p><?php echo $student->s_schoolyear; ?></p>
+                <p><?php echo $student->s_yearreg; ?></p>
             </div>
             <div class="w-full md:w-1/6 p-3"></div>
         </div>

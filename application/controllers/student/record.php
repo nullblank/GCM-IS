@@ -423,7 +423,12 @@ class Record extends MY_Controller
         $data['student'] = $this->Record_model->get_student($stud_id);
         $data['counselor_remarks'] = $this->Student_model->getRemarks($stud_id);
         $data['main_content'] = 'elements/contents/pages/page_record_counselor_notes';
-        $this->load->view('layouts/layout_admin', $data);
+        if ($users->user_role == 'Administrator'){
+            $this->load->view('layouts/layout_admin', $data);
+        }
+        elseif ($users->user_role == 'Staff'){
+            $this->load->view('layouts/layout_staff', $data);
+        }
     }
 
     public function addRec(){
@@ -442,7 +447,12 @@ class Record extends MY_Controller
         $data['student'] = $this->Record_model->get_student($stud_id);
         $data['counselor_remarks'] = $this->Student_model->getRemarks($stud_id);
         $data['main_content'] = 'elements/contents/pages/page_record_counselor_notes';
-        $this->load->view('layouts/layout_admin', $data);
+        if ($users->user_role == 'Administrator'){
+            $this->load->view('layouts/layout_admin', $data);
+        }
+        elseif ($users->user_role == 'Staff'){
+            $this->load->view('layouts/layout_staff', $data);
+        }
     }
 
 }
