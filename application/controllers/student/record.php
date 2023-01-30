@@ -271,6 +271,8 @@ class Record extends MY_Controller
         $data['record_content'] = $this->pagelist($page, $id); //Page
         $data['med'] = $this->Record_model->get_medical($id);
 
+        $data['men'] = $this->Record_model->get_mental($id);
+        $data['surv'] = $this->Record_model->get_survey($id);
 
         $data['educ'] = $this->Record_model->get_education($id);
         $data['schools'] = $this->Student_model->getSchools($id);

@@ -63,7 +63,7 @@
                             <p>Year Registered</p>
                         </th>
                         <th class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left rounded-l-md">
-                            <p>EDUC/MED/MEN/SURV</p>
+                            <p>HOME/EDUC/MED/MEN/SURV</p>
                         </th>
                         <th />
                         <th />
@@ -118,6 +118,12 @@
                                     <div class="flex items-center -m-4">
                                         <div class="w-auto p-4">
                                             <p class="text-sm font-medium text-coolGray-800">
+                                                <?php if ($this->Record_model->get_home($student->stud_id)) : ?>
+                                                    ✔️
+                                                <?php else : ?>
+                                                    ❌
+                                                <?php endif; ?>
+
                                                 <?php if ($this->Record_model->get_education($student->stud_id)) : ?>
                                                     ✔️
                                                 <?php else : ?>

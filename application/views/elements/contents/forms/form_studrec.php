@@ -28,8 +28,17 @@
                     <div class="w-full md:w-auto p-2">
                         <form method="post" action="<?php echo base_url(); ?>student/record/viewrecord/pi">
                             <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
-                            <button type="submit" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
+                            <button type="submit" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-blue-500 rounded-md shadow-button">
                                 Personal Information
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="w-full md:w-auto p-2">
+                        <form method="post" action="<?php echo base_url(); ?>student/record/viewrecord/educ">
+                            <input type='hidden' name='sid' value='<?php echo $student->stud_id; ?>' />
+                            <button type="submit" data-modal-toggle="" class="flex flex-wrap justify-center w-full px-4 py-3 font-medium text-sm border border-red-500 rounded-md shadow-button">
+                                Home Background**
                             </button>
                         </form>
                     </div>

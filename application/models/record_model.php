@@ -13,6 +13,18 @@
             }
         }
 
+        public function get_home($id){
+            $this->db->select('*');
+            $this->db->from('tblhome');
+            $this->db->where('stud_id', $id);
+            $query = $this->db->get();
+            if ($query->num_rows() == 0){
+                return false;
+            } else {
+                return $query->row();
+            }
+        }
+
 
         public function get_education($id){
             $this->db->select('*');
