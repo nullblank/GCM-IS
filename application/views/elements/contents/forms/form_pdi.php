@@ -81,7 +81,7 @@
                                 <p><?php echo form_error('s_year'); ?></p>
                             </div>
                             <div class="w-full md:w-1/4 p-3">
-                                <input name="s_yearreg" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input" type="text" placeholder="FIX">
+                                <input name="s_yearreg" type="hidden" value=<?php echo date("Y", time());?>>
                                 <p><?php echo form_error('s_yearreg'); ?></p>
                             </div>
                         </div>

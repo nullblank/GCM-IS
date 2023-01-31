@@ -126,33 +126,34 @@
                                         </button>
                                         <div class="py-6 px-6 lg:px-8">
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Enter New User Details</h3>
-                                            <form class="space-y-6" action="<?php echo base_url(); ?>user/profile/addUser/" method="post">
+                                            <form class="space-y-6" action="<?php echo base_url(); ?>user/profile/editAccount/" method="post">
+                                                <input type='hidden' name='user_id' value='<?php echo $user_items->user_id; ?>' />
                                                 <div>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
-                                                    <input name="username" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-blue-500 border border-coolGray-200 rounded-lg bg-gray-50 shadow-input" placeholder="JohnDoe12" required>
+                                                    <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
+                                                    <input name="username" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-blue-500 border border-coolGray-200 rounded-lg bg-gray-50 shadow-input" placeholder="<?php echo $user_items->user_name;?>">
                                                 </div>
                                                 <div>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
-                                                    <input name="name" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-blue-500 border border-coolGray-200 rounded-lg bg-gray-50 shadow-input" placeholder="John D. Doe Jr." required>
+                                                    <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
+                                                    <input name="name" class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-blue-500 border border-coolGray-200 rounded-lg bg-gray-50 shadow-input" placeholder="<?php echo $user_items->user_account;?>">
                                                 </div>
                                                 <div>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
-                                                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
+                                                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                                 </div>
                                                 <div>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
+                                                    <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Role</label>
                                                     <select name="role" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input" required>
                                                         <option value="Administrator">Administrator</option>
                                                     </select>
                                                 </div>
-                                                <div>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Allow User to login with account?</label>
+                                                <div class = "pb-5">
+                                                    <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Allow User to login with account?</label>
                                                     <select name="isactive" class="appearance-none w-full py-2.5 px-4 text-coolGray-900 text-base font-normal bg-white border outline-none border-coolGray-200 focus:border-green-500 rounded-lg shadow-input" required>
                                                         <option selected value="1">Yes</option>
                                                         <option value="0">Not yet</option>
                                                     </select>
                                                 </div>
-                                                <button type="submit" class="w-full text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Account</button>
+                                                <button type="submit" class="w-full text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit Account</button>
                                             </form>
                                         </div>
                                     </div>

@@ -107,18 +107,86 @@
 				'user_isactive' => $this->getUserIsActive(),
 			);
 			$query = $this->db->insert('tblusers', $data);
-			// AUDIT PLS FIX FOR LOGGING SESSION AND DEVICE DATA FOR TRACE
-			// if ($query == true) {
-			//     $data = array(
-			//         'action' => 'INSERTED the record of ' . $this->getSFirst() . ' ' . $this->getSLast(),
-			//         'tablename' => 'tblstudent',
-			//         'userid' => $this->getUserID(),
-			//         'username' => $this->getUserName()
-			//     );
-			//     $this->db->insert('audit', $data);
-			//     return true;
-			//
+			if ($query == true) {
+			    $data = array(
+			        'action' => 'UPDATED Record of',
+			        'tablename' => 'tblstudent',
+			        'userid' => $this->getUserID(),
+			        'username' => $this->getUserName()
+			    );
+			    $this->db->insert('audit', $data);
+			    return true;
+			}
     	}
+
+		public function update_user($id){ //Update to audit staff
+			if ($this->getUserPassword()){
+				$enc_password = md5($this->getUserPassword());
+				$data = array(                       
+					'user_name' => $this->getUserName(),
+					'user_account' => $this->getUserAccount(),
+					'user_password' => $enc_password,
+					'user_role' => $this->getUserRole(),
+					'user_isactive' => $this->getUserIsActive(),
+				);
+				$this->db->where('user_id', $id);
+				$query = $this->db->update('tblusers', $data);
+				if ($query == true) {
+					$data = array(
+						'action' => 'UPDATED Record of',
+						'tablename' => 'tblstudent',
+						'userid' => $this->getUserID(),
+						'username' => $this->getUserName()
+					);
+					$this->db->insert('audit', $data);
+					return true;
+				}
+			}
+			else {
+				$data = array(                       
+					'user_name' => $this->getUserName(),
+					'user_account' => $this->getUserAccount(),
+					'user_role' => $this->getUserRole(),
+					'user_isactive' => $this->getUserIsActive(),
+				);
+				$this->db->where('user_id', $id);
+				$query = $this->db->update('tblusers', $data);
+				if ($query == true) {
+					$data = array(
+						'action' => 'UPDATED Record of',
+						'tablename' => 'tblstudent',
+						'userid' => $this->getUserID(),
+						'username' => $this->getUserName()
+					);
+					$this->db->insert('audit', $data);
+					return true;
+				}
+			}
+    	}
+
+		public function edit_user(){ //Update to audit staff		
+			$enc_password = md5($this->getUserPassword()); 
+			$data = array(            
+				'user_name' => $this->getUserName(),
+				'user_account' => $this->getUserAccount(),
+				'user_password' => $enc_password,
+				'user_role' => $this->getUserRole(),
+				'user_isactive' => $this->getUserIsActive(),
+			);
+			$query = $this->db->insert('tblusers', $data);
+			if ($query == true) {
+			    $data = array(
+			        'action' => 'UPDATED Record of',
+			        'tablename' => 'tblstudent',
+			        'userid' => $this->getUserID(),
+			        'username' => $this->getUserName()
+			    );
+			    $this->db->insert('audit', $data);
+			    return true;
+			}
+    	}
+
+		
 
 	}	
 ?>

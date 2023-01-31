@@ -161,6 +161,7 @@ class Record extends MY_Controller
         $this->form_validation->set_rules('s_year','Year','required');
         //$this->form_validation->set_rules('s_schoolyear','School Year','required'); Add these later to main form
         $this->form_validation->set_rules('s_stat','Status','required');
+        $this->form_validation->set_rules('s_yearreg','Year Registered','required');
         $this->form_validation->set_rules('s_email','Email','required');
         $this->form_validation->set_rules('s_gender','Gender','required');
         $this->form_validation->set_rules('s_bday','Birthday','required');
@@ -269,6 +270,7 @@ class Record extends MY_Controller
         $data['student'] = $this->Record_model->get_student($id);
         
         $data['record_content'] = $this->pagelist($page, $id); //Page
+        $data['home'] = $this->Record_model->get_home($id);
         $data['med'] = $this->Record_model->get_medical($id);
 
         $data['men'] = $this->Record_model->get_mental($id);
@@ -297,6 +299,9 @@ class Record extends MY_Controller
             if ($page == 'pi') {
                 $data['record_content'] = 'elements/contents/forms/record_personal_information';
             }
+            else if ($page == 'home') {
+                $data['record_content'] = 'elements/contents/forms/record_home_background';
+            }
             else if ($page == 'educ') {
                 $data['record_content'] = 'elements/contents/forms/record_educational_background';
             }
@@ -324,6 +329,13 @@ class Record extends MY_Controller
     public function pagelist($page, $id) {
         if ($page == 'pi') {
             return 'elements/contents/pages/page_record_personal_information';
+        }
+        else if ($page == 'home') {
+            if ($this->Record_model->get_home($id)){
+                return 'elements/contents/pages/page_record_home_background';
+            } else {
+                return 'elements/contents/pages/page_record_no';
+            }
         }
         else if ($page == 'educ') {
             if ($this->Record_model->get_education($id)){

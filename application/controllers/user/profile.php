@@ -62,4 +62,21 @@ class Profile extends CI_Controller
 			redirect('login');
 		}
 	}
+
+	public function editAccount() //not session locked yet
+	{ 
+		if ($this->session->has_userdata('id')) {
+			$user_id = $this->input->post('user_id');
+			$user = $this->User_model->showUser($user_id);
+			$this->setters();
+			if ($this->User_model->getUserAccount()){} else {$this->User_model->setUserAccount($user->user_account);}
+			if ($this->User_model->getUserName()){} else {$this->User_model->setUserName($user->user_name);}
+			if ($this->User_model->getUserRole()){} else {$this->User_model->setUserRole($user->user_role);}
+			if ($this->User_model->getUserIsActive()){} else {$this->User_model->setUserIsActive($user->user_isactive);}                                                                                                                                                                                                                                                                                                                                                                           
+			$this->User_model->update_user($user_id);
+			redirect('DashboardAdmin');
+		} else {
+			redirect('login');
+		}
+	}
 }
