@@ -61,30 +61,7 @@
         }
 
         function fetch_Education(){
-            $this->db->select("
-                stud_id,
-                s_first,
-                s_last,
-                s_mi,
-                s_course,
-                s_school,
-                s_year,
-                s_schoolyear,
-                s_stat,
-                s_email,
-                s_gender,
-                s_bday,
-                s_age, 
-                s_eth, 
-                s_rel,
-                s_marstat,
-                s_nspouse,
-                s_nchild,
-                s_brgy,
-                s_muni,
-                s_provi,
-                s_nor
-            ");
+            $this->db->select("*");
             $this->db->from('tbleducation');
             return $this->db->get();
         }

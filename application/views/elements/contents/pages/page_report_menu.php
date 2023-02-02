@@ -1,4 +1,4 @@
-<form method="post" action="<?php echo base_url(); ?>DashBoardAdmin/export">
+<form method="post" action="<?php echo base_url(); ?>Dashboardadmin/export">
 
 <div class="bg-coolGray-50 py-4">
     <div class="container px-4 mx-auto">

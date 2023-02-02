@@ -35,7 +35,7 @@
 				   	$this->load->library('session');	
 					
 					if($users->user_role=='Administrator'){
-						redirect('DashboardAdmin');				 	
+						redirect('Dashboardadmin');				 	
 					}
 					if($users->user_role=='Staff'){
 						redirect('DashboardStaff');				 	

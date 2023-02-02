@@ -5,7 +5,7 @@
 
 
 
-            <form method="post" action="<?php echo base_url(); ?>DashboardAdmin/StudentRecords">
+            <form method="post" action="<?php echo base_url(); ?>Dashboardadmin/StudentRecords">
                 <div class="pb-6 border-b border-coolGray-100">
                     <div class="flex flex-wrap items-center justify-between -m-2">
                         <div class="w-full md:w-auto p-2">
