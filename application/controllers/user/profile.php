@@ -74,7 +74,7 @@ class Profile extends CI_Controller
 			if ($this->User_model->getUserRole()){} else {$this->User_model->setUserRole($user->user_role);}
 			if ($this->User_model->getUserIsActive()){} else {$this->User_model->setUserIsActive($user->user_isactive);}                                                                                                                                                                                                                                                                                                                                                                           
 			$this->User_model->update_user($user_id);
-			redirect('DashboardAdmin');
+			redirect('Dashboardadmin');
 		} else {
 			redirect('login');
 		}
